@@ -1,41 +1,41 @@
--- Táº¡o báº£ng UserRole
-CREATE TABLE UserRole (
+-- Tạo bảng UserRoles
+CREATE TABLE UserRoles (
     userRoleID INT PRIMARY KEY AUTO_INCREMENT,
     roleName VARCHAR(50) NOT NULL
 );
 
--- Táº¡o báº£ng User
-CREATE TABLE User (
+-- Tạo bảng Users
+CREATE TABLE Users (
     userID INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     avatar VARCHAR(255),
     userRoleID INT,
-    FOREIGN KEY (userRoleID) REFERENCES UserRole(userRoleID)
+    FOREIGN KEY (userRoleID) REFERENCES UserRoles(userRoleID)
 );
 
--- Táº¡o báº£ng Customer
-CREATE TABLE Customer (
+-- Tạo bảng Customers
+CREATE TABLE Customers (
     customerID INT PRIMARY KEY AUTO_INCREMENT,
     customerName VARCHAR(100) NOT NULL,
     phoneNumber VARCHAR(15),
     address TEXT,
     userID INT,
-    FOREIGN KEY (userID) REFERENCES User(userID)
+    FOREIGN KEY (userID) REFERENCES Users(userID)
 );
 
--- Táº¡o báº£ng Topic
-CREATE TABLE Topic (
+-- Tạo bảng Topics
+CREATE TABLE Topics (
     topicID INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(200) NOT NULL,
     createdBy INT,
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (createdBy) REFERENCES User(userID)
+    FOREIGN KEY (createdBy) REFERENCES Users(userID)
 );
 
--- Táº¡o báº£ng Post
-CREATE TABLE Post (
+-- Tạo bảng Posts
+CREATE TABLE Posts (
     postID INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(200) NOT NULL,
     content TEXT,
@@ -43,12 +43,12 @@ CREATE TABLE Post (
     image VARCHAR(255),
     userID INT,
     topicID INT,
-    FOREIGN KEY (userID) REFERENCES User(userID),
-    FOREIGN KEY (topicID) REFERENCES Topic(topicID)
+    FOREIGN KEY (userID) REFERENCES Users(userID),
+    FOREIGN KEY (topicID) REFERENCES Topics(topicID)
 );
 
--- Táº¡o báº£ng Comment
-CREATE TABLE Comment (
+-- Tạo bảng Comments
+CREATE TABLE Comments (
     commentID INT PRIMARY KEY AUTO_INCREMENT,
     content TEXT NOT NULL,
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -56,49 +56,49 @@ CREATE TABLE Comment (
     parentCommentID INT,
     userID INT,
     postID INT,
-    FOREIGN KEY (parentCommentID) REFERENCES Comment(commentID),
-    FOREIGN KEY (userID) REFERENCES User(userID),
-    FOREIGN KEY (postID) REFERENCES Post(postID)
+    FOREIGN KEY (parentCommentID) REFERENCES Comments(commentID),
+    FOREIGN KEY (userID) REFERENCES Users(userID),
+    FOREIGN KEY (postID) REFERENCES Posts(postID)
 );
 
--- Táº¡o báº£ng Message
-CREATE TABLE Message (
+-- Tạo bảng Messages
+CREATE TABLE Messages (
     messageID INT PRIMARY KEY AUTO_INCREMENT,
     content TEXT NOT NULL,
     sentAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     isRead BOOLEAN DEFAULT FALSE,
     senderID INT NOT NULL,
     receiverID INT NOT NULL,
-    FOREIGN KEY (senderID) REFERENCES User(userID),
-    FOREIGN KEY (receiverID) REFERENCES User(userID)
+    FOREIGN KEY (senderID) REFERENCES Users(userID),
+    FOREIGN KEY (receiverID) REFERENCES Users(userID)
 );
 
--- Táº¡o báº£ng Article
-CREATE TABLE Article (
+-- Tạo bảng Articles
+CREATE TABLE Articles (
     articleID INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(200),
     content TEXT NOT NULL,
     image VARCHAR(255),
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     userID INT,
-    FOREIGN KEY (userID) REFERENCES User(userID)
+    FOREIGN KEY (userID) REFERENCES Users(userID)
 );
 
--- Táº¡o báº£ng Brand
-CREATE TABLE Brand (
+-- Tạo bảng Brands
+CREATE TABLE Brands (
     brandID INT PRIMARY KEY AUTO_INCREMENT,
     brandName VARCHAR(100) NOT NULL,
     country VARCHAR(100)
 );
 
--- Táº¡o báº£ng Category
+-- Tạo bảng Category
 CREATE TABLE Category (
     categoryID INT PRIMARY KEY AUTO_INCREMENT,
     categoryName VARCHAR(100) NOT NULL
 );
 
--- Táº¡o báº£ng Product
-CREATE TABLE Product (
+-- Tạo bảng Products
+CREATE TABLE Products (
     productID INT PRIMARY KEY AUTO_INCREMENT,
     productName VARCHAR(200) NOT NULL,
     title VARCHAR(255),
@@ -109,18 +109,18 @@ CREATE TABLE Product (
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     brandID INT,
     categoryID INT,
-    FOREIGN KEY (brandID) REFERENCES Brand(brandID),
-    FOREIGN KEY (categoryID) REFERENCES Category(categoryID)
+    FOREIGN KEY (brandID) REFERENCES Brands(brandID),
+    FOREIGN KEY (categoryID) REFERENCES Categorys(categoryID)
 );
 
--- Táº¡o báº£ng Discount_Type
-CREATE TABLE Discount_Type (
+-- Tạo bảng Discount_Types
+CREATE TABLE Discount_Types (
     discountTypeID INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL
 );
 
--- Táº¡o báº£ng Promotion
-CREATE TABLE Promotion (
+-- Tạo bảng Promotions
+CREATE TABLE Promotions (
     promotionID INT PRIMARY KEY AUTO_INCREMENT,
     promotionName VARCHAR(200) NOT NULL,
     discountValue DECIMAL(10, 2) NOT NULL,
@@ -128,12 +128,12 @@ CREATE TABLE Promotion (
     endDate DATE NOT NULL,
     productID INT,
     discountTypeID INT,
-    FOREIGN KEY (productID) REFERENCES Product(productID),
-    FOREIGN KEY (discountTypeID) REFERENCES Discount_Type(discountTypeID)
+    FOREIGN KEY (productID) REFERENCES Products(productID),
+    FOREIGN KEY (discountTypeID) REFERENCES Discount_Types(discountTypeID)
 );
 
--- Táº¡o báº£ng Voucher
-CREATE TABLE Voucher (
+-- Tạo bảng Vouchers
+CREATE TABLE Vouchers (
     code VARCHAR(50) PRIMARY KEY,
     minOrderValue DECIMAL(10, 2),
     discountValue DECIMAL(10, 2) NOT NULL,
@@ -142,18 +142,18 @@ CREATE TABLE Voucher (
     endDate DATE NOT NULL
 );
 
--- Táº¡o báº£ng Customer_Voucher
+-- Tạo bảng Customer_Voucher
 CREATE TABLE Customer_Voucher (
     customerVoucherID INT PRIMARY KEY AUTO_INCREMENT,
     isUsed BOOLEAN DEFAULT FALSE,
     customerID INT,
     code VARCHAR(50),
-    FOREIGN KEY (customerID) REFERENCES Customer(customerID),
-    FOREIGN KEY (code) REFERENCES Voucher(code)
+    FOREIGN KEY (customerID) REFERENCES Customers(customerID),
+    FOREIGN KEY (code) REFERENCES Vouchers(code)
 );
 
--- Táº¡o báº£ng Order
-CREATE TABLE `Order` (
+-- Tạo bảng Orders
+CREATE TABLE `Orders` (
     orderID INT PRIMARY KEY AUTO_INCREMENT,
     guestEmail VARCHAR(100),
     guestPhoneNumber VARCHAR(15),
@@ -163,19 +163,19 @@ CREATE TABLE `Order` (
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     customerID INT,
     code VARCHAR(50),
-    FOREIGN KEY (customerID) REFERENCES Customer(customerID),
-    FOREIGN KEY (code) REFERENCES Voucher(code)
+    FOREIGN KEY (customerID) REFERENCES Customers(customerID),
+    FOREIGN KEY (code) REFERENCES Vouchers(code)
 );
 
--- Táº¡o báº£ng Order_Status
+-- Tạo bảng Order_Status
 CREATE TABLE Order_Status (
     orderStatusID INT PRIMARY KEY AUTO_INCREMENT,
     statusName VARCHAR(50) NOT NULL,
     orderID INT,
-    FOREIGN KEY (orderID) REFERENCES `Order`(orderID)
+    FOREIGN KEY (orderID) REFERENCES `Orders`(orderID)
 );
 
--- Táº¡o báº£ng Order_Item
+-- Tạo bảng Order_Item
 CREATE TABLE Order_Item (
     orderItemID INT PRIMARY KEY AUTO_INCREMENT,
     quantity INT NOT NULL,
@@ -184,36 +184,36 @@ CREATE TABLE Order_Item (
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     orderID INT,
     productID INT,
-    FOREIGN KEY (orderID) REFERENCES `Order`(orderID),
-    FOREIGN KEY (productID) REFERENCES Product(productID)
+    FOREIGN KEY (orderID) REFERENCES `Orders`(orderID),
+    FOREIGN KEY (productID) REFERENCES Products(productID)
 );
 
--- Táº¡o báº£ng Cart
-CREATE TABLE Cart (
+-- Tạo bảng Cart
+CREATE TABLE Carts (
     cartID INT PRIMARY KEY AUTO_INCREMENT,
     customerID INT,
-    FOREIGN KEY (customerID) REFERENCES Customer(customerID)
+    FOREIGN KEY (customerID) REFERENCES Customers(customerID)
 );
 
--- Táº¡o báº£ng Cart_Item
+-- Tạo bảng Cart_Item
 CREATE TABLE Cart_Item (
     cartItemID INT PRIMARY KEY AUTO_INCREMENT,
     quantity INT NOT NULL,
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     cartID INT,
     productID INT,
-    FOREIGN KEY (cartID) REFERENCES Cart(cartID),
-    FOREIGN KEY (productID) REFERENCES Product(productID)
+    FOREIGN KEY (cartID) REFERENCES Carts(cartID),
+    FOREIGN KEY (productID) REFERENCES Products(productID)
 );
 
--- Táº¡o báº£ng Review
-CREATE TABLE Review (
+-- Tạo bảng Reviews
+CREATE TABLE Reviews (
     reviewID INT PRIMARY KEY AUTO_INCREMENT,
     rating INT NOT NULL CHECK (rating BETWEEN 1 AND 5),
     comment TEXT,
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     productID INT,
     customerID INT,
-    FOREIGN KEY (productID) REFERENCES Product(productID),
-    FOREIGN KEY (customerID) REFERENCES Customer(customerID)
+    FOREIGN KEY (productID) REFERENCES Products(productID),
+    FOREIGN KEY (customerID) REFERENCES Customers(customerID)
 );
