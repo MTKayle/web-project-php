@@ -1,3 +1,4 @@
+<div class="container-fluid">
 <div class="top-banner">
         🚚 Miễn phí giao hàng đơn từ 500k
     </div>
@@ -5,7 +6,7 @@
     <div class="header">
         <div class="logo">
             <!-- Method 1: Direct img tag -->
-            <img src="../resources/logo.png" alt="Hoope Logo">
+            <img src="../view/resources/logo.png" alt="Hoope Logo">
 
         </div>
         <div class="search-container">
@@ -130,9 +131,9 @@
         <div class="dropdown-sale">
             <a href="#">KHUYẾN MÃI</a>
             <ul class="dropdown-menu">
-                <li><img src="../resources/IMG/sale banner.jpg" alt=""></li>
-                <li><img src="../resources/IMG/sale banner.jpg" alt=""></li>
-                <li><img src="../resources/IMG/sale banner.jpg" alt=""></li>
+                <li><img src="../view/resources/IMG/sale banner.jpg" alt=""></li>
+                <li><img src="../view/resources/IMG/sale banner.jpg" alt=""></li>
+                <li><img src="../view/resources/IMG/sale banner.jpg" alt=""></li>
             </ul>
 
         </div>
@@ -140,3 +141,4 @@
         <a href="#">THƯƠNG HIỆU</a>
         <a href="#">DIỄN ĐÀN</a>
     </div>
+</div>
