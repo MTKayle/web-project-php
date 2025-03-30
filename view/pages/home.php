@@ -1,262 +1,368 @@
-<div>
-    <!-- Main Carousel -->
-    <section class="main-carousel">
+<!-- Main Content -->
+<main>
+        <!-- Main Carousel (Bootstrap) -->
+        <section class="main-carousel py-4">
             <div class="container">
-                <div class="carousel-container">
-                    <div class="carousel-slide active">
-                        <img src="../view/resources/IMG/bannerPromote.webp" alt="Main Promotion 1">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="../view/resources/IMG/bannerPromote1.png" alt="Main Promotion 2">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="../view/resources/IMG/bannerPromote2.webp" alt="Main Promotion 3">
-                    </div>
+                <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <!-- Indicators -->
                     <div class="carousel-indicators">
-                        <span class="indicator active"></span>
-                        <span class="indicator"></span>
-                        <span class="indicator"></span>
+                        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
-                    <div class="carousel-nav">
-                        <button class="prev"><i class="fa fa-angle-left"></i></button>
-                        <button class="next"><i class="fa fa-angle-right"></i></button>
+                    
+                    <!-- Carousel items -->
+                    <div class="carousel-inner rounded">
+                        <div class="carousel-item active">
+                            <img src="../view/resources/IMG/bannerPromote.webp" class="d-block w-100" alt="Main Promotion 1">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../view/resources/IMG/bannerPromote1.png" class="d-block w-100" alt="Main Promotion 2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../view/resources/IMG/bannerPromote2.webp" class="d-block w-100" alt="Main Promotion 3">
+                        </div>
                     </div>
+                    
+                    <!-- Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
                 </div>
             </div>
         </section>
 
-        <!-- Brand Categories -->
-        <section class="brand-categories">
+        <!-- Brand Categories (Bootstrap) -->
+        <section class="brand-categories py-5">
             <div class="container">
-                <h2 class="section-title">Thương hiệu nổi bật</h2>
-                <div class="brand-grid">
-                    <div class="brand-item">
-                        <img src="../view/resources/IMG/lego.avif" alt="LEGO">
-                        <span>LEGO</span>
+                <h2 class="section-title mb-4 fs-2">Thương hiệu nổi bật</h2>
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
+                    <div class="col">
+                        <div class="card brand-item h-100 text-center p-3 border">
+                            <img src="../view/resources/IMG/lego.avif" alt="LEGO" class="img-fluid mx-auto mb-2" style="height: 80px; object-fit: contain;">
+                            <div class="card-body p-0">
+                                <p class="card-text fw-medium">LEGO</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="brand-item">
-                        <img src="../view/resources/IMG/barbie.avif" alt="Barbie">
-                        <span>Barbie</span>
+                    <div class="col">
+                        <div class="card brand-item h-100 text-center p-3 border">
+                            <img src="../view/resources/IMG/barbie.avif" alt="Barbie" class="img-fluid mx-auto mb-2" style="height: 80px; object-fit: contain;">
+                            <div class="card-body p-0">
+                                <p class="card-text fw-medium">Barbie</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="brand-item">
-                        <img src="../view/resources/IMG/hotwheels.avif" alt="Hot Wheels">
-                        <span>Hot Wheels</span>
+                    <div class="col">
+                        <div class="card brand-item h-100 text-center p-3 border">
+                            <img src="../view/resources/IMG/hotwheels.avif" alt="Hot Wheels" class="img-fluid mx-auto mb-2" style="height: 80px; object-fit: contain;">
+                            <div class="card-body p-0">
+                                <p class="card-text fw-medium">Hot Wheels</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="brand-item">
-                        <img src="../view/resources/IMG/fiisherPrice.avif" alt="Fisher Price">
-                        <span>Fisher Price</span>
+                    <div class="col">
+                        <div class="card brand-item h-100 text-center p-3 border">
+                            <img src="../view/resources/IMG/fiisherPrice.avif" alt="Fisher Price" class="img-fluid mx-auto mb-2" style="height: 80px; object-fit: contain;">
+                            <div class="card-body p-0">
+                                <p class="card-text fw-medium">Fisher Price</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="brand-item">
-                        <img src="../view/resources/IMG/techdeck.avif" alt="Nerf">
-                        <span>TechDeck</span>
+                    <div class="col">
+                        <div class="card brand-item h-100 text-center p-3 border">
+                            <img src="../view/resources/IMG/monopoly.avif" alt="Nerf" class="img-fluid mx-auto mb-2" style="height: 80px; object-fit: contain;">
+                            <div class="card-body p-0">
+                                <p class="card-text fw-medium">Monopoly</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="brand-item">
-                        <img src="../view/resources/IMG/monopoly.avif" alt="SIKU">
-                        <span>Monopoly</span>
+                    <div class="col">
+                        <div class="card brand-item h-100 text-center p-3 border">
+                            <img src="../view/resources/IMG/techdeck.avif" alt="SIKU" class="img-fluid mx-auto mb-2" style="height: 80px; object-fit: contain;">
+                            <div class="card-body p-0">
+                                <p class="card-text fw-medium">Tech Deck</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Age Categories -->
-        <section class="age-categories">
+        <!--Featured categories-->
+        <section class="featured-categories py-5">
             <div class="container">
-                <h2 class="section-title">Đồ chơi theo độ tuổi</h2>
-                <div class="age-grid">
-                    <div class="age-item">
-                        <img src="../view/resources/IMG/0-12.avif" alt="0-12 Months">
-                        <span>0-12 tháng</span>
+                <h2 class="section-title text-center mb-4 fs-2">Danh Mục Nổi Bật</h2>
+                <!-- Row 1 -->
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <div class="category-card text-center">
+                            <a href="#" class="category-link">
+                                <div class="category-image overflow-hidden mb-3 mx-auto">
+                                    <img src="../view/resources/IMG/featuredCategory1.webp" alt="Đồ chơi mầm Non" class="img-fluid">
+                                </div>
+                                <h3 class="category-name fw-bold fs-4">Đồ chơi mầm Non</h3>
+                            </a>
+                        </div>
                     </div>
-                    <div class="age-item">
-                        <img src="../view/resources/IMG/1-3.avif" alt="1-3 Years">
-                        <span>1-3 tuổi</span>
+                    
+                    <div class="col-md-6">
+                        <div class="category-card text-center">
+                            <a href="#" class="category-link">
+                                <div class="category-image overflow-hidden mb-3 mx-auto">
+                                    <img src="../view/resources/IMG/featuredCategory2.webp" alt="Đồ Chơi thời trang" class="img-fluid">
+                                </div>
+                                <h3 class="category-name fw-bold fs-4">Đồ Chơi thời trang</h3>
+                            </a>
+                        </div>
                     </div>
-                    <div class="age-item">
-                        <img src="../view/resources/IMG/3-6tuoi.avif" alt="3-6 Years">
-                        <span>3-6 tuổi</span>
+                </div>
+                
+                <!-- Row 2 -->
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="category-card text-center">
+                            <a href="#" class="category-link">
+                                <div class="category-image overflow-hidden mb-3 mx-auto">
+                                    <img src="../view/resources/IMG/featuredCategory3.webp" alt="Robot" class="img-fluid">
+                                </div>
+                                <h3 class="category-name fw-bold fs-4">Robot</h3>
+                            </a>
+                        </div>
                     </div>
-                    <div class="age-item">
-                        <img src="../view/resources/IMG/6-12tuoi.avif" alt="6-11 Years">
-                        <span>6-12 tuổi</span>
-                    </div>
-                    <div class="age-item">
-                        <img src="../view/resources/IMG/12+tuoi.avif" alt="11+ Years">
-                        <span>12+ tuổi</span>
+                    
+                    <div class="col-md-6">
+                        <div class="category-card text-center">
+                            <a href="#" class="category-link">
+                                <div class="category-image overflow-hidden mb-3 mx-auto">
+                                    <img src="../view/resources/IMG/featuredCategory4.webp" alt="Đồ chơi phương tiện" class="img-fluid">
+                                </div>
+                                <h3 class="category-name fw-bold fs-4">Đồ chơi phương tiện</h3>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Featured Products -->
-        <section class="featured-products">
+        <!-- Age Categories (Bootstrap) -->
+        <section class="age-categories py-5">
             <div class="container">
-                <h2 class="section-title">Sản phẩm nổi bật</h2>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-badge sale">-15%</div>
-                        <div class="product-image">
-                            <img src="https://www.mykingdom.com.vn/wp-content/uploads/2023/10/LEGO-Classic-Medium-Creative-Brick-Box-10696.jpg" alt="LEGO Classic">
-                            <button class="wishlist-btn"><i class="fa fa-heart"></i></button>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-brand">LEGO</div>
-                            <h3 class="product-name">LEGO Classic Medium Creative Brick Box 10696</h3>
-                            <div class="product-price">
-                                <span class="original-price">799.000đ</span>
-                                <span class="current-price">679.000đ</span>
-                            </div>
-                            <a href="#" class="add-to-cart-btn">Thêm vào giỏ</a>
-                        </div>
+                <h2 class="section-title mb-4 fs-2">Đồ chơi theo độ tuổi</h2>
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4">
+                    <div class="col">
+                        <img src="../view/resources/IMG/0-12.avif" alt="0-12 Months" class="card-img-top rounded">
+                        
                     </div>
-                    <div class="product-card">
-                        <div class="product-badge new">Mới</div>
-                        <div class="product-image">
-                            <img src="https://www.mykingdom.com.vn/wp-content/uploads/2023/07/Barbie-Doll-and-Accessories.jpg" alt="Barbie Doll">
-                            <button class="wishlist-btn"><i class="fa fa-heart"></i></button>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-brand">Barbie</div>
-                            <h3 class="product-name">Barbie Fashion Doll with Accessories</h3>
-                            <div class="product-price">
-                                <span class="current-price">599.000đ</span>
-                            </div>
-                            <a href="#" class="add-to-cart-btn">Thêm vào giỏ</a>
-                        </div>
+                    <div class="col">
+                        <img src="../view/resources/IMG/1-3.avif" alt="1-3 Years" class="card-img-top rounded">
                     </div>
-                    <div class="product-card">
-                        <div class="product-badge sale">-20%</div>
-                        <div class="product-image">
-                            <img src="https://www.mykingdom.com.vn/wp-content/uploads/2023/08/Hot-Wheels-10-Car-Pack.jpg" alt="Hot Wheels">
-                            <button class="wishlist-btn"><i class="fa fa-heart"></i></button>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-brand">Hot Wheels</div>
-                            <h3 class="product-name">Hot Wheels 10 Car Pack Assortment</h3>
-                            <div class="product-price">
-                                <span class="original-price">499.000đ</span>
-                                <span class="current-price">399.000đ</span>
-                            </div>
-                            <a href="#" class="add-to-cart-btn">Thêm vào giỏ</a>
-                        </div>
+                    <div class="col">
+                        <img src="../view/resources/IMG/3-6tuoi.avif" alt="3-6 Years" class="card-img-top rounded">
                     </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="https://www.mykingdom.com.vn/wp-content/uploads/2023/06/Fisher-Price-Laugh-Learn-Game-Controller.jpg" alt="Fisher Price">
-                            <button class="wishlist-btn"><i class="fa fa-heart"></i></button>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-brand">Fisher Price</div>
-                            <h3 class="product-name">Fisher-Price Laugh & Learn Game & Learn Controller</h3>
-                            <div class="product-price">
-                                <span class="current-price">329.000đ</span>
-                            </div>
-                            <a href="#" class="add-to-cart-btn">Thêm vào giỏ</a>
-                        </div>
+                    <div class="col">
+                        <img src="../view/resources/IMG/6-12tuoi.avif" alt="6-12 Years" class="card-img-top rounded">
                     </div>
-                </div>
-                <div class="view-all-btn">
-                    <a href="#">Xem tất cả</a>
+                    <div class="col">
+                        <img src="../view/resources/IMG/12+tuoi.avif" alt="122+ Years" class="card-img-top rounded">
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- Featured Products (Bootstrap) -->
+        <section class="featured-products py-5">
+            <div class="container">
+                <h2 class="section-title mb-4 fs-2">Sản phẩm nổi bật</h2>
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
+                    <!-- Product 1 -->
+                    <div class="col">
+                        <div class="card product-card h-100 border-0 position-relative">
+                            <div class="position-absolute badge bg-danger text-white m-2 px-2 py-1">-15%</div>
+                            <div class="product-image position-relative">
+                                <img src="img/product-lego.jpg" alt="LEGO Classic" class="card-img-top">
+                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
+                                    <i class="fa fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="card-body p-3">
+                                <div class="text-muted small fw-bold mb-1">LEGO</div>
+                                <h5 class="card-title product-name h6 mb-2">LEGO Classic Medium Creative Brick Box 10696</h5>
+                                <div class="product-price mb-3">
+                                    <span class="text-decoration-line-through text-muted me-2">799.000đ</span>
+                                    <span class="fw-bold text-danger">679.000đ</span>
+                                </div>
+                                <a href="#" class="btn btn-primary w-100">Thêm vào giỏ</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="col">
+                        <div class="card product-card h-100 border-0 position-relative">
+                            <div class="position-absolute badge bg-success text-white m-2 px-2 py-1">Mới</div>
+                            <div class="product-image position-relative">
+                                <img src="img/product-barbie.jpg" alt="Barbie Doll" class="card-img-top">
+                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
+                                    <i class="fa fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="card-body p-3">
+                                <div class="text-muted small fw-bold mb-1">Barbie</div>
+                                <h5 class="card-title product-name h6 mb-2">Barbie Fashion Doll with Accessories</h5>
+                                <div class="product-price mb-3">
+                                    <span class="fw-bold">599.000đ</span>
+                                </div>
+                                <a href="#" class="btn btn-primary w-100">Thêm vào giỏ</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="col">
+                        <div class="card product-card h-100 border-0 position-relative">
+                            <div class="position-absolute badge bg-danger text-white m-2 px-2 py-1">-20%</div>
+                            <div class="product-image position-relative">
+                                <img src="img/product-hotwheels.jpg" alt="Hot Wheels" class="card-img-top">
+                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
+                                    <i class="fa fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="card-body p-3">
+                                <div class="text-muted small fw-bold mb-1">Hot Wheels</div>
+                                <h5 class="card-title product-name h6 mb-2">Hot Wheels 10 Car Pack Assortment</h5>
+                                <div class="product-price mb-3">
+                                    <span class="text-decoration-line-through text-muted me-2">499.000đ</span>
+                                    <span class="fw-bold text-danger">399.000đ</span>
+                                </div>
+                                <a href="#" class="btn btn-primary w-100">Thêm vào giỏ</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="col">
+                        <div class="card product-card h-100 border-0 position-relative">
+                            <div class="product-image position-relative">
+                                <img src="img/product-fisherprice.jpg" alt="Fisher Price" class="card-img-top">
+                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
+                                    <i class="fa fa-heart"></i>
+                                </button>
+                            </div>
+                            <div class="card-body p-3">
+                                <div class="text-muted small fw-bold mb-1">Fisher Price</div>
+                                <h5 class="card-title product-name h6 mb-2">Fisher-Price Laugh &amp; Learn Game &amp; Learn Controller</h5>
+                                <div class="product-price mb-3">
+                                    <span class="fw-bold">329.000đ</span>
+                                </div>
+                                <a href="#" class="btn btn-primary w-100">Thêm vào giỏ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-outline-primary px-4">Xem tất cả</a>
+                </div>
+            </div>
+        </section>
 
         <!-- New Arrivals -->
-        <section class="new-arrivals">
+        <section class="featured-products py-5">
             <div class="container">
-                <h2 class="section-title">Sản phẩm mới về</h2>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-badge new">Mới</div>
-                        <div class="product-image">
-                            <img src="https://www.mykingdom.com.vn/wp-content/uploads/2023/09/LEGO-Technic-Ferrari-488-GTE.jpg" alt="LEGO Technic">
-                            <button class="wishlist-btn"><i class="fa fa-heart"></i></button>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-brand">LEGO</div>
-                            <h3 class="product-name">LEGO Technic Ferrari 488 GTE "AF Corse #51"</h3>
-                            <div class="product-price">
-                                <span class="current-price">4.299.000đ</span>
+                <h2 class="section-title mb-4 fs-2">Sản phẩm mới về</h2>
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-4">
+                    <!-- Product 1 -->
+                    <div class="col">
+                        <div class="card product-card h-100 border-0 position-relative">
+                            <div class="position-absolute badge bg-danger text-white m-2 px-2 py-1">-15%</div>
+                            <div class="product-image position-relative">
+                                <img src="img/product-lego.jpg" alt="LEGO Classic" class="card-img-top">
+                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
+                                    <i class="fa fa-heart"></i>
+                                </button>
                             </div>
-                            <a href="#" class="add-to-cart-btn">Thêm vào giỏ</a>
+                            <div class="card-body p-3">
+                                <div class="text-muted small fw-bold mb-1">LEGO</div>
+                                <h5 class="card-title product-name h6 mb-2">LEGO Classic Medium Creative Brick Box 10696</h5>
+                                <div class="product-price mb-3">
+                                    <span class="text-decoration-line-through text-muted me-2">799.000đ</span>
+                                    <span class="fw-bold text-danger">679.000đ</span>
+                                </div>
+                                <a href="#" class="btn btn-primary w-100">Thêm vào giỏ</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="product-card">
-                        <div class="product-badge new">Mới</div>
-                        <div class="product-image">
-                            <img src="https://www.mykingdom.com.vn/wp-content/uploads/2023/09/Nerf-Elite-2.0-Commander.jpg" alt="Nerf">
-                            <button class="wishlist-btn"><i class="fa fa-heart"></i></button>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-brand">Nerf</div>
-                            <h3 class="product-name">Nerf Elite 2.0 Commander RD-6 Blaster</h3>
-                            <div class="product-price">
-                                <span class="current-price">699.000đ</span>
+                    
+                    <!-- Product 2 -->
+                    <div class="col">
+                        <div class="card product-card h-100 border-0 position-relative">
+                            <div class="position-absolute badge bg-success text-white m-2 px-2 py-1">Mới</div>
+                            <div class="product-image position-relative">
+                                <img src="img/product-barbie.jpg" alt="Barbie Doll" class="card-img-top">
+                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
+                                    <i class="fa fa-heart"></i>
+                                </button>
                             </div>
-                            <a href="#" class="add-to-cart-btn">Thêm vào giỏ</a>
+                            <div class="card-body p-3">
+                                <div class="text-muted small fw-bold mb-1">Barbie</div>
+                                <h5 class="card-title product-name h6 mb-2">Barbie Fashion Doll with Accessories</h5>
+                                <div class="product-price mb-3">
+                                    <span class="fw-bold">599.000đ</span>
+                                </div>
+                                <a href="#" class="btn btn-primary w-100">Thêm vào giỏ</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="product-card">
-                        <div class="product-badge new">Mới</div>
-                        <div class="product-image">
-                            <img src="https://www.mykingdom.com.vn/wp-content/uploads/2023/09/Barbie-Color-Reveal-Shimmer-Series.jpg" alt="Barbie">
-                            <button class="wishlist-btn"><i class="fa fa-heart"></i></button>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-brand">Barbie</div>
-                            <h3 class="product-name">Barbie Color Reveal Shimmer Series Doll</h3>
-                            <div class="product-price">
-                                <span class="current-price">699.000đ</span>
+                    
+                    <!-- Product 3 -->
+                    <div class="col">
+                        <div class="card product-card h-100 border-0 position-relative">
+                            <div class="position-absolute badge bg-danger text-white m-2 px-2 py-1">-20%</div>
+                            <div class="product-image position-relative">
+                                <img src="img/product-hotwheels.jpg" alt="Hot Wheels" class="card-img-top">
+                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
+                                    <i class="fa fa-heart"></i>
+                                </button>
                             </div>
-                            <a href="#" class="add-to-cart-btn">Thêm vào giỏ</a>
+                            <div class="card-body p-3">
+                                <div class="text-muted small fw-bold mb-1">Hot Wheels</div>
+                                <h5 class="card-title product-name h6 mb-2">Hot Wheels 10 Car Pack Assortment</h5>
+                                <div class="product-price mb-3">
+                                    <span class="text-decoration-line-through text-muted me-2">499.000đ</span>
+                                    <span class="fw-bold text-danger">399.000đ</span>
+                                </div>
+                                <a href="#" class="btn btn-primary w-100">Thêm vào giỏ</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="product-card">
-                        <div class="product-badge new">Mới</div>
-                        <div class="product-image">
-                            <img src="https://www.mykingdom.com.vn/wp-content/uploads/2023/09/Sylvanian-Families-Cosy-Cottage-Starter-Home.jpg" alt="Sylvanian">
-                            <button class="wishlist-btn"><i class="fa fa-heart"></i></button>
-                        </div>
-                        <div class="product-info">
-                            <div class="product-brand">Sylvanian Families</div>
-                            <h3 class="product-name">Sylvanian Families Cosy Cottage Starter Home</h3>
-                            <div class="product-price">
-                                <span class="current-price">1.199.000đ</span>
+                    
+                    <!-- Product 4 -->
+                    <div class="col">
+                        <div class="card product-card h-100 border-0 position-relative">
+                            <div class="product-image position-relative">
+                                <img src="img/product-fisherprice.jpg" alt="Fisher Price" class="card-img-top">
+                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
+                                    <i class="fa fa-heart"></i>
+                                </button>
                             </div>
-                            <a href="#" class="add-to-cart-btn">Thêm vào giỏ</a>
+                            <div class="card-body p-3">
+                                <div class="text-muted small fw-bold mb-1">Fisher Price</div>
+                                <h5 class="card-title product-name h6 mb-2">Fisher-Price Laugh &amp; Learn Game &amp; Learn Controller</h5>
+                                <div class="product-price mb-3">
+                                    <span class="fw-bold">329.000đ</span>
+                                </div>
+                                <a href="#" class="btn btn-primary w-100">Thêm vào giỏ</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="view-all-btn">
-                    <a href="#">Xem tất cả</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Store Images -->
-        <section class="store-images">
-            <div class="container">
-                <h2 class="section-title">Hệ thống cửa hàng</h2>
-                <div class="store-grid">
-                    <div class="store-item">
-                        <img src="https://www.mykingdom.com.vn/wp-content/uploads/2023/04/MyKingdom-Store-TPHCM.jpg" alt="MyKingdom Store HCM">
-                        <div class="store-overlay">
-                            <h3>MyKingdom TP.HCM</h3>
-                            <p>Địa chỉ: 890 Nguyễn Kiệm, Quận Phú Nhuận, TP.HCM</p>
-                            <a href="#" class="view-store-btn">Xem cửa hàng</a>
-                        </div>
-                    </div>
-                    <div class="store-item">
-                        <img src="https://www.mykingdom.com.vn/wp-content/uploads/2023/04/MyKingdom-Store-Hanoi.jpg" alt="MyKingdom Store Hanoi">
-                        <div class="store-overlay">
-                            <h3>MyKingdom Hà Nội</h3>
-                            <p>Địa chỉ: 110 Cầu Giấy, Quận Cầu Giấy, Hà Nội</p>
-                            <a href="#" class="view-store-btn">Xem cửa hàng</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="view-all-btn mt-4">
-                    <a href="#">Tìm cửa hàng gần bạn</a>
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-outline-primary px-4">Xem tất cả</a>
                 </div>
             </div>
         </section>
@@ -264,11 +370,11 @@
         <!-- Blog Section -->
         <section class="blog-section">
             <div class="container">
-                <h2 class="section-title">Tin tức & Sự kiện</h2>
+                <h2 class="section-title fs-2">Tin tức &amp; Sự kiện</h2>
                 <div class="blog-grid">
                     <div class="blog-card">
                         <div class="blog-image">
-                            <img src="https://www.mykingdom.com.vn/wp-content/uploads/2023/08/LEGO-Day-Event.jpg" alt="LEGO Day">
+                            <img src="img/blog-lego.jpg" alt="LEGO Day">
                         </div>
                         <div class="blog-content">
                             <div class="blog-date">15/08/2023</div>
@@ -279,7 +385,7 @@
                     </div>
                     <div class="blog-card">
                         <div class="blog-image">
-                            <img src="https://www.mykingdom.com.vn/wp-content/uploads/2023/07/Barbie-Movie-Promotion.jpg" alt="Barbie Movie">
+                            <img src="img/blog-barbie.jpg" alt="Barbie Movie">
                         </div>
                         <div class="blog-content">
                             <div class="blog-date">20/07/2023</div>
@@ -290,7 +396,7 @@
                     </div>
                     <div class="blog-card">
                         <div class="blog-image">
-                            <img src="https://www.mykingdom.com.vn/wp-content/uploads/2023/06/Summer-Activities-for-Kids.jpg" alt="Summer Activities">
+                            <img src="img/blog-summer.jpg" alt="Summer Activities">
                         </div>
                         <div class="blog-content">
                             <div class="blog-date">05/06/2023</div>
@@ -305,4 +411,4 @@
                 </div>
             </div>
         </section>
-</div>
+    </main>
