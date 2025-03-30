@@ -5,6 +5,10 @@ footer {
     /* Chữ trắng để nổi bật */
 }
 
+.text-muted {
+    text-align: left;
+}
+
 button.btn {
     background-color: #524117;
     color: #e1fa41;

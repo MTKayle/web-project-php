@@ -151,7 +151,7 @@
         </section>
 
         <!-- Age Categories (Bootstrap) -->
-        <section class="age-categories py-5">
+        <section class="age-categories_custom py-5">
             <div class="container">
                 <h2 class="section-title mb-4 fs-2">Đồ chơi theo độ tuổi</h2>
                 <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4">
