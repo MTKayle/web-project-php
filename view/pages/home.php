@@ -186,9 +186,6 @@
                             <div class="position-absolute badge bg-danger text-white m-2 px-2 py-1">-15%</div>
                             <div class="product-image position-relative">
                                 <img src="img/product-lego.jpg" alt="LEGO Classic" class="card-img-top">
-                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
-                                    <i class="fa fa-heart"></i>
-                                </button>
                             </div>
                             <div class="card-body p-3">
                                 <div class="text-muted small fw-bold mb-1">LEGO</div>
@@ -208,9 +205,6 @@
                             <div class="position-absolute badge bg-success text-white m-2 px-2 py-1">Mới</div>
                             <div class="product-image position-relative">
                                 <img src="img/product-barbie.jpg" alt="Barbie Doll" class="card-img-top">
-                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
-                                    <i class="fa fa-heart"></i>
-                                </button>
                             </div>
                             <div class="card-body p-3">
                                 <div class="text-muted small fw-bold mb-1">Barbie</div>
@@ -229,9 +223,6 @@
                             <div class="position-absolute badge bg-danger text-white m-2 px-2 py-1">-20%</div>
                             <div class="product-image position-relative">
                                 <img src="img/product-hotwheels.jpg" alt="Hot Wheels" class="card-img-top">
-                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
-                                    <i class="fa fa-heart"></i>
-                                </button>
                             </div>
                             <div class="card-body p-3">
                                 <div class="text-muted small fw-bold mb-1">Hot Wheels</div>
@@ -250,9 +241,6 @@
                         <div class="card product-card h-100 border-0 position-relative">
                             <div class="product-image position-relative">
                                 <img src="img/product-fisherprice.jpg" alt="Fisher Price" class="card-img-top">
-                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
-                                    <i class="fa fa-heart"></i>
-                                </button>
                             </div>
                             <div class="card-body p-3">
                                 <div class="text-muted small fw-bold mb-1">Fisher Price</div>
@@ -282,9 +270,6 @@
                             <div class="position-absolute badge bg-danger text-white m-2 px-2 py-1">-15%</div>
                             <div class="product-image position-relative">
                                 <img src="img/product-lego.jpg" alt="LEGO Classic" class="card-img-top">
-                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
-                                    <i class="fa fa-heart"></i>
-                                </button>
                             </div>
                             <div class="card-body p-3">
                                 <div class="text-muted small fw-bold mb-1">LEGO</div>
@@ -304,9 +289,6 @@
                             <div class="position-absolute badge bg-success text-white m-2 px-2 py-1">Mới</div>
                             <div class="product-image position-relative">
                                 <img src="img/product-barbie.jpg" alt="Barbie Doll" class="card-img-top">
-                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
-                                    <i class="fa fa-heart"></i>
-                                </button>
                             </div>
                             <div class="card-body p-3">
                                 <div class="text-muted small fw-bold mb-1">Barbie</div>
@@ -325,9 +307,6 @@
                             <div class="position-absolute badge bg-danger text-white m-2 px-2 py-1">-20%</div>
                             <div class="product-image position-relative">
                                 <img src="img/product-hotwheels.jpg" alt="Hot Wheels" class="card-img-top">
-                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
-                                    <i class="fa fa-heart"></i>
-                                </button>
                             </div>
                             <div class="card-body p-3">
                                 <div class="text-muted small fw-bold mb-1">Hot Wheels</div>
@@ -346,9 +325,6 @@
                         <div class="card product-card h-100 border-0 position-relative">
                             <div class="product-image position-relative">
                                 <img src="img/product-fisherprice.jpg" alt="Fisher Price" class="card-img-top">
-                                <button class="btn btn-sm btn-outline-secondary position-absolute end-0 top-0 m-2 rounded-circle">
-                                    <i class="fa fa-heart"></i>
-                                </button>
                             </div>
                             <div class="card-body p-3">
                                 <div class="text-muted small fw-bold mb-1">Fisher Price</div>
@@ -370,7 +346,7 @@
         <!-- Blog Section -->
         <section class="blog-section">
             <div class="container">
-                <h2 class="section-title fs-2">Tin tức &amp; Sự kiện</h2>
+                <h2 class="section-title fs-2">Chủ đề nổi bật</h2>
                 <div class="blog-grid">
                     <div class="blog-card">
                         <div class="blog-image">
