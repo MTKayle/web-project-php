@@ -1,3 +1,5 @@
+/* Top Bar */
+
 .top-bar {
     background-color: #f2ff4e;
     padding: 5px 0;
@@ -5,10 +7,16 @@
     font-weight: bold;
 }
 
+
+/* Typography */
+
 h6 {
     color: #524117;
     font-weight: bold;
 }
+
+
+/* Search Bar */
 
 .search-bar input {
     border-radius: 50px;
@@ -20,18 +28,19 @@ h6 {
     border-color: #524117;
 }
 
+
+/* Navbar Styling */
+
 .navbar {
     background-color: #fff0d0;
     font-size: 16px;
+    color: #524117;
 }
 
 .navbar-brand img {
     height: 60px;
-    /* Tăng kích thước logo */
     max-height: 100px;
-    /* Giới hạn kích thước tối đa */
     object-fit: contain;
-    /* Đảm bảo logo không bị méo */
 }
 
 .nav-link {
@@ -63,6 +72,9 @@ h6 {
     text-align: center;
 }
 
+
+/* Dropdown Styling */
+
 .nav-item.dropdown .dropdown-menu {
     background-color: #fffefa;
     display: none;
@@ -74,7 +86,6 @@ h6 {
     white-space: nowrap;
     border: none;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    /* Đổ bóng nhẹ */
 }
 
 .nav-item.dropdown:hover>.dropdown-menu,
@@ -85,13 +96,15 @@ h6 {
 .dropdown:hover .dropdown-menu {
     display: flex;
     flex-wrap: wrap;
-    width: 800px;
+    width: 100%;
     padding: 20px;
-    display: grid;
     max-height: 500px;
     overflow-y: auto;
     overflow-x: hidden;
 }
+
+
+/* Standard dropdown columns */
 
 .dropdown-menu .column {
     flex: 1;
@@ -117,7 +130,7 @@ h6 {
 }
 
 
-/* Dropdown giỏ hàng */
+/* Cart Dropdown */
 
 .cart-dropdown {
     position: absolute;
@@ -139,23 +152,22 @@ h6 {
     visibility: visible;
 }
 
+
+/* Promo Banner Container */
+
 .promo-container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    /* Tăng khoảng cách giữa các banner */
     flex-wrap: nowrap;
-    /* Giữ tất cả banner trên cùng một hàng */
     width: 100%;
     padding: 20px 0;
     overflow-x: auto;
-    /* Cho phép cuộn ngang nếu không đủ chỗ */
 }
 
 .promo-item {
     flex: 1 1 30%;
-    /* Đảm bảo 3 banner chiếm đều khoảng không */
     max-width: 30%;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
@@ -169,8 +181,14 @@ h6 {
     transition: transform 0.3s ease;
 }
 
+.promo-item a {
+    text-decoration: none !important;
+    font-weight: normal !important;
+    color: #524117;
+}
 
-/* Hiệu ứng hover */
+
+/* Hover effects */
 
 .promo-item:hover {
     transform: scale(1.1);
@@ -182,16 +200,33 @@ h6 {
 }
 
 
-/* Đảm bảo banner giữ nguyên hàng trên màn hình nhỏ */
+/* Special styling for promotion dropdown */
+
+.dropdown-menu.promo-container {
+    display: flex !important;
+    width: 100%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    overflow-x: visible;
+    flex-wrap: nowrap;
+}
+
+.dropdown-menu.promo-container .promo-item {
+    flex: 1 1 30%;
+    max-width: 30%;
+    margin: 0 10px;
+}
+
+
+/* Responsive behavior */
 
 @media (max-width: 992px) {
     .promo-container {
         flex-wrap: wrap;
-        /* Cho phép xuống hàng nếu không đủ chỗ */
     }
     .promo-item {
         flex: 1 1 45%;
-        /* Giữ hai banner trên một hàng nếu không gian nhỏ */
         max-width: 45%;
     }
 }
@@ -199,15 +234,34 @@ h6 {
 @media (max-width: 768px) {
     .promo-item {
         flex: 1 1 100%;
-        /* Mỗi banner một hàng khi quá nhỏ */
         max-width: 100%;
     }
 }
 
-.promo-item a {
-    text-decoration: none !important;
-    /* Không gạch chân */
-    font-weight: normal !important;
-    /* Không in đậm */
-    color: #524117;
+
+/* mmmmmmmmmm */
+
+.promo-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.promo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Style cho nút MUA NGAY */
+
+.promo-card .btn {
+    background-color: #524117;
+    color: #f2ff4e;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.promo-card:hover .btn {
+    opacity: 1;
+    transform: scale(1.1);
 }
