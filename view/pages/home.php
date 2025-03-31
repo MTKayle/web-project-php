@@ -382,9 +382,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="view-all-btn">
-                    <a href="#">Xem tất cả</a>
+                <div class="text-center mt-4">
+                    <a href="#" class="btn btn-outline-primary px-4">Xem tất cả</a>
                 </div>
+                <!-- <div class="view-all-btn">
+                    <a href="#">Xem tất cả</a>
+                </div> -->
             </div>
         </section>
     </main>

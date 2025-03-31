@@ -630,7 +630,7 @@ ul {
 
 /* View All Button */
 
-.view-all-btn a,
+/* .view-all-btn a,
 .btn-outline-primary {
     display: inline-block;
     padding: 10px 30px;
@@ -647,7 +647,7 @@ ul {
     background-color: var(--primary-color);
     color: var(--white);
     text-decoration: none;
-}
+} */
 
 
 /* Extra Responsive Fixes for Bootstrap Integration */
