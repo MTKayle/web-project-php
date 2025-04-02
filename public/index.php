@@ -19,11 +19,16 @@ include '../view/layout/header.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="../assets/index.js"></script>
     <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/cart.js"></script>
     <link rel="stylesheet" href="../view/css/footerStyle.css">
     <link rel="stylesheet" href="../view/css/headerStyle.css">
+    <link rel="stylesheet" href="../view/css/cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/8a0a2d882c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body class="bg-white" style = "background-image: url('../view/resources/IMG/backgroundnew.png'); background-attachment: fixed;">
 
@@ -34,6 +39,8 @@ include '../view/layout/header.php';
                 include '../view/pages/home.php';
                 echo'<link rel="stylesheet" href="../view/css/home.css">';
                 echo'<script src="../assets/js/home.js"></script>';
+                echo'<link rel="stylesheet" href="../view/css/cart.css">';
+                echo'<script src="../assets/js/cart.js"></script>';
                 break;
             default:
                 # code...

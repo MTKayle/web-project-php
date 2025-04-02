@@ -1,0 +1,54 @@
+.cart-content {
+    background-color: #;
+}
+
+.dropdown-cart {
+    right: 0;
+    min-width: 320px;
+    padding: 0;
+    background-color: #fffefa;
+    border: none;
+}
+
+
+/* Sửa lại CSS để đảm bảo dropdown hiển thị khi hover */
+
+.cart-dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+.btn {
+    background-color: #524117;
+    color: #f2ff4e;
+}
+
+.btn :hover {
+    background-color: #fff0d0;
+    color: #524117;
+}
+
+.cart-items {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.cart-item-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.badge-cart {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+}
+
+.row {
+    border-color: brown;
+}

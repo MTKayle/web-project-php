@@ -130,26 +130,16 @@ h6 {
 }
 
 
-/* Cart Dropdown */
+/* Custom css for Cart Dropdown */
 
-.cart-dropdown {
+#dropdown-cart {
+    width: 250px;
     position: absolute;
-    top: 100%;
-    right: 0;
-    min-width: 250px;
+    left: auto;
     background: white;
     border: 1px solid #ddd;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
-    visibility: hidden;
-}
-
-.cart-container:hover .cart-dropdown {
-    opacity: 1;
-    transform: translateY(0);
-    visibility: visible;
 }
 
 
