@@ -2,7 +2,7 @@
 class Database{
     private $host = "localhost";
     private $dbName = "toys_store";
-    private $userName = "user_project_php";
+    private $userName = "root";
     private $password = "";
     public $connection;
 
@@ -13,7 +13,9 @@ class Database{
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             die("Connection failed: " . $e->getMessage());
+            
         }
         return $this->connection;
     }
 }
+?>

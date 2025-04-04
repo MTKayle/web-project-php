@@ -597,36 +597,6 @@ ul {
 }
 
 
-/* Back to Top Button */
-
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    width: 40px !important;
-    height: 40px !important;
-    background-color: var(--primary-color);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0.7;
-    transform: translateY(100px);
-    transition: var(--transition);
-    z-index: 99;
-    padding: 0 !important;
-}
-
-.back-to-top:hover {
-    opacity: 1;
-    color: var(--white);
-}
-
-.back-to-top.show {
-    transform: translateY(0);
-}
-
 
 /* View All Button */
 

@@ -1,28 +1,31 @@
 -- Tạo bảng UserRoles
 CREATE TABLE UserRoles (
     userRoleID INT PRIMARY KEY AUTO_INCREMENT,
-    roleName VARCHAR(50) NOT NULL
+    roleName VARCHAR(50) NOT NULL,
+    isActive BOOLEAN DEFAULT TRUE
 );
 
 -- Tạo bảng Users
 CREATE TABLE Users (
     userID INT PRIMARY KEY AUTO_INCREMENT,
+    userName VARCHAR(100) NOT NULL,
     email VARCHAR(100) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     avatar VARCHAR(255),
     userRoleID INT,
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (userRoleID) REFERENCES UserRoles(userRoleID)
 );
 
 -- Tạo bảng Customers
 CREATE TABLE Customers (
-    customerID INT PRIMARY KEY AUTO_INCREMENT,
+    customerID INT PRIMARY KEY,
     customerName VARCHAR(100) NOT NULL,
     phoneNumber VARCHAR(15),
     address TEXT,
-    userID INT,
-    FOREIGN KEY (userID) REFERENCES Users(userID)
+    isActive BOOLEAN DEFAULT TRUE,
+    FOREIGN KEY (customerID) REFERENCES Users(userID)
 );
 
 -- Tạo bảng Topics
@@ -31,6 +34,7 @@ CREATE TABLE Topics (
     title VARCHAR(200) NOT NULL,
     createdBy INT,
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (createdBy) REFERENCES Users(userID)
 );
 
@@ -43,6 +47,7 @@ CREATE TABLE Posts (
     image VARCHAR(255),
     userID INT,
     topicID INT,
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (userID) REFERENCES Users(userID),
     FOREIGN KEY (topicID) REFERENCES Topics(topicID)
 );
@@ -56,6 +61,7 @@ CREATE TABLE Comments (
     parentCommentID INT,
     userID INT,
     postID INT,
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (parentCommentID) REFERENCES Comments(commentID),
     FOREIGN KEY (userID) REFERENCES Users(userID),
     FOREIGN KEY (postID) REFERENCES Posts(postID)
@@ -69,6 +75,7 @@ CREATE TABLE Messages (
     isRead BOOLEAN DEFAULT FALSE,
     senderID INT NOT NULL,
     receiverID INT NOT NULL,
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (senderID) REFERENCES Users(userID),
     FOREIGN KEY (receiverID) REFERENCES Users(userID)
 );
@@ -81,6 +88,7 @@ CREATE TABLE Articles (
     image VARCHAR(255),
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     userID INT,
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (userID) REFERENCES Users(userID)
 );
 
@@ -88,13 +96,15 @@ CREATE TABLE Articles (
 CREATE TABLE Brands (
     brandID INT PRIMARY KEY AUTO_INCREMENT,
     brandName VARCHAR(100) NOT NULL,
-    country VARCHAR(100)
+    country VARCHAR(100),
+    isActive BOOLEAN DEFAULT TRUE
 );
 
 -- Tạo bảng Category
 CREATE TABLE Category (
     categoryID INT PRIMARY KEY AUTO_INCREMENT,
-    categoryName VARCHAR(100) NOT NULL
+    categoryName VARCHAR(100) NOT NULL,
+    isActive BOOLEAN DEFAULT TRUE
 );
 
 -- Tạo bảng Products
@@ -109,14 +119,16 @@ CREATE TABLE Products (
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     brandID INT,
     categoryID INT,
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (brandID) REFERENCES Brands(brandID),
-    FOREIGN KEY (categoryID) REFERENCES Categorys(categoryID)
+    FOREIGN KEY (categoryID) REFERENCES Category(categoryID)
 );
 
 -- Tạo bảng Discount_Types
 CREATE TABLE Discount_Types (
     discountTypeID INT PRIMARY KEY AUTO_INCREMENT,
-    name VARCHAR(100) NOT NULL
+    name VARCHAR(100) NOT NULL,
+    isActive BOOLEAN DEFAULT TRUE
 );
 
 -- Tạo bảng Promotions
@@ -128,6 +140,7 @@ CREATE TABLE Promotions (
     endDate DATE NOT NULL,
     productID INT,
     discountTypeID INT,
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (productID) REFERENCES Products(productID),
     FOREIGN KEY (discountTypeID) REFERENCES Discount_Types(discountTypeID)
 );
@@ -139,7 +152,8 @@ CREATE TABLE Vouchers (
     discountValue DECIMAL(10, 2) NOT NULL,
     maxAmount DECIMAL(10, 2),
     startDate DATE NOT NULL,
-    endDate DATE NOT NULL
+    endDate DATE NOT NULL,
+    isActive BOOLEAN DEFAULT TRUE
 );
 
 -- Tạo bảng Customer_Voucher
@@ -148,6 +162,7 @@ CREATE TABLE Customer_Voucher (
     isUsed BOOLEAN DEFAULT FALSE,
     customerID INT,
     code VARCHAR(50),
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (customerID) REFERENCES Customers(customerID),
     FOREIGN KEY (code) REFERENCES Vouchers(code)
 );
@@ -163,6 +178,7 @@ CREATE TABLE `Orders` (
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     customerID INT,
     code VARCHAR(50),
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (customerID) REFERENCES Customers(customerID),
     FOREIGN KEY (code) REFERENCES Vouchers(code)
 );
@@ -172,6 +188,7 @@ CREATE TABLE Order_Status (
     orderStatusID INT PRIMARY KEY AUTO_INCREMENT,
     statusName VARCHAR(50) NOT NULL,
     orderID INT,
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (orderID) REFERENCES `Orders`(orderID)
 );
 
@@ -184,6 +201,7 @@ CREATE TABLE Order_Item (
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     orderID INT,
     productID INT,
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (orderID) REFERENCES `Orders`(orderID),
     FOREIGN KEY (productID) REFERENCES Products(productID)
 );
@@ -192,6 +210,7 @@ CREATE TABLE Order_Item (
 CREATE TABLE Carts (
     cartID INT PRIMARY KEY AUTO_INCREMENT,
     customerID INT,
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (customerID) REFERENCES Customers(customerID)
 );
 
@@ -202,6 +221,7 @@ CREATE TABLE Cart_Item (
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     cartID INT,
     productID INT,
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (cartID) REFERENCES Carts(cartID),
     FOREIGN KEY (productID) REFERENCES Products(productID)
 );
@@ -214,6 +234,7 @@ CREATE TABLE Reviews (
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     productID INT,
     customerID INT,
+    isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (productID) REFERENCES Products(productID),
     FOREIGN KEY (customerID) REFERENCES Customers(customerID)
 );
