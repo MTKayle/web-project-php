@@ -1,41 +1,41 @@
 
 $(document).ready(function() {
-    // const email = document.getElementById('session-data').getAttribute('data-email');
-    // const userID = document.getElementById('session-data').getAttribute('data-userID');
-    // const urlParams = new URLSearchParams(window.location.search);
-//     if (urlParams.get('page') === 'account') {
-//         // Logic xử lý cho trang login.php khi có tham số ?page=login
-//         console.log("Trang login với tham số page đã được mở");
+    const email = document.getElementById('session-data').getAttribute('data-email');
+    const userID = document.getElementById('session-data').getAttribute('data-userID');
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('page') === 'account') {
+        // Logic xử lý cho trang login.php khi có tham số ?page=login
+        console.log("Trang login với tham số page đã được mở");
  
-//         $.ajax({
-//             url: `${baseUrl}/ajax/account.php`,
-//             type: 'GET',
-//             // data: { userID: userID },
-//             //type of data we are expecting in return
-//             dataType: 'json',
-//             //if success
-//             success: function(response) {
-//                 // Check if response is success
-//                 console.log(response);
-//                 if (response.success) { 
-//                     $('#email').val(email);
-//                     $('#fullname').val(response.customer.customerName);
-//                     $('#phone').val(response.customer.phoneNumber);
-//                     $('#address').val(response.customer.address);
-//                     $('#avatar-preview').attr('src', response.customer.avatar);  
-//                 } 
-//             },
-//             //if error
-//             error: function() {
-//                 $('#error-message-updateinfor').hide();
-//                 $('#error-message-updateinfor').text('Lỗi hệ thống, thử lại sau!').show();
-//             }
-//         })
+        $.ajax({
+            url: `${baseUrl}/ajax/account.php`,
+            type: 'GET',
+            // data: { userID: userID },
+            //type of data we are expecting in return
+            dataType: 'json',
+            //if success
+            success: function(response) {
+                // Check if response is success
+                console.log(response);
+                if (response.success) { 
+                    $('#email').val(email);
+                    $('#fullname').val(response.customer.customerName);
+                    $('#phone').val(response.customer.phoneNumber);
+                    $('#address').val(response.customer.address);
+                    $('#avatar-preview').attr('src', response.customer.avatar);  
+                } 
+            },
+            //if error
+            error: function() {
+                $('#error-message-updateinfor').hide();
+                $('#error-message-updateinfor').text('Lỗi hệ thống, thử lại sau!').show();
+            }
+        })
 
         
 
 
-// }
+}
 
     // Avatar change functionality
     const avatarButton = document.getElementById('avatar-button');
@@ -77,6 +77,8 @@ $(document).ready(function() {
         formData.append('phoneNumber', phoneNumber);
         formData.append('address', address);    
         //formData.append('email', email);
+
+        console.log(formData);
 
         $.ajax({
             url: `${baseUrl}/ajax/account.php`,

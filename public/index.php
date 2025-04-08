@@ -12,11 +12,8 @@ $pageParam = $_GET['page'] ?? '';
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <script src="../assets/index.js"></script>
     <script src="../assets/js/auth.js"></script>
-<<<<<<< Updated upstream
     <script src="../assets/js/cart.js"></script>
-=======
     <link rel="stylesheet" href="../view/css/global.css">
->>>>>>> Stashed changes
     <link rel="stylesheet" href="../view/css/footerStyle.css">
     <link rel="stylesheet" href="../view/css/headerStyle.css">
     <link rel="stylesheet" href="../view/css/cart.css">
@@ -57,6 +54,12 @@ $pageParam = $_GET['page'] ?? '';
                 include '../view/pages/account.php';
                 echo '<link rel="stylesheet" href="../view/css/account.css">';
                 echo '<script src="../assets/js/account.js"></script>';
+                break;
+            case 'cart':
+                include '../view/middlewares/AuthMiddleware.php';
+                include '../view/pages/cart.php';
+                echo '<link rel="stylesheet" href="../view/css/cart.css">';
+                echo '<script src="../assets/js/cart.js"></script>';
                 break;
             default:
                 # code...

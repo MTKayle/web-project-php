@@ -11,9 +11,8 @@ class CustomerService{
     }
 
     public function updateCustomer($currentID, $customerName, $phoneNumber, $address, $avatar){
-        if (!$avatar || $avatar['error'] !== UPLOAD_ERR_OK) {
-            echo json_encode(["success" => false, "message" => "Có lỗi xảy ra khi upload ảnh"]);
-        }else {
+        $avatarPath = '';
+        if ($avatar) {
             $uploadDir = 'C:/xampp/htdocs/web-project-php/assets/avatar/';
             $avatarName = uniqid() . '_' . basename($avatar['name']);
             $avatarDir = '/web-project-php/assets/avatar/'. $avatarName;

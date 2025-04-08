@@ -12,7 +12,7 @@ session_start();
 $userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : '';
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
-    $avatar = $_FILES['avatar'] ?? '';
+    $avatar = $_FILES['avatar'] ?? null;
     $customerName = $_POST['customerName'] ?? '';
     $phoneNumber = $_POST['phoneNumber'] ??'';
     $address = $_POST['address'] ??'';

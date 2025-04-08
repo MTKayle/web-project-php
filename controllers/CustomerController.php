@@ -11,12 +11,21 @@ class CustomerController{
     }
 
     public function updateCustomer($currentID, $customerName, $phoneNumber, $address, $avatar){
+        if(empty($customerName) && empty($phoneNumber) && empty($address) && empty($avatar)){
+            echo json_encode(["success" => false, "message" => "Không có thông tin thay đổi"]);
+            exit();
+        }
         $customer = $this->customerService->updateCustomer($currentID, $customerName, $phoneNumber, $address, $avatar);
+        if(is_array($avatar) && $avatar["error"] !== UPLOAD_ERR_OK){
+            $message = "Lỗi khi tải ảnh";
+        }else {
+            $message = "Cập nhật thông tin thành công";
+        }
         if($customer){
-            echo json_encode( ["success" => true, "message" => "Cập nhật thông tin thành công"]);  
+            echo json_encode( ["success" => true, "message" => $message]);  
             exit();
         } else {
-            echo json_encode(["success" => false, "message" => "Cập nhật thông tin thất bại"]);
+            echo json_encode(["success" => false, "message"=> $message]);
             exit();
         }
     }

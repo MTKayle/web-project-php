@@ -14,9 +14,26 @@ class CustomerRepository
     public function updateCustomer($currentID, $customerName, $phoneNumber, $address, $avatar){
         try {
             $this->connnection->beginTransaction();
-            $query = 'UPDATE customers SET customerName = :customerName, phoneNumber = :phoneNumber, address = :address, avatar = :avatar WHERE customerID = :currentID';
+            if($avatar) {
+                $query = 'UPDATE customers SET customerName = :customerName, phoneNumber = :phoneNumber, address = :address, avatar = :avatar WHERE customerID = :currentID';
+                $params = [
+                    'customerName' => $customerName,
+                    'phoneNumber' => $phoneNumber,
+                    'address' => $address,
+                    'avatar' => $avatar,
+                    'currentID' => $currentID
+                ];
+            } else {
+                $query = 'UPDATE customers SET customerName = :customerName, phoneNumber = :phoneNumber, address = :address WHERE customerID = :currentID';
+                $params = [
+                    'customerName' => $customerName,
+                    'phoneNumber' => $phoneNumber,
+                    'address' => $address,
+                    'currentID' => $currentID
+                ];
+            }
             $statement = $this->connnection->prepare($query);
-            $statement->execute(['customerName' => $customerName, 'phoneNumber' => $phoneNumber, 'address' => $address, 'avatar' => $avatar, 'currentID'=> $currentID]);
+            $statement->execute($params);
             $this->connnection->commit();
             return true;
         } catch (PDOException $e) {
