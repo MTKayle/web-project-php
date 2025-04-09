@@ -9,8 +9,8 @@
                                 <polyline points="10 17 15 12 10 7"></polyline>
                                 <line x1="15" y1="12" x2="3" y2="12"></line>
                             </svg>
-                            <h2 class="mt-3">Welcome Back</h2>
-                            <p class="text-muted">Please login to your account</p>
+                            <h2 class="mt-3">Hoope chào bạn!</h2>
+                            <p class="text-muted">Đăng nhập tài khoản của bạn</p>
                         </div>
 
                         <form id="loginForm">
@@ -27,13 +27,13 @@
                             <div class="mb-4 d-flex justify-content-between align-items-center">
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="remember" name="remember <?= isset($_COOKIE['email']) ? 'checked' : '' ?>">
-                                    <label class="form-check-label" for="remember" >Remember me</label>
+                                    <label class="form-check-label" for="remember" >Nhớ mật khẩu</label>
                                 </div>
-                                <a href="#" class="text-decoration-none">Forgot password?</a>
+                                <a href="#" class="text-decoration-none">Quên mật khẩu mất rồi</a>
                             </div>
 
                             <button type="submit" class="btn btn-primary w-100 py-2">
-                                Login
+                                Đăng nhập
                             </button>
 
                             <p id="error-message-login" class="text-danger text-center mt-3" ></p>

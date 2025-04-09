@@ -1,0 +1,189 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f5f5f5;
+}
+
+.container-fluid {
+    background-color: #f2ff4e;
+    font-size: 0.9rem;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #92c83e;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+    letter-spacing: -1px;
+}
+
+.sidebar-menu .nav-link {
+    color: #555;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-bottom: 5px;
+}
+
+.sidebar-menu .nav-link:hover {
+    background-color: #f0f7e6;
+}
+
+.sidebar-menu .nav-link.active {
+    background-color: #e8f4d9;
+    color: #333;
+    font-weight: 500;
+}
+
+.post-card {
+    background-color: #f0f8ff;
+    border-radius: 5px;
+    border: none;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    transition: transform 0.2s;
+}
+
+.card-body {
+    background-color: #f0f8ff;
+    padding: 15px !important;
+    border-radius: 5px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    margin-bottom: 25px;
+}
+
+
+/* Điều chỉnh input để có cùng kiểu dáng với post-card */
+
+#triggerInput.post-card {
+    padding: 15px;
+    font-size: 1rem;
+}
+
+.post-card:hover {
+    transform: translateY(-3px);
+}
+
+.post-title {
+    color: #654321;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #333;
+    overflow: hidden;
+}
+
+.btn-action {
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 0.85rem;
+    transition: all 0.3s;
+}
+
+.follow-btn {
+    background-color: #92c83e;
+    border: none;
+    color: white;
+}
+
+.follow-btn:hover {
+    background-color: #7fb52e;
+}
+
+.post-image {
+    width: 100%;
+    border-radius: 8px;
+    margin: 10px 0 15px;
+}
+
+.post-tag {
+    display: inline-block;
+    background-color: #e8f4d9;
+    color: #6b8e23;
+    border-radius: 15px;
+    padding: 3px 10px;
+    font-size: 0.8rem;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.nav-tabs .nav-link {
+    color: #555;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 10px 15px;
+}
+
+.nav-tabs .nav-link.active {
+    color: #92c83e;
+    border-bottom: 2px solid #92c83e;
+    background: none;
+}
+
+.reaction-btn {
+    color: #777;
+    background: none;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.reaction-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.card-title {
+    font-weight: bold;
+    color: #524117;
+}
+
+#reviewForm {
+    display: none;
+}
+
+#imagePreview {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+    display: none;
+}
+
+.comment-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #555;
+    overflow: hidden;
+}
+
+.comment-input {
+    border-radius: 20px;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+}
+
+.comment-bubble {
+    background-color: white;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}

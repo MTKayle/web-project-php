@@ -2,7 +2,7 @@
 <div class="top-bar py-2 text-center">
   <div class="container">
     <a href="#" class="text-decoration-none text-dark">
-      Miễn phí giao hàng đơn từ 500k
+      Amazing toys for amazing brains
     </a>
   </div>
 </div>
@@ -11,7 +11,7 @@
     <nav class="navbar navbar-expand-lg navbar-light py-2" style="background-color: #fff0d2;">
         <div class="container" style="background-color: #fff0d2;">
             <!-- Logo -->
-            <a class="navbar-brand" href="#">
+            <a href="?page=" class="navbar-brand" href="#">
                 <img src="../view/resources/logo.png" alt="Logo" class="img-fluid" style="max-height: 40px;">
             </a>
 
@@ -43,79 +43,79 @@
                         </a>
                     </li>
                     <?php session_start(); ?>
-        <li class="nav-item d-none d-sm-block">
-            <?php if(isset($_SESSION['userName'])):?>
-                <a class="nav-link" href="?page=account">
-                    <i class="fa-solid fa-user"></i> Tài khoản
-                </a>
-            <?php else: ?>
-                <a class="nav-link" href="?page=login" id="login-button-header">
-                    <i class="fa-solid fa-user"></i> Đăng nhập
-                </a>
-            <?php endif;?>
-        </li>
-                    <!-- Giỏ hàng dropdown - Chỉ hiển thị trên desktop -->
-                    <div class="dropdown cart-dropdown">
-                        <a class="btn btn-outline-secondary position-relative dropdown-toggle" href="?page=cart" role="button">
-                            <i class="bi bi-cart fs-5"></i>
-                            <span class="badge bg-danger badge-cart">3</span>
+                    <li class="nav-item d-none d-sm-block">
+                        <?php if(isset($_SESSION['userName'])):?>
+                            <a class="nav-link" href="?page=account">
+                                <i class="fa-solid fa-user"></i> Tài khoản
+                            </a>
+                        <?php else: ?>
+                            <a class="nav-link" href="?page=login" id="login-button-header">
+                                <i class="fa-solid fa-user"></i> Đăng nhập
+                            </a>
+                        <?php endif;?>
+                    </li>
+                    <!-- Giỏ hàng dropdown - Chuyển thành nav-item giống các mục khác -->
+                    <li class="nav-item dropdown cart-dropdown">
+                        <a class="nav-link dropdown-toggle position-relative" href="?page=cart" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-shopping-cart"></i>Giỏ hàng
+                            <span class="badge bg-danger badge-cart position-absolute top-0 start-100 translate-middle">3</span>
                         </a>
-
+                        
                         <div class="dropdown-menu dropdown-cart dropdown-menu-end shadow">
-                            <div class="p-3 border-bottom">
+                            <div class="p-2 border-bottom">
                                 <h6 class="mb-0"><b>Giỏ hàng của bạn</b></h6>
                             </div>
-
-                            <div class="cart-items">
+                            
+                            <div class="cart-items overflow-auto" style="max-height: 300px;">
                                 <!-- Cart Item 1 -->
-                                <div class="d-flex align-items-center p-3 border-bottom">
-                                    <img src="/api/placeholder/50/50" alt="Áo thun nam" class="cart-item-img rounded me-3">
+                                <div class="d-flex align-items-center p-2 border-bottom">
+                                    <img src="../view/resources/IMG/5.jpg" alt="Đồ chơi" class="cart-item-img rounded me-2" style="width: 50px; height: 50px; object-fit: cover;">
                                     <div class="flex-grow-1">
-                                        <h6 class="mb-0">Áo thun nam</h6>
-                                        <div class="d-flex justify-content-between align-items-center mt-1">
+                                        <h6 class="mb-0 fs-6">Đồ chơi</h6>
+                                        <div class="d-flex justify-content-between align-items-center">
                                             <span class="text-danger fw-bold">250.000₫</span>
                                             <span class="badge bg-light text-dark">x1</span>
                                         </div>
                                     </div>
                                 </div>
-
+                                
                                 <!-- Cart Item 2 -->
-                                <div class="d-flex align-items-center p-3 border-bottom">
-                                    <img src="/api/placeholder/50/50" alt="Quần jean nữ" class="cart-item-img rounded me-3">
+                                <div class="d-flex align-items-center p-2 border-bottom">
+                                    <img src="../view/resources/IMG/5.jpg" alt="Quần jean nữ" class="cart-item-img rounded me-2" style="width: 50px; height: 50px; object-fit: cover;">
                                     <div class="flex-grow-1">
-                                        <h6 class="mb-0">Quần jean nữ</h6>
-                                        <div class="d-flex justify-content-between align-items-center mt-1">
+                                        <h6 class="mb-0 fs-6">Đồ chơi</h6>
+                                        <div class="d-flex justify-content-between align-items-center">
                                             <span class="text-danger fw-bold">450.000₫</span>
                                             <span class="badge bg-light text-dark">x1</span>
                                         </div>
                                     </div>
                                 </div>
-
+                                
                                 <!-- Cart Item 3 -->
-                                <div class="d-flex align-items-center p-3 border-bottom">
-                                    <img src="/api/placeholder/50/50" alt="Giày thể thao" class="cart-item-img rounded me-3">
+                                <div class="d-flex align-items-center p-2 border-bottom">
+                                    <img src="../view/resources/IMG/5.jpg" alt="Giày thể thao" class="cart-item-img rounded me-2" style="width: 50px; height: 50px; object-fit: cover;">
                                     <div class="flex-grow-1">
-                                        <h6 class="mb-0">Giày thể thao</h6>
-                                        <div class="d-flex justify-content-between align-items-center mt-1">
+                                        <h6 class="mb-0 fs-6">Đồ chơi</h6>
+                                        <div class="d-flex justify-content-between align-items-center">
                                             <span class="text-danger fw-bold">850.000₫</span>
                                             <span class="badge bg-light text-dark">x1</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="p-3 border-bottom">
+                            
+                            <div class="p-2 border-bottom">
                                 <div class="d-flex justify-content-between fw-bold">
                                     <span>Tổng cộng:</span>
                                     <span>1.550.000₫</span>
                                 </div>
                             </div>
-
-                            <div class="p-3">
-                                <a href="?page=cart" class="btn w-100">Xem giỏ hàng</a>
+                            
+                            <div class="p-2">
+                                <a href="?page=cart" class="btn btn-danger w-100">Xem giỏ hàng</a>
                             </div>
                         </div>
-                    </div>
+                    </li>
                 </ul>
 
                 <!-- Main menu items (on mobile only) -->
@@ -205,11 +205,11 @@
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#">HÀNG MỚI</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">THƯƠNG HIỆU</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">DIỄN ĐÀN</a></li>
+                    <li class="nav-item"><a class="nav-link" href="?page=forum">DIỄN ĐÀN</a></li>
                     <!-- Tracking and login links only visible on xs screens -->
                     <li class="nav-item d-sm-none"><a class="nav-link" href="#"><i class="fa-solid fa-truck"></i> Theo dõi đơn hàng</a></li>
                     <li class="nav-item d-sm-none"><a class="nav-link" href="#"><i class="fa-solid fa-user"></i> Đăng nhập</a></li>
-                    <li class="nav-item d-sm-none"><a class="nav-link" href="?page=cart"><i class="fa-solid fa-shopping-cart"></i> Giỏ hàng</a></li>
+                    <!-- <li class="nav-item d-sm-none"><a class="nav-link" href="?page=cart"><i class="fa-solid fa-shopping-cart"></i> Giỏ hàng</a></li> -->
                 </ul>
             </div>
         </div>
@@ -330,7 +330,7 @@
                         <a class="nav-link py-3" href="#">THƯƠNG HIỆU</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link py-3" href="#">DIỄN ĐÀN</a>
+                        <a class="nav-link py-3" href="?page=forum">DIỄN ĐÀN</a>
                     </li>
                 </ul>
             </div>
@@ -341,3 +341,4 @@
             data-userID="<?php echo isset($_SESSION['userID']) ? $_SESSION['userID'] : ''; ?>">
         </div>
     </nav>
+    

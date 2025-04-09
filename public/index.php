@@ -13,10 +13,12 @@ $pageParam = $_GET['page'] ?? '';
     <script src="../assets/index.js"></script>
     <script src="../assets/js/auth.js"></script>
     <script src="../assets/js/cart.js"></script>
+    
     <link rel="stylesheet" href="../view/css/global.css">
     <link rel="stylesheet" href="../view/css/footerStyle.css">
     <link rel="stylesheet" href="../view/css/headerStyle.css">
     <link rel="stylesheet" href="../view/css/cart.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
@@ -24,7 +26,7 @@ $pageParam = $_GET['page'] ?? '';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </head>
-<body class="bg-white" style = "background-image: url('../view/resources/IMG/backgroundnew.png');">
+<body class="bg-white" style = "background-image: url('../view/resources/IMG/b.jpg');background-attachment: fixed; background-repeat: no-repeat; background-size: cover; ">
     <?php 
     include '../view/layout/header.php';
     $marginClass = in_array($pageParam, ['login', 'sign-up', 'account']) ? 'mt-5' : 'default-margin'; 
@@ -39,6 +41,9 @@ $pageParam = $_GET['page'] ?? '';
                 include '../view/pages/home.php';
                 echo'<link rel="stylesheet" href="../view/css/home.css">';
                 echo'<script src="../assets/js/home.js"></script>';
+                break;
+            case 'cart':
+                include '../view/pages/cart.php';
                 echo'<link rel="stylesheet" href="../view/css/cart.css">';
                 echo'<script src="../assets/js/cart.js"></script>';
                 break;
@@ -55,11 +60,15 @@ $pageParam = $_GET['page'] ?? '';
                 echo '<link rel="stylesheet" href="../view/css/account.css">';
                 echo '<script src="../assets/js/account.js"></script>';
                 break;
-            case 'cart':
-                include '../view/middlewares/AuthMiddleware.php';
-                include '../view/pages/cart.php';
-                echo '<link rel="stylesheet" href="../view/css/cart.css">';
-                echo '<script src="../assets/js/cart.js"></script>';
+            case 'pay':
+                include '../view/pages/pay.php';
+                echo '<link rel="stylesheet" href="../view/css/pay.css">';
+                echo '<script src="../assets/js/pay.js"></script>';
+                break;
+            case 'forum':
+                include '../view/pages/forum.php';
+                echo '<link rel="stylesheet" href="../view/css/forum.css">';
+                echo '<script src="../assets/js/forum.js"></script>';
                 break;
             default:
                 # code...
@@ -71,6 +80,7 @@ $pageParam = $_GET['page'] ?? '';
             <i class="fa fa-arrow-up"></i>
         </a>
     </div>
+    <script src="../assets/js/mobileMenu.js"></script>
 </body>
 </html>
 <?php
