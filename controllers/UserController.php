@@ -14,10 +14,16 @@ class UserController{
             echo json_encode(["suscess" => false, "message" => "Tất cả các trường là bắt buộc"]);
             exit();
         }
-        // if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        //     echo json_encode(["suscess" => false, "message" => "Email không hợp lệ"]);
-        //     exit();
-        // }
+        
+        if (preg_match('/\s/', $password)) {
+            echo json_encode(["success" => false, "message" => "Mật khẩu không được chứa khoảng trắng"]);
+            exit();
+        }
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            echo json_encode(["success" => false, "message" => "Email không hợp lệ"]);
+            exit();
+        }
         try {
             $registerSuccess = $this->userService->registerUser($name, $email, $password);
             if ($registerSuccess) {

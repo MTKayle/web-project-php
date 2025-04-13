@@ -1,0 +1,60 @@
+@media (max-width: 767.98px) {
+    #filterSection {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 80%;
+        height: 100%;
+        z-index: 1050;
+        overflow-y: auto;
+        background-color: white;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    #filterSection.show {
+        transform: translateX(0);
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    
+    .filter-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 1040;
+        display: none;
+    }
+    
+    .filter-backdrop.show {
+        display: block;
+    }
+    .card {
+        border: none;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .card:hover {
+        transform: translateY(-2px);
+        transition: transform 0.2s ease;
+    }
+}
+.product-image {
+    height: 200px;
+    overflow: hidden; 
+}
+.product-image img {  
+    height: 200px !important; 
+    object-fit: cover;  
+    overflow: hidden;
+    border-radius: 0px;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  

@@ -119,6 +119,8 @@ CREATE TABLE Products (
     createAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     brandID INT,
     categoryID INT,
+    ageFrom INT,
+    ageTo INT,
     isActive BOOLEAN DEFAULT TRUE,
     FOREIGN KEY (brandID) REFERENCES Brands(brandID),
     FOREIGN KEY (categoryID) REFERENCES Category(categoryID)
@@ -238,3 +240,16 @@ CREATE TABLE Reviews (
     FOREIGN KEY (productID) REFERENCES Products(productID),
     FOREIGN KEY (customerID) REFERENCES Customers(customerID)
 );
+
+-- Tạo bảng Product_gallery
+CREATE TABLE product_gallery (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    productID INT NOT NULL,
+    imagePath VARCHAR(255) NOT NULL,
+    uploadedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (productID) REFERENCES products(productID) ON DELETE CASCADE
+);
+
+ALTER TABLE category ADD COLUMN code varchar(255) not null UNIQUE
+alter table Brands add COLUMN brandCode varchar(255) not null UNIQUE
+

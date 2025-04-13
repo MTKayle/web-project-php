@@ -44,7 +44,7 @@
 
                             <div class="text-center mt-4">
                                 <p class="text-muted">
-                                    Already have an account? <a href="#" class="text-decoration-none">Sign in</a>
+                                    Already have an account? <a href="?page=login" class="text-decoration-none">Sign in</a>
                                 </p>
 </div>
                         </form>

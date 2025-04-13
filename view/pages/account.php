@@ -12,8 +12,6 @@
                     <ul class="sidebar-menu">
                         <li class="active"><a href="#">Tài khoản</a></li>
                         <li><a href="#">Lịch sử mua hàng</a></li>
-                        <li><a href="#">Danh sách yêu thích</a></li>
-                        <li><a href="#">Địa chỉ giao hàng</a></li>
                         <li><a href="#">Điểm tích luỹ</a></li>
                         <li><a href="#" id="logout-button">Đăng xuất</a></li>
                     </ul>
@@ -26,6 +24,9 @@
                     <h2 class="section-title">Thông Tin Tài Khoản</h2>
                     
                     <form id="account-form">
+
+                    <input type="hidden" id="userId" name="userId">
+
                         <div class="row mb-3">
                             <div class="col-md-3">
                                 <p class="info-label">Họ và tên</p>

@@ -10,9 +10,7 @@ $pageParam = $_GET['page'] ?? '';
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-    <script src="../assets/index.js"></script>
-    <script src="../assets/js/auth.js"></script>
-    <script src="../assets/js/cart.js"></script>
+    
     
     <link rel="stylesheet" href="../view/css/global.css">
     <link rel="stylesheet" href="../view/css/footerStyle.css">
@@ -34,6 +32,7 @@ $pageParam = $_GET['page'] ?? '';
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fa fa-arrow-up"></i>
     </a>
+    <script src="../assets/js/product.js"></script>
     <div class="container <?php echo $marginClass; ?>" >
         <?php
         switch ($pageParam) {
@@ -70,6 +69,11 @@ $pageParam = $_GET['page'] ?? '';
                 echo '<link rel="stylesheet" href="../view/css/forum.css">';
                 echo '<script src="../assets/js/forum.js"></script>';
                 break;
+            case 'product':
+                include '../view/pages/product.php';
+                echo '<link rel="stylesheet" href="../view/css/product.css">';
+                echo '<script src="../assets/js/product.js"></script>';
+                break;
             default:
                 # code...
                 break;
@@ -81,6 +85,9 @@ $pageParam = $_GET['page'] ?? '';
         </a>
     </div>
     <script src="../assets/js/mobileMenu.js"></script>
+    <script src="../assets/index.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/cart.js"></script>
 </body>
 </html>
 <?php

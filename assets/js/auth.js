@@ -177,6 +177,7 @@ $(document).ready(function() {
                 // Check if response is success
                 console.log(response);
                 if (response.success) {
+                    $('#userID').val(response.user.id);
                     $('#error-message-login').hide();
                     $('#success-message-login').text("Đăng nhập thành công! Chuyển hướng...").show();
                     // Redirect to login page after 2 seconds
