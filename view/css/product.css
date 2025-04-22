@@ -46,7 +46,7 @@
 }
 .product-image img {  
     height: 200px !important; 
-    object-fit: cover;  
+    object-fit: contain;  
     overflow: hidden;
     border-radius: 0px;
 }
@@ -57,4 +57,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+.product-card-radius{
+    border-radius: 20px;
+}
   

@@ -28,6 +28,10 @@ if($_SERVER["REQUEST_METHOD"] === "GET") {
         $filters['category'] = $_GET['danhmuc'];
     }
 
+    if(isset($_GET['thuonghieu'])) {
+        $filters['brand'] = explode(',', $_GET['thuonghieu']); // ["0-3", "4-6"]
+    }
+
     $productController->getAllProducts($filters);
 }
 ?>

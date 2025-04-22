@@ -160,16 +160,25 @@ class ProductRepository
         return $products;
     }
 
-    // public function getProductByID($productID)
-    // {
-    //     $query = "SELECT * FROM products WHERE productID = :productID";
-    //     $statement = $this->connnection->prepare($query);
-    //     $statement->execute(['productID' => $productID]);
-    //     if ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-    //         return new Product($row['productID'], $row['productName'], $row['title'], $row['description'], $row['price'], $row['stockQuantity'], $row['image']);
-    //     }
-    //     return null;
-    // }
+    public function getProductByID($productID)
+    {
+        $query = "SELECT * FROM products WHERE productID = :productID";
+        $statement = $this->connnection->prepare($query);
+        $statement->execute(['productID' => $productID]);
+        if ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            return new Product(
+                $row['productID'],
+                $row['productName'],
+                $row['title'],
+                $row['description'],
+                $row['price'],
+                $row['stockQuantity'],
+                $row['image'],
+                null,
+            );
+        }
+        return null;
+    }
 
     public function getNewProducts($limit = 4)
     {

@@ -1,0 +1,54 @@
+.product-image {
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.btn {
+    transition: background-color 0.3s;
+    background-color: #524117;
+    color: #f2ff4e;
+}
+
+.btn:hover {
+    background-color: #f2ff4e;
+    color: #524117;
+}
+
+.thumbnail {
+    cursor: pointer;
+    height: 80px;
+    object-fit: cover;
+    transition: opacity 0.2s;
+}
+
+.thumbnail:hover {
+    opacity: 0.8;
+}
+
+.price {
+    color: #dc3545;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.feature-icon {
+    color: #198754;
+}
+
+.nav-tabs .nav-link {
+    color: #495057;
+}
+
+.nav-tabs .nav-link.active {
+    font-weight: bold;
+    color: #524117;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-input {
+    width: 80px;
+}

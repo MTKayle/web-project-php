@@ -52,11 +52,11 @@ function getSelectedValues(className) {
   }).get(); // trả về array
 }
 
-function getFilters() {
+function getFilters(selectedCategory = null) {
   console.log("Lấy filter");
   const ages = getSelectedValues('age-checkbox');
-  // const prices = getSelectedValues('price-checkbox');
-  // const brands = getSelectedValues('brand-checkbox');
+  const prices = getSelectedValues('price-checkbox');
+  const brands = getSelectedValues('brand-checkbox');
   // const category = document.getElementById('category').value; // Lấy giá trị của select category
   // const search = document.getElementById('searchInput').value.trim();   
 
@@ -69,17 +69,17 @@ function getFilters() {
   }
   
 
-  // if (brands.length > 0) {
-  //     params.set('thuonghieu', brands.join(','));
-  // } else {
-  //     params.delete('thuonghieu');
-  // }
+  if (brands.length > 0) {
+      params.set('thuonghieu', brands.join(','));
+  } else {
+      params.delete('thuonghieu');
+  }
 
-  // if (prices.length > 0) {
-  //     params.set('gia', prices.join(','));
-  // } else {
-  //     params.delete('gia');
-  // }
+  if (prices.length > 0) {
+      params.set('gia', prices.join(','));
+  } else {
+      params.delete('gia');
+  }
 
   // if (search !== '') {
   //   params.set('q', search);
@@ -90,6 +90,11 @@ function getFilters() {
   // if (category !== '') {
   //   params.set('danhmuc', category);
   // }
+
+  if (selectedCategory) {
+    params.set('danhmuc', selectedCategory);
+    params.set('page', 'product');
+  }
 
 
   const newUrl = `${window.location.pathname}?${params.toString()}`;
@@ -138,10 +143,10 @@ function renderProducts(products) {
 
     html += `
     <div class="col-md-4 mb-4">
-    <div class="card h-100 border-0 product-card d-flex flex-column">
+    <div class="card h-100 border-0 product-card d-flex flex-column product-card-radius" data-id="${product.productID}">
       <div class="position-absolute badge bg-danger text-white m-2 px-2 py-1">-${discountPercent}%</div>
       <div class="product-image">
-        <img src="uploads/${product.image}" alt="${product.productName}" class="card-img-top">
+        <img src="${product.image}" alt="${product.productName}" class="card-img-top">
       </div>
       <div class="card-body d-flex flex-column">
         <div class="text-muted small fw-bold mb-1">${product.brandName || 'Không rõ hãng'}</div>
@@ -156,7 +161,7 @@ function renderProducts(products) {
   
         <!-- Đẩy nút xuống cuối card -->
         <div class="mt-auto">
-          <a href="#" class="btn btn-primary w-100">Thêm vào giỏ</a>
+          <a href="#" class="btn btn-primary w-100 btn-add-to-cart" data-productid="${product.productID}">Thêm vào giỏ</a>
         </div>
       </div>
     </div>
@@ -259,9 +264,16 @@ function renderProducts(products) {
     fetchProducts(urlParams.toString());
   }
 
-  $('.age-checkbox, .brand-checkbox').on('change', function() {
+  $('.age-checkbox, .brand-checkbox, .price-checkbox').on('change', function() {
     console.log("Checkbox changed");
     getFilters();
+  });
+
+  $(document).ready(function () {
+    $('.category-item').on('click', function () {
+      const selectedCategory = $(this).data('category');
+      getFilters(selectedCategory); // Gọi lại hàm có truyền category
+    });
   });
 
   

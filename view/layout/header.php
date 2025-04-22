@@ -128,55 +128,54 @@
                             <li>
                                 <h6 class="dropdown-header">ĐỒ CHƠI THEO PHIM</h6>
                                 <a class="dropdown-item" href="?page=product&danhmuc=sieuanhhung">Siêu anh hùng</a>
-                                <a class="dropdown-item" href="#">Siêu Robot</a>
-                                <a class="dropdown-item" href="#">Siêu thú</a>
-                                <a class="dropdown-item" href="#">Máy bay, phương tiện xe</a>
-                                <a class="dropdown-item" href="#">Đối kháng</a>
-                                <a class="dropdown-item" href="#">Con quay</a>
-                                <a class="dropdown-item" href="#">Khác</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=sieurobot">Siêu Robot</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=sieuthu">Siêu thú</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=maybay-ptxe">Máy bay, phương tiện xe</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=doikhang">Đối kháng</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=conquay">Con quay</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
                                 <h6 class="dropdown-header">ĐỒ CHƠI PHƯƠNG TIỆN</h6>
-                                <a class="dropdown-item" href="#">Xe điều khiển</a>
-                                <a class="dropdown-item" href="#">Xe sưu tập die-cast</a>
-                                <a class="dropdown-item" href="#">Xe mô hình</a>
-                                <a class="dropdown-item" href="#">Xe lắp ráp</a>
-                                <a class="dropdown-item" href="#">Playset & phụ kiện</a>
-                                <a class="dropdown-item" href="#">Các phương tiện khác</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=xedieukhien">Xe điều khiển</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=xediecast">Xe sưu tập die-cast</a>
+                                <a class="dropdown-item" href="xemohinh">Xe mô hình</a>
+                                <a class="dropdown-item" href="xelaprap">Xe lắp ráp</a>
+                                <a class="dropdown-item" href="playsetphukien">Playset & phụ kiện</a>
+                                <!-- <a class="dropdown-item" href="#">Các phương tiện khác</a> -->
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
                                 <h6 class="dropdown-header">ĐỒ CHƠI LẮP GHÉP</h6>
-                                <a class="dropdown-item" href="#">LEGO</a>
-                                <a class="dropdown-item" href="#">Khác</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=lego">LEGO</a>
+                                <!-- <a class="dropdown-item" href="#">Khác</a> -->
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
                                 <h6 class="dropdown-header">ĐỒ DÙNG HỌC TẬP</h6>
-                                <a class="dropdown-item" href="#">Ba lô đi học</a>
-                                <a class="dropdown-item" href="#">Ba lô mầm non</a>
-                                <a class="dropdown-item" href="#">Hộp viết</a>
-                                <a class="dropdown-item" href="#">Văn phòng phẩm</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=balodihoc">Ba lô đi học</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=balomamnon">Ba lô mầm non</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=hopviet">Hộp viết</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=vanphongpham">Văn phòng phẩm</a>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li>
                                 <h6 class="dropdown-header">ĐỒ CHƠI SÁNG TẠO</h6>
-                                <a class="dropdown-item" href="#">Bút màu & bảng vẽ</a>
-                                <a class="dropdown-item" href="#">Bột nặn</a>
-                                <a class="dropdown-item" href="#">Cát động lực</a>
-                                <a class="dropdown-item" href="#">Đồ chơi dựng phim</a>
-                                <a class="dropdown-item" href="#">DIY</a>
-                                <a class="dropdown-item" href="#">STEAM</a>
-                                <a class="dropdown-item" href="#">Slime</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=butmau-bangve">Bút màu & bảng vẽ</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=botnan">Bột nặn</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=catdongluc">Cát động lực</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=dochoidungphim">Đồ chơi dựng phim</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=diy">DIY</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=steam">STEAM</a>
+                                <a class="dropdown-item" href="?page=product&danhmuc=slime">Slime</a>
                             </li>
                         </ul>
                     </li>
@@ -232,45 +231,45 @@
                                         <h6 class="fw-bold text-uppercase small">Đồ chơi theo phim</h6>
                                         <div class="dropdown-divider mb-2"></div>
                                         <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=sieuanhhung">Siêu anh hùng</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Siêu Robot</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Siêu thú</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Máy bay, phương tiện xe</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Đối kháng</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Con quay</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=sieurobot">Siêu Robot</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=sieuthu">Siêu thú</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=maybay-ptxe">Máy bay, phương tiện xe</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=doikhang">Đối kháng</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=conquay">Con quay</a>
                                     </div>
                                     <div class="col-lg-3 mb-3">
                                         <h6 class="fw-bold text-uppercase small">Đồ chơi phương tiện</h6>
                                         <div class="dropdown-divider mb-2"></div>
-                                        <a class="dropdown-item py-1 category-link" href="#">Xe điều khiển</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Xe sưu tập die-cast</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Xe mô hình</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Xe lắp ráp</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Playset & phụ kiện</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Các phương tiện khác</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=xedieukhien">Xe điều khiển</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=xediecast">Xe sưu tập die-cast</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=xemohinh">Xe mô hình</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=xelaprap">Xe lắp ráp</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=playsetphukien">Playset & phụ kiện</a>
+                                        <!-- <a class="dropdown-item py-1 category-link" href="#">Các phương tiện khác</a> -->
                                     </div>
                                     <div class="col-lg-3 mb-3">
                                         <h6 class="fw-bold text-uppercase small">Đồ chơi lắp ghép</h6>
                                         <div class="dropdown-divider mb-2"></div>
-                                        <a class="dropdown-item py-1 category-link" href="#">LEGO</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Khác</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=lego">LEGO</a>
+                                        <!-- <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=">Khác</a> -->
 
                                         <h6 class="fw-bold text-uppercase small mt-4">Đồ dùng học tập</h6>
                                         <div class="dropdown-divider mb-2"></div>
-                                        <a class="dropdown-item py-1 category-link" href="#">Ba lô đi học</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Ba lô mầm non</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Hộp viết</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Văn phòng phẩm</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=balodihoc">Ba lô đi học</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=balomamnon">Ba lô mầm non</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=hopviet">Hộp viết</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=vanphongpham">Văn phòng phẩm</a>
                                     </div>
                                     <div class="col-lg-3 mb-3">
                                         <h6 class="fw-bold text-uppercase small">Đồ chơi sáng tạo</h6>
                                         <div class="dropdown-divider mb-2"></div>
-                                        <a class="dropdown-item py-1 category-link" href="#">Bút màu & bảng vẽ</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Bột nặn</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Cát động lực</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Đồ chơi dựng phim</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">DIY</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">STEAM</a>
-                                        <a class="dropdown-item py-1 category-link" href="#">Slime</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=butmau-bangve">Bút màu & bảng vẽ</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=botnan">Bột nặn</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=catdongluc">Cát động lực</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=dochoidungphim">Đồ chơi dựng phim</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=diy">DIY</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=steam">STEAM</a>
+                                        <a class="dropdown-item py-1 category-link" href="?page=product&danhmuc=slime">Slime</a>
                                     </div>
                                 </div>
                             </div>

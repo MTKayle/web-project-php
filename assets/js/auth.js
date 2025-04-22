@@ -41,6 +41,22 @@ $(document).ready(function() {
                 if (response.success) {
                     $('#error-message-register').hide();
                     $('#success-message-register').text("Đăng ký thành công! Chuyển hướng...").show();
+
+                    // Tạo giỏ hàng sau khi đăng ký
+                    $.ajax({
+                        url: `${baseUrl}/ajax/cart.php`,
+                        type: 'POST',
+                        data: { 
+                            action: 'create',
+                            userID: response.userID
+                        },
+                        success: function(cartRes) {
+                            console.log("Giỏ hàng đã được tạo:", cartRes);
+                        },
+                        error: function() {
+                            console.error("Không thể tạo giỏ hàng");
+                        }
+                    });
                     // Redirect to login page after 2 seconds
                     setTimeout(() => {
                         window.location.href = "?page=login";

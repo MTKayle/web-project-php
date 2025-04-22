@@ -26,8 +26,8 @@ class UserController{
         }
         try {
             $registerSuccess = $this->userService->registerUser($name, $email, $password);
-            if ($registerSuccess) {
-                echo json_encode(["success" => true, "message" => "Registration successful"]);
+            if (isset($registerSuccess)) {
+                echo json_encode(["success" => true, "userID"=>$registerSuccess, "message" => "Registration successful"]);
                 exit();
             } else {
                 echo json_encode(["success" => false, "message" => "Registration failed"]);
@@ -42,12 +42,11 @@ class UserController{
         }
     }
 
-    public function login($email, $password, $remember){
+    public function login($email, $password){
         if(empty($email) || empty($password)){
             echo json_encode(["success" => false, "message" => "Tất cả các trường là bắt buộc"]);
             exit();
         }
-        echo $remember;
         try {
             $user = $this->userService->login($email, $password);
             if ($user) {
@@ -55,22 +54,15 @@ class UserController{
                 $_SESSION['userID'] = $user->userID;
                 $_SESSION['userName'] = $user->name;
                 $_SESSION['email'] = $user->email;
-
-                if($remember){
-                    setcookie('email', $user->email, time() + 3600 * 24 * 7);
-                    setcookie('password', $user->password, time() + 3600 * 24 * 7);
-                } else {
-                    // Xóa cookies nếu không chọn "Nhớ mật khẩu"
-                    setcookie('email', '', time() - 3600, '/');
-                    setcookie('password', '', time() - 3600, '/');
-                }
+                $_SESSION['cartID'] = $user->cartID;
 
                 $response = [
                     'success' => true,
                     'user' => [
                         'id' => $user->userID,
                         'name' => $user->name,
-                        'email' => $user->email
+                        'email' => $user->email,
+                        'cartID'=> $user->cartID,
                     ]
                 ];
                 

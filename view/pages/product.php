@@ -22,40 +22,33 @@
                 
                     <!-- Categories Section -->
                     <h5 class="text-danger mb-3">Danh Mục</h5>
-                    <ul class="list-unstyled mb-4">
-                        <li class="d-flex justify-content-between mb-2">
-                        <span>Siêu anh hùng</span>
-                        <span class="text-muted">(908)</span>
+                    <ul class="list-unstyled mb-4" id="category-list">
+                        <li class="d-flex justify-content-between mb-2 category-item" data-category="sieuanhhung" style="cursor: pointer;">
+                            <span>Siêu anh hùng</span>
                         </li>
-                        <li class="d-flex justify-content-between mb-2">
-                        <span>Phương tiện giao thông</span>
-                        <span class="text-muted">(0)</span>
+                        <li class="d-flex justify-content-between mb-2 category-item" data-category="phuongtiengiaothong" style="cursor: pointer;">
+                            <span>Phương tiện giao thông</span>
                         </li>
-                        <li class="d-flex justify-content-between mb-2">
-                        <span>Kẹo đồ chơi</span>
-                        <span class="text-muted">(10)</span>
+                        <li class="d-flex justify-content-between mb-2 category-item" data-category="keodochoi" style="cursor: pointer;">
+                            <span>Kẹo đồ chơi</span>
                         </li>
-                        <li class="d-flex justify-content-between mb-2">
-                        <span>Đồ chơi lắp ghép</span>
-                        <span class="text-muted">(851)</span>
+                        <li class="d-flex justify-content-between mb-2 category-item" data-category="dochoilapghep" style="cursor: pointer;">
+                            <span>Đồ chơi lắp ghép</span>
                         </li>
-                        <li class="d-flex justify-content-between mb-2">
-                        <span>Đồ chơi sáng tạo</span>
-                        <span class="text-muted">(467)</span>
+                        <li class="d-flex justify-content-between mb-2 category-item" data-category="dochoisangtao" style="cursor: pointer;">
+                            <span>Đồ chơi sáng tạo</span>
                         </li>
-                        <li class="d-flex justify-content-between mb-2">
-                        <span>Đồ thời trang</span>
-                        <span class="text-muted">(339)</span>
+                        <li class="d-flex justify-content-between mb-2 category-item" data-category="dothoitrang" style="cursor: pointer;">
+                            <span>Đồ thời trang</span>
                         </li>
-                        <li class="d-flex justify-content-between mb-2">
-                        <span>Thế giới động vật</span>
-                        <span class="text-muted">(313)</span>
+                        <li class="d-flex justify-content-between mb-2 category-item" data-category="thegioidongvat" style="cursor: pointer;">
+                            <span>Thế giới động vật</span>
                         </li>
-                        <li class="d-flex justify-content-between mb-2">
-                        <span>Búp bê</span>
-                        <span class="text-muted">(593)</span>
+                        <li class="d-flex justify-content-between mb-2 category-item" data-category="bupbe" style="cursor: pointer;">
+                            <span>Búp bê</span>
                         </li>
                     </ul>
+
 
                     <!-- Age Section -->
                     <h5 class="text-danger mb-3">Độ Tuổi</h5>
@@ -86,16 +79,24 @@
                     <h5 class="text-danger mb-3">Thương Hiệu</h5>
                     <div class="mb-4">
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="brand1">
-                            <label class="form-check-label" for="brand1">MINIFORCE</label>
+                            <input class="form-check-input brand-checkbox" type="checkbox" id="brand1" value="lego">
+                            <label class="form-check-label" for="brand1">LEGO</label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="brand2">
-                            <label class="form-check-label" for="brand2">ROBOCAR POLI</label>
+                            <input class="form-check-input brand-checkbox" type="checkbox" id="brand2" value="fisher-price">
+                            <label class="form-check-label" for="brand2">FISHER-PRICE</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="brand3">
-                            <label class="form-check-label" for="brand3">TRANSFORMERS</label>
+                            <input class="form-check-input brand-checkbox" type="checkbox" id="brand3" value="vtech">
+                            <label class="form-check-label" for="brand3">VTECH</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input brand-checkbox" type="checkbox" id="brand4" value="mattel">
+                            <label class="form-check-label" for="brand3">MATTEL</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input brand-checkbox" type="checkbox" id="brand5" value="tommy">
+                            <label class="form-check-label" for="brand3">TOMMY</label>
                         </div>
                     </div>
 
@@ -103,37 +104,26 @@
                     <h5 class="text-danger mb-3">Giá (₫)</h5>
                     <div class="mb-4">
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="price1">
+                            <input class="form-check-input price-checkbox" type="checkbox" id="price1" value="0-200">
                             <label class="form-check-label" for="price1">
                                 Dưới 200.000₫
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="price2">
+                            <input class="form-check-input price-checkbox" type="checkbox" id="price2" value="200-500">
                             <label class="form-check-label" for="price2">
                                 200.000₫ - 500.000₫
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="price3">
+                            <input class="form-check-input price-checkbox" type="checkbox" id="price3" value="500-1000000">
                             <label class="form-check-label" for="price3">
                                 Trên 500.000₫
                             </label>
                         </div>
                     </div>
 
-                    <!-- Gender Section -->
-                    <h5 class="text-danger mb-3">Giới Tính</h5>
-                    <div class="mb-4">
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="gender1">
-                            <label class="form-check-label" for="gender1">Nam</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gender2">
-                            <label class="form-check-label" for="gender2">Nữ</label>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

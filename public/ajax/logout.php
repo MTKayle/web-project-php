@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../controllers/UserController.php';
 header('Content-Type: application/json');
 
 $database = new Database();
-$userService = new UserService(new UserRepository($database));
+$userService = new UserService(new UserRepository($database), new CartRepository($database));
 $userController = new UserController($userService);
 
 

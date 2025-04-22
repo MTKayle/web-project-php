@@ -4,13 +4,16 @@ require_once __DIR__ . "/../customerException/EmailAlreadyExistsException.php";
 require_once __DIR__ . "/../customerException/InvalidPasswordException.php";
 require_once __DIR__ . "/../customerException/EmailNotExistsException.php";
 require_once __DIR__ . '/../models/User.php';
+require_once __DIR__ . '/../repository/CartRepository.php';
 class UserService{
     private UserRepository $userRepository;
+    private CartRepository $cartRepository;
 
     // constructor for UserService
-    public function __construct($userRepository)
+    public function __construct($userRepository, $cartRepository)
     {
         $this->userRepository = $userRepository;
+        $this->cartRepository = $cartRepository;
     }
 
     public function registerUser($name, $email, $password){
@@ -36,9 +39,19 @@ class UserService{
             throw new EmailNotExistsException ("Email không tồn tại.");
         }
         // check if password is correct
-        if(!password_verify($password, $user->password)){
+        if(!password_verify($password, $user['password'])){
             throw new InvalidPasswordException("Mật khẩu không chính xác.");
         }
+
+        $cartID = $this->cartRepository->getCartIDByCustomerID($user['userID']);
+
+        $user = new User(
+            $user['userID'],
+            $user['email'],
+            $user['password'],
+            $user['userName'],
+            $cartID
+        );
         
         return $user;
     }
