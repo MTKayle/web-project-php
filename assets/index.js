@@ -1,4 +1,5 @@
 const baseUrl = 'http://localhost/web-project-php/public';
+const urlAdmin = 'http://localhost/web-project-php/admin';
 
 $('#searchForm').on('submit', function (e) {
     e.preventDefault();

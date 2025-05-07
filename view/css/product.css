@@ -60,4 +60,18 @@
 .product-card-radius{
     border-radius: 20px;
 }
+
+.product-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+    transform: translateY(-5px);
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
+.product-card {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
   

@@ -82,8 +82,7 @@ $(document).ready(function () {
                     toastr.error(res.message);
                     return;
                 }
-                console.log("✅ Thêm vào giỏ (DB):", res);
-                toastr.success("Đã thêm vào giỏ hàng!");
+                alert("Thêm vào giỏ hàng thành công!");
             },
             error: function () {
                 toastr.error("Lỗi khi thêm vào giỏ hàng!");

@@ -192,5 +192,38 @@ class ProductRepository
         }
         return $products;
     }
+
+    public function getProductDetailById($productID)
+    {
+        $query = "SELECT p.*, GROUP_CONCAT(g.imagePath) AS additionalImages, b.brandName
+                    FROM products p
+                    LEFT JOIN product_gallery g 
+                    ON p.productID = g.productID
+                    LEFT JOIN brands b
+                    ON p.brandID = b.brandID
+                    WHERE p.productID = :productID
+                    GROUP BY p.productID";
+        $statement = $this->connnection->prepare($query);
+        $statement->bindValue(':productID', $productID, PDO::PARAM_INT);
+        $statement->execute();
+        // Kiểm tra kết quả trả về
+        if ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+        // Chuyển chuỗi ảnh phụ thành mảng
+            $additionalImages = $row['additionalImages'] ? explode(',', $row['additionalImages']) : [];
+
+            // Trả về đối tượng Product bao gồm danh sách ảnh phụ
+            return new Product(
+                $row['productID'],
+                $row['productName'],
+                $row['title'],
+                $row['description'],
+                $row['price'],
+                $row['stockQuantity'],
+                $row['image'],
+                $row['brandName'],
+                $additionalImages
+            );
+        }
+    }
 }
 ?>

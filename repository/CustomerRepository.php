@@ -47,8 +47,14 @@ class CustomerRepository
         $statement = $this->connnection->prepare($query);
         $statement->execute(['customerID' => $customerID]);
         $customer = $statement->fetch(PDO::FETCH_ASSOC);
+
+        $queryEmail = "SELECT email FROM users WHERE userID = :customerID";
+        $statementEmail = $this->connnection->prepare($queryEmail);
+        $statementEmail->execute(['customerID' => $customerID]);
+        $email = $statementEmail->fetch(PDO::FETCH_ASSOC);
+
         if($customer){
-            return new Customer($customer['customerID'], $customer['customerName'], $customer['phoneNumber'], $customer['address'], $customer['avatar']);
+            return new Customer($customer['customerID'], $customer['customerName'], $customer['phoneNumber'], $customer['address'], $customer['avatar'], $email['email']);
         }
         return null;
     }

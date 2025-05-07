@@ -55,6 +55,7 @@ class UserController{
                 $_SESSION['userName'] = $user->name;
                 $_SESSION['email'] = $user->email;
                 $_SESSION['cartID'] = $user->cartID;
+                $_SESSION['role'] = $user->roleID;
 
                 $response = [
                     'success' => true,
@@ -63,6 +64,7 @@ class UserController{
                         'name' => $user->name,
                         'email' => $user->email,
                         'cartID'=> $user->cartID,
+                        'role' => $user->roleID
                     ]
                 ];
                 

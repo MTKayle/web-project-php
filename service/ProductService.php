@@ -37,5 +37,14 @@ class ProductService{
     {
         return $this->productRepository->getNewProducts($limit);
     }
+
+    public function getProductDetailById($productID){
+        $product = $this->productRepository->getProductDetailById($productID);
+        if ($product) {
+            return $product;
+        } else {
+            return null;
+        }
+    }
 }
 ?>

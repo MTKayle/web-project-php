@@ -39,22 +39,18 @@
                     <div class="card-body">
                         <form>
                             <div class="row mb-3">
-                                <div class="col-md-6 mb-3 mb-md-0">
-                                    <label for="firstName" class="form-label">Họ</label>
-                                    <input type="text" class="form-control" id="firstName" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="lastName" class="form-label">Tên</label>
-                                    <input type="text" class="form-control" id="lastName" required>
+                                <div class="col-md-12">
+                                    <label for="lastName" class="form-label">Họ và tên</label>
+                                    <input type="text" class="form-control" id="fullnamepayment" required>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" required>
+                                <input type="email" class="form-control" id="emailpayment" required>
                             </div>
                             <div class="mb-3">
                                 <label for="phone" class="form-label">Số điện thoại</label>
-                                <input type="tel" class="form-control" id="phone" required>
+                                <input type="tel" class="form-control" id="phonepayment" required>
                             </div>
                         </form>
                     </div>
@@ -69,32 +65,7 @@
                         <form>
                             <div class="mb-3">
                                 <label for="address" class="form-label">Địa chỉ</label>
-                                <input type="text" class="form-control" id="address" required>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-5 mb-3 mb-md-0">
-                                    <label for="province" class="form-label">Tỉnh/Thành phố</label>
-                                    <select class="form-select" id="province" required>
-                                        <option value="">Chọn tỉnh/thành phố</option>
-                                        <option>Hà Nội</option>
-                                        <option>TP. Hồ Chí Minh</option>
-                                        <option>Đà Nẵng</option>
-                                        <option>Hải Phòng</option>
-                                        <option>Cần Thơ</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4 mb-3 mb-md-0">
-                                    <label for="district" class="form-label">Quận/Huyện</label>
-                                    <select class="form-select" id="district" required>
-                                        <option value="">Chọn quận/huyện</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3">
-                                    <label for="ward" class="form-label">Phường/Xã</label>
-                                    <select class="form-select" id="ward" required>
-                                        <option value="">Chọn phường/xã</option>
-                                    </select>
-                                </div>
+                                <input type="text" class="form-control" id="addresspayment" required>
                             </div>
                             <div class="mb-3">
                                 <label for="note" class="form-label">Ghi chú (tùy chọn)</label>
@@ -172,10 +143,11 @@
                         <h5 class="mb-0">Tổng đơn hàng</h5>
                     </div>
                     <div class="card-body">
+                        
                         <!-- Danh sách sản phẩm -->
                         <div class="cart-items mb-3">
                             <!-- Sản phẩm 1 -->
-                            <div class="d-flex align-items-center py-2 border-bottom">
+                            <!-- <div class="d-flex align-items-center py-2 border-bottom">
                                 <img src="/api/placeholder/60/60" alt="Đồ chơi 1" class="cart-item-img rounded me-3">
                                 <div class="flex-grow-1">
                                     <h6 class="mb-0">Đồ chơi 1</h6>
@@ -184,10 +156,10 @@
                                         <span class="badge bg-light text-dark">x1</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- Sản phẩm 2 -->
-                            <div class="d-flex align-items-center py-2 border-bottom">
+                            <!-- <div class="d-flex align-items-center py-2 border-bottom">
                                 <img src="/api/placeholder/60/60" alt="Đồ chơi 2" class="cart-item-img rounded me-3">
                                 <div class="flex-grow-1">
                                     <h6 class="mb-0">Đồ chơi 2</h6>
@@ -196,10 +168,10 @@
                                         <span class="badge bg-light text-dark">x1</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- Sản phẩm 3 -->
-                            <div class="d-flex align-items-center py-2 border-bottom">
+                            <!-- <div class="d-flex align-items-center py-2 border-bottom">
                                 <img src="/api/placeholder/60/60" alt="Đồ chơi 3" class="cart-item-img rounded me-3">
                                 <div class="flex-grow-1">
                                     <h6 class="mb-0">Đồ chơi 3</h6>
@@ -208,8 +180,12 @@
                                         <span class="badge bg-light text-dark">x1</span>
                                     </div>
                                 </div>
+                            </div>-->
+                            <div id="listProduct">
+                            <!-- render list product here -->
+
                             </div>
-                        </div>
+                        </div> 
 
                         <!-- Mã giảm giá -->
                         <div class="mb-3">
@@ -222,16 +198,16 @@
                         <!-- Tổng tiền -->
                         <div class="d-flex justify-content-between mb-2">
                             <span>Tạm tính:</span>
-                            <span class="fw-bold">1.550.000₫</span>
+                            <span class="fw-bold" id="tempAmount"></span>
                         </div>
                         <div class="d-flex justify-content-between mb-2">
                             <span>Phí vận chuyển:</span>
-                            <span class="fw-bold">30.000₫</span>
+                            <span class="fw-bold" id="">30.000₫</span>
                         </div>
                         <hr>
                         <div class="d-flex justify-content-between mb-4">
                             <span class="fw-bold">Tổng cộng:</span>
-                            <span class="fw-bold text-danger fs-5">1.580.000₫</span>
+                            <span class="fw-bold text-danger fs-5" id="totalAmountOrder"></span>
                         </div>
 
                         <!-- Nút đặt hàng -->

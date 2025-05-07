@@ -197,9 +197,13 @@ $(document).ready(function() {
                     $('#error-message-login').hide();
                     $('#success-message-login').text("Đăng nhập thành công! Chuyển hướng...").show();
                     // Redirect to login page after 2 seconds
-                    setTimeout(() => {
-                        window.location.href = "./";
-                    }, 2000);
+                    if(response.user.role == "1"){
+                        window.location.href = `${urlAdmin}/`;
+                    }else{
+                        setTimeout(() => {
+                            window.location.href = "./";
+                        }, 2000);
+                    }
                 } else{
                     $('#error-message-login').text(response.message).show();
                 }

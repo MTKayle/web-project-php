@@ -132,123 +132,50 @@ function fetchProducts(queryString) {
 }
 
 function renderProducts(products) {
-
-
   let html = '<div class="row">'; // Chỉ cần tạo 1 hàng chứa nhiều cột
-
+  
   products.forEach(product => {
     const price = product.price;
     const originalPrice = product.original_price || price;
     const discountPercent = Math.round((1 - price / originalPrice) * 100);
-
+    
     html += `
     <div class="col-md-4 mb-4">
-    <div class="card h-100 border-0 product-card d-flex flex-column product-card-radius" data-id="${product.productID}">
-      <div class="position-absolute badge bg-danger text-white m-2 px-2 py-1">-${discountPercent}%</div>
-      <div class="product-image">
-        <img src="${product.image}" alt="${product.productName}" class="card-img-top">
-      </div>
-      <div class="card-body d-flex flex-column">
-        <div class="text-muted small fw-bold mb-1">${product.brandName || 'Không rõ hãng'}</div>
-  
-        <!-- Giới hạn tên sản phẩm 2 dòng -->
-        <h5 class="card-title product-name h6 mb-2 line-clamp-2">${product.productName}</h5>
-  
-        <div class="product-price mb-3">
-          <span class="text-decoration-line-through text-muted me-2">${originalPrice.toLocaleString()}đ</span>
-          <span class="fw-bold text-danger">${price.toLocaleString()}đ</span>
+      <div class="card h-100 border-0 product-card d-flex flex-column product-card-radius" data-id="${product.productID}">
+        <div class="position-absolute badge bg-danger text-white m-2 px-2 py-1">-${discountPercent}%</div>
+        <div class="product-image">
+          <img src="${product.image}" alt="${product.productName}" class="card-img-top">
         </div>
-  
-        <!-- Đẩy nút xuống cuối card -->
-        <div class="mt-auto">
-          <a href="#" class="btn btn-primary w-100 btn-add-to-cart" data-productid="${product.productID}">Thêm vào giỏ</a>
+        <div class="card-body d-flex flex-column">
+          <div class="text-muted small fw-bold mb-1">${product.brandName || 'Không rõ hãng'}</div>
+          
+          <!-- Giới hạn tên sản phẩm 2 dòng -->
+          <h5 class="card-title product-name h6 mb-2 line-clamp-2">${product.productName}</h5>
+          
+          <div class="product-price mb-3">
+            <span class="text-decoration-line-through text-muted me-2">${originalPrice.toLocaleString()}đ</span>
+            <span class="fw-bold text-danger">${price.toLocaleString()}đ</span>
+          </div>
+          
+          <!-- Đẩy nút xuống cuối card -->
+          <div class="mt-auto">
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-success w-75 btn-buy-now fw-bold" data-productid="${product.productID}">Mua ngay</a>
+              <a href="#" class="btn btn-outline-primary btn-add-to-cart ms-3" data-productid="${product.productID}">
+                <i class="fas fa-cart-plus"></i>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>    `;
+    </div>`;
   });
-
+  
   html += '</div>'; // Kết thúc row
-
+  
   $('#product-container').html(html);
 }
 
-
-// const products = [
-//   {
-//     id: 1,
-//     name: 'LEGO Classic Medium Creative Brick Box 10696',
-//     price: 679000,
-//     original_price: 799000,
-//     image: '../../view/resources/IMG/banghieu.png',
-//     brand: 'LEGO'
-//   },
-//   {
-//     id: 2,
-//     name: 'Búp bê Barbie công chúa ánh sáng',
-//     price: 499000,
-//     original_price: 599000,
-//     image: '../../view/resources/IMG/banghieu.png',
-//     brand: 'Barbie'
-//   },
-//   {
-//     id: 2,
-//     name: 'Búp bê Barbie công chúa ánh sáng',
-//     price: 499000,
-//     original_price: 599000,
-//     image: '../../view/resources/IMG/banghieu.png',
-//     brand: 'Barbie'
-//   },
-//   {
-//     id: 2,
-//     name: 'Búp bê Barbie công chúa ánh sáng',
-//     price: 499000,
-//     original_price: 599000,
-//     image: '../../view/resources/IMG/banghieu.png',
-//     brand: 'Barbie'
-//   },
-//   {
-//     id: 2,
-//     name: 'Búp bê Barbie công chúa ánh sáng',
-//     price: 499000,
-//     original_price: 599000,
-//     image: '../../view/resources/IMG/banghieu.png',
-//     brand: 'Barbie'
-//   },
-//   {
-//     id: 2,
-//     name: 'Búp bê Barbie công chúa ánh sáng',
-//     price: 499000,
-//     original_price: 599000,
-//     image: '../../view/resources/IMG/banghieu.png',
-//     brand: 'Barbie'
-//   },
-//   {
-//     id: 2,
-//     name: 'Búp bê Barbie công chúa ánh sáng',
-//     price: 499000,
-//     original_price: 599000,
-//     image: '../../view/resources/IMG/banghieu.png',
-//     brand: 'Barbie'
-//   },
-//   {
-//     id: 2,
-//     name: 'Búp bê Barbie công chúa ánh sáng',
-//     price: 499000,
-//     original_price: 599000,
-//     image: '../../view/resources/IMG/banghieu.png',
-//     brand: 'Barbie'
-//   },
-//   {
-//     id: 2,
-//     name: 'Búp bê Barbie công chúa ánh sáng',
-//     price: 499000,
-//     original_price: 599000,
-//     image: '../../view/resources/IMG/banghieu.png',
-//     brand: 'Barbie'
-//   },
-//   // Thêm ít nhất 10-15 sản phẩm để xem layout nhiều cột
-// ];
 
 
 
@@ -276,6 +203,14 @@ function renderProducts(products) {
     });
   });
 
+// xem chi tiết sản phẩm
+$(document).on('click', '.product-card', function () {
+  const productId = $(this).data('id');
+  window.location.href = "?page=product_detail&productID=" + productId;
+});
+
+
+  
   
 
   

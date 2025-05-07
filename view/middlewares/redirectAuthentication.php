@@ -4,7 +4,8 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (isset($_SESSION['userID'])) {
-    header("Location: ?page=''");// redirect to home page
+    echo "<script>window.location.href = './';</script>";
     exit();
 }
+
 

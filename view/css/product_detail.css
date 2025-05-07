@@ -52,3 +52,8 @@
 .quantity-input {
     width: 80px;
 }
+
+.table {
+    --bs-table-bg: unset !important;
+    --bs-table-border-color: unset !important;
+}

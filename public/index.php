@@ -74,10 +74,10 @@ $pageParam = $_GET['page'] ?? '';
                 echo '<link rel="stylesheet" href="../view/css/product.css">';
                 echo '<script src="../assets/js/product.js"></script>';
                 break;
-            case 'product-detail':
+            case 'product_detail':
                 include '../view/pages/product_detail.php';
                 echo '<link rel="stylesheet" href="../view/css/product_detail.css">';
-                echo '<script src="../assets/js/product_detail.js"></script>';
+                echo '<script src="../assets/js/product.js"></script>';
                 break;
             default:
                 # code...
@@ -93,6 +93,7 @@ $pageParam = $_GET['page'] ?? '';
     <script src="../assets/index.js"></script>
     <script src="../assets/js/auth.js"></script>
     <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/product_detail.js"></script>
 </body>
 </html>
 <?php

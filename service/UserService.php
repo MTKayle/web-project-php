@@ -50,7 +50,8 @@ class UserService{
             $user['email'],
             $user['password'],
             $user['userName'],
-            $cartID
+            $cartID,
+            $user['userRoleID']
         );
         
         return $user;
