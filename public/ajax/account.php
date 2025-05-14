@@ -1,16 +1,18 @@
 <?php
 require_once __DIR__ . '/../../config/Database.php';
 require_once __DIR__ . '/../../controllers/CustomerController.php';
+require_once __DIR__ . '/../../controllers/CartController.php';
 
 header('Content-Type: application/json');
 
 $database = new Database();
 $customerService = new CustomerService(new CustomerRepository($database));
-$customerController = new CustomerController($customerService);
+$cartService = new CartService(new CartRepository($database), new ProductRepository($database));
+$customerController = new CustomerController($customerService, $cartService);
 
 session_start();
 $userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : '';
-
+$cartID = isset($_SESSION['cartID']) ? $_SESSION['cartID'] : '';
 if($_SERVER["REQUEST_METHOD"] === "POST") {
     $avatar = $_FILES['avatar'] ?? null;
     $customerName = $_POST['customerName'] ?? '';
@@ -21,8 +23,28 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 if($_SERVER['REQUEST_METHOD']==="GET"){
-    $customerID = $userID;
-
-    $customerController->getCustomerByID($customerID);
+    $action = $_GET['action'] ?? '';
+    switch ($action) {
+        case '':
+            $customerID = $userID;
+            $customerController->getCustomerByID($customerID);
+            break;
+        case 'getCustomers_Cart':
+            $customerID = $userID;
+            $customerController->getCustomerAndCartByID($customerID, $cartID);
+            break;
+        case 'getVoucher':
+            if($userID){
+                $customerController->getVoucherCustomer($userID);
+                break;
+            }else{
+                echo json_encode(["success" => false, "message" => "User not logged in"]);
+                break;
+            }
+        default:
+            echo json_encode(['error' => 'Action not recognized']);
+    }
+    
 }
+
 ?>

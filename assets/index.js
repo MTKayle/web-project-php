@@ -20,3 +20,5 @@ $('#searchForm').on('submit', function (e) {
     history.pushState(null, '', newUrl);
     fetchProducts(params.toString());
   });
+
+ 

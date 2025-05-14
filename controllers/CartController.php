@@ -34,7 +34,21 @@ class CartController
         }
         $result = $this->cartService->createCartForCustomer($customerID);
         if ($result) {
-            session_start();
+            echo json_encode(["success" => true, "message" => "Tạo giỏ hàng thành công"]);
+            exit();
+        } else {
+            echo json_encode(["success" => false, "message" => "Tạo giỏ hàng thất bại"]);
+            exit();
+        }
+    }
+
+    public function createCartForGuest($guestID = null)
+    {
+        $result = $this->cartService->createCartForCustomer($guestID);
+        if ($result) {
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
             $_SESSION['cartID'] = $result;
             echo json_encode(["success" => true, "message" => "Tạo giỏ hàng thành công"]);
             exit();
@@ -87,6 +101,22 @@ class CartController
             exit();
         }else{
             echo json_encode(["success"=> false, "message"=> "Xóa sản phẩm khỏi giỏ hàng thất bại"]);
+            exit();
+        }
+    }
+
+    public function clearCart($cartID)
+    {
+        if (empty($cartID)) {
+            echo json_encode(["success" => false, "message" => "Không có thông tin giỏ hàng"]);
+            exit();
+        }
+        $result = $this->cartService->clearCart($cartID);
+        if ($result) {
+            echo json_encode(["success" => true, "message" => "Xóa giỏ hàng thành công"]);
+            exit();
+        } else {
+            echo json_encode(["success" => false, "message" => "Xóa giỏ hàng thất bại"]);
             exit();
         }
     }

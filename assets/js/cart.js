@@ -67,6 +67,7 @@
 $(document).ready(function () {
     $(document).on('click', '.btn-add-to-cart', function(e) {
         e.preventDefault();
+        e.stopPropagation(); // Ngăn sự kiện nổi lên
     
         const productID = $(this).data('productid');
     
@@ -292,6 +293,30 @@ function updateCartItemOnServer(productId, quantity) {
         });
     });
 }
+
+//tao gio hang tam cho khach vang lai
+$(document).ready(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    if(!urlParams.get("page")){
+      $.ajax({
+        url: `${baseUrl}/ajax/cart.php`,
+        type: 'POST',
+        data: {
+            action: 'createGuest'
+        },
+        success: function(response) {
+            if (response.success) {
+                console.log("Giỏ hàng tạm đã được tạo thành công");
+            } else {
+                console.error("Không thể tạo giỏ hàng tạm");
+            }
+        },
+        error: function() {
+            console.error("Lỗi khi tạo giỏ hàng tạm");
+        }
+        });
+    }
+});
 
 
 

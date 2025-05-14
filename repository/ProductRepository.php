@@ -225,5 +225,14 @@ class ProductRepository
             );
         }
     }
+
+    public function getProductPriceById($productID)
+    {
+        $query = "SELECT price FROM products WHERE productID = :productID";
+        $statement = $this->connnection->prepare($query);
+        $statement->bindValue(':productID', $productID, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetchColumn();
+    }
 }
 ?>

@@ -18,6 +18,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $userID = $_POST['userID'] ?? '';
             $cartController->createCartForCustomer($userID);
             break;
+        case 'createGuest':
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+                if(isset($_SESSION['cartID'])) {
+                    echo json_encode(['error' => 'Cart already exists']);
+                    exit;
+                }
+            }
+            $cartController->createCartForGuest(null);
+            break;
         case 'add':
             session_start();
             $cartID = $_SESSION['cartID'] ?? '';
@@ -37,6 +47,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $productID = $_POST['productID'] ?? '';
             $cartController->removeCartItems($cartID, $productID);
             break;
+        case 'clearCart':
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+                $cartID = $_SESSION['cartID'] ?? '';
+                if (empty($cartID)) {
+                    echo json_encode(['error' => 'Cart not found']);
+                    exit;
+                }
+                $cartController->clearCart($cartID);
+            }
         default:
             echo json_encode(['error' => 'Action not recognized']);
     }

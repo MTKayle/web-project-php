@@ -152,7 +152,6 @@ CREATE TABLE Vouchers (
     code VARCHAR(50) PRIMARY KEY,
     minOrderValue DECIMAL(10, 2),
     discountValue DECIMAL(10, 2) NOT NULL,
-    maxAmount DECIMAL(10, 2),
     startDate DATE NOT NULL,
     endDate DATE NOT NULL,
     isActive BOOLEAN DEFAULT TRUE
@@ -173,6 +172,7 @@ CREATE TABLE Customer_Voucher (
 CREATE TABLE `Orders` (
     orderID INT PRIMARY KEY AUTO_INCREMENT,
     guestEmail VARCHAR(100),
+    guestName VARCHAR(100) NOT NULL,
     guestPhoneNumber VARCHAR(15),
     shippingAddress TEXT,
     paymentMethod VARCHAR(50),
@@ -181,6 +181,8 @@ CREATE TABLE `Orders` (
     customerID INT,
     code VARCHAR(50),
     isActive BOOLEAN DEFAULT TRUE,
+    orderStatusID INT,
+    FOREIGN KEY (orderStatusID) REFERENCES Order_Status(orderStatusID),
     FOREIGN KEY (customerID) REFERENCES Customers(customerID),
     FOREIGN KEY (code) REFERENCES Vouchers(code)
 );
@@ -189,9 +191,7 @@ CREATE TABLE `Orders` (
 CREATE TABLE Order_Status (
     orderStatusID INT PRIMARY KEY AUTO_INCREMENT,
     statusName VARCHAR(50) NOT NULL,
-    orderID INT,
     isActive BOOLEAN DEFAULT TRUE,
-    FOREIGN KEY (orderID) REFERENCES `Orders`(orderID)
 );
 
 -- Tạo bảng Order_Item

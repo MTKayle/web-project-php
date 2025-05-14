@@ -46,5 +46,17 @@ class ProductController
             exit();
         }
     }
+
+    public function getProductDetailById($productID)
+    {
+        $product = $this->productService->getProductDetailById($productID);
+        if ($product) {
+            echo json_encode(["success" => true, "product" => $product]);
+            exit();
+        } else {
+            echo json_encode(["success" => false, "message" => "Không tìm thấy sản phẩm"]);
+            exit();
+        }
+    }
 }
 ?>

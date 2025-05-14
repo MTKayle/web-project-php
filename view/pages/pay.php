@@ -83,7 +83,7 @@
                     <div class="card-body">
                         <div class="payment-option selected mb-3">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paymentMethod" id="cod" checked>
+                                <input class="form-check-input" value="cod" type="radio" name="paymentMethod" id="cod" checked>
                                 <label class="form-check-label d-flex align-items-center" for="cod">
                                     <i class="bi bi-cash-coin me-2 fs-4"></i>
                                     <div>
@@ -96,7 +96,7 @@
 
                         <div class="payment-option mb-3">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paymentMethod" id="banking">
+                                <input class="form-check-input" value="banking" type="radio" name="paymentMethod" id="banking">
                                 <label class="form-check-label d-flex align-items-center" for="banking">
                                     <i class="bi bi-bank me-2 fs-4"></i>
                                     <div>
@@ -109,7 +109,7 @@
 
                         <div class="payment-option mb-3">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paymentMethod" id="vnpay">
+                                <input class="form-check-input" value="vnpay" type="radio" name="paymentMethod" id="vnpay">
                                 <label class="form-check-label d-flex align-items-center" for="vnpay">
                                     <i class="bi bi-credit-card me-2 fs-4"></i>
                                     <div>
@@ -122,7 +122,7 @@
 
                         <div class="payment-option">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="paymentMethod" id="momo">
+                                <input class="form-check-input" value="momo" type="radio" name="paymentMethod" id="momo">
                                 <label class="form-check-label d-flex align-items-center" for="momo">
                                     <i class="bi bi-wallet2 me-2 fs-4"></i>
                                     <div>
@@ -146,41 +146,6 @@
                         
                         <!-- Danh sách sản phẩm -->
                         <div class="cart-items mb-3">
-                            <!-- Sản phẩm 1 -->
-                            <!-- <div class="d-flex align-items-center py-2 border-bottom">
-                                <img src="/api/placeholder/60/60" alt="Đồ chơi 1" class="cart-item-img rounded me-3">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Đồ chơi 1</h6>
-                                    <div class="d-flex justify-content-between align-items-center mt-1">
-                                        <span class="text-danger fw-bold">250.000₫</span>
-                                        <span class="badge bg-light text-dark">x1</span>
-                                    </div>
-                                </div>
-                            </div> -->
-
-                            <!-- Sản phẩm 2 -->
-                            <!-- <div class="d-flex align-items-center py-2 border-bottom">
-                                <img src="/api/placeholder/60/60" alt="Đồ chơi 2" class="cart-item-img rounded me-3">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Đồ chơi 2</h6>
-                                    <div class="d-flex justify-content-between align-items-center mt-1">
-                                        <span class="text-danger fw-bold">450.000₫</span>
-                                        <span class="badge bg-light text-dark">x1</span>
-                                    </div>
-                                </div>
-                            </div> -->
-
-                            <!-- Sản phẩm 3 -->
-                            <!-- <div class="d-flex align-items-center py-2 border-bottom">
-                                <img src="/api/placeholder/60/60" alt="Đồ chơi 3" class="cart-item-img rounded me-3">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Đồ chơi 3</h6>
-                                    <div class="d-flex justify-content-between align-items-center mt-1">
-                                        <span class="text-danger fw-bold">850.000₫</span>
-                                        <span class="badge bg-light text-dark">x1</span>
-                                    </div>
-                                </div>
-                            </div>-->
                             <div id="listProduct">
                             <!-- render list product here -->
 
@@ -188,12 +153,33 @@
                         </div> 
 
                         <!-- Mã giảm giá -->
-                        <div class="mb-3">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Mã giảm giá">
-                                <button class="btn" type="button">Áp dụng</button>
+                            <div class="mb-3">
+                                <div class="input-group">
+                                    <input type="text" id="voucherCode" class="form-control" placeholder="Mã giảm giá" readonly>
+                                    <button class="btn btn-primary" type="button"  id="chooseVoucher">Chọn Voucher</button>
+                                </div>
                             </div>
-                        </div>
+
+                            <!-- Modal chọn voucher -->
+                            <div class="modal fade" id="voucherModal" tabindex="-1" aria-labelledby="voucherModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="voucherModalLabel">Chọn Voucher</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="list-group voucher-list" id="voucherList">
+                                                <!-- Danh sách voucher sẽ được load tại đây -->
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
                         <!-- Tổng tiền -->
                         <div class="d-flex justify-content-between mb-2">
@@ -204,6 +190,10 @@
                             <span>Phí vận chuyển:</span>
                             <span class="fw-bold" id="">30.000₫</span>
                         </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Giảm giá:</span>
+                            <span class="fw-bold" id="discountVoucher"></span>
+                        </div>
                         <hr>
                         <div class="d-flex justify-content-between mb-4">
                             <span class="fw-bold">Tổng cộng:</span>
@@ -211,7 +201,7 @@
                         </div>
 
                         <!-- Nút đặt hàng -->
-                        <button type="submit" class="btn w-100 py-2 mb-3">Đặt hàng</button>
+                        <button type="submit" class="btn w-100 py-2 mb-3" id="createOrder">Đặt hàng</button>
                         <a href="?page=cart" class="btn btn-outline-secondary w-100">
                             <i class="bi bi-arrow-left me-2"></i>Quay lại giỏ hàng
                         </a>

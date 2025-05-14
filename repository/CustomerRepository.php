@@ -58,4 +58,31 @@ class CustomerRepository
         }
         return null;
     }
+
+    public function getVoucherCustomer($customerID){
+        $query = "SELECT * FROM customer_voucher 
+                    INNER JOIN vouchers ON customer_voucher.code = vouchers.code
+                    WHERE customerID = :customerID AND vouchers.endDate >= NOW() AND vouchers.isActive = 1 AND customer_voucher.isUsed = 0";
+        $statement = $this->connnection->prepare($query);
+        $statement->execute(['customerID' => $customerID]);
+        $vouchers = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        if($vouchers){
+            return $vouchers;
+        }
+        return null;
+    }
+
+    public function updateIsUsedVoucher($customerID, $voucherCode){
+        $query = "UPDATE customer_voucher SET isUsed = 1 WHERE customerID = :customerID AND code = :voucherCode";
+        $statement = $this->connnection->prepare($query);
+        return $statement->execute(['customerID' => $customerID, 'voucherCode' => $voucherCode]);
+    }
+
+    public function getVoucherByCode($voucherCode){
+        $query = "SELECT * FROM vouchers WHERE code = :voucherCode";
+        $statement = $this->connnection->prepare($query);
+        $statement->execute(['voucherCode' => $voucherCode]);
+        return $statement->fetch(PDO::FETCH_ASSOC);
+    }
 }

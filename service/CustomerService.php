@@ -26,4 +26,9 @@ class CustomerService{
         $customer = $this->customerRepository->getCustomerByID($customerID);
         return $customer;
     }
+
+    public function getVoucherCustomer($customerID){
+        $voucher = $this->customerRepository->getVoucherCustomer($customerID);
+        return $voucher;
+    }
 }

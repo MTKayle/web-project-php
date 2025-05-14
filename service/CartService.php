@@ -58,4 +58,9 @@ class CartService
     {
         return $this->cartRepository->removeCartItem($cartID, $productID);
     }
+
+    public function clearCart($cartID)
+    {
+        return $this->cartRepository->clearCart($cartID);
+    }
 }

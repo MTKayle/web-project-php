@@ -10,6 +10,7 @@ $pageParam = $_GET['page'] ?? '';
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     
     <link rel="stylesheet" href="../view/css/global.css">
@@ -78,6 +79,11 @@ $pageParam = $_GET['page'] ?? '';
                 include '../view/pages/product_detail.php';
                 echo '<link rel="stylesheet" href="../view/css/product_detail.css">';
                 echo '<script src="../assets/js/product.js"></script>';
+                break;
+            case 'ordertracking':
+                include '../view/pages/orderTracking.php';
+                echo '<link rel="stylesheet" href="../view/css/orderTracking.css">';
+                echo '<script src="../assets/js/order_tracking.js"></script>';
                 break;
             default:
                 # code...

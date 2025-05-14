@@ -63,6 +63,8 @@ class UserService{
         unset($_SESSION['userID']);
         unset($_SESSION['userName']);
         unset($_SESSION['email']);
+        unset($_SESSION['cartID']);
+        unset($_SESSION['role']);
         // destroy the session
         session_destroy();
 

@@ -112,5 +112,17 @@ class CartRepository
         }
     }
 
+    public function clearCart($cartID)
+    {
+        try {
+            $query = "UPDATE cart_item SET isActive = 0 WHERE cartID = :cartID";
+            $statement = $this->connnection->prepare($query);
+            $statement->execute(['cartID' => $cartID]);
+            return true;
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
 }
 

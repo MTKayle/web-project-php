@@ -38,7 +38,7 @@
                 <!-- User links (hidden on very small screens) -->
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item d-none d-sm-block">
-                        <a class="nav-link" href="?page=product">
+                        <a class="nav-link" href="?page=ordertracking">
                             <i class="fa-solid fa-truck"></i> Theo dõi đơn hàng
                         </a>
                     </li>
