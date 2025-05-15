@@ -66,6 +66,7 @@ $pageParam = $_GET['page'] ?? '';
                 echo '<script src="../assets/js/pay.js"></script>';
                 break;
             case 'forum':
+                include '../view/middlewares/AuthMiddleware.php';
                 include '../view/pages/forum.php';
                 echo '<link rel="stylesheet" href="../view/css/forum.css">';
                 echo '<script src="../assets/js/forum.js"></script>';

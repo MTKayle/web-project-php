@@ -54,7 +54,7 @@ class CustomerRepository
         $email = $statementEmail->fetch(PDO::FETCH_ASSOC);
 
         if($customer){
-            return new Customer($customer['customerID'], $customer['customerName'], $customer['phoneNumber'], $customer['address'], $customer['avatar'], $email['email']);
+            return new Customer($customer['customerID'], $customer['customerName'], $customer['phoneNumber'], $customer['address'], $email['email'], $customer['avatar']);
         }
         return null;
     }
