@@ -65,3 +65,16 @@
 .order-card:hover {
     background-color: rgba(13, 110, 253, 0.05);
 }
+
+.order-card img {
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover {
+    background-color: #fff;
+}
+
+.card-tab:hover {
+    background-color: #f2ff4e !important;
+}

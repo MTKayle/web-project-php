@@ -14,6 +14,11 @@ session_start();
 $userID = isset($_SESSION['userID']) ? $_SESSION['userID'] : null;
 
 if($_SERVER["REQUEST_METHOD"] === "GET") {
-    $paymentController->getOrderDetailsPending($userID);
+    $statusID = isset($_GET['statusID']) ? $_GET['statusID'] : null;
+    if(empty($statusID)) {
+        echo json_encode(["success" => false, "message" => "Không có thông tin đơn hàng"]);
+        exit();
+    }
+    $paymentController->getOrderDetailsForStatusID($userID, $statusID);
 }
 ?>

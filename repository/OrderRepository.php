@@ -46,12 +46,19 @@ class OrderRepository{
         }
     }
 
-    public function getListOrderPending($customerID){
-        $query = "SELECT * FROM orders WHERE customerID = :customerID AND isActive = 1 AND orderStatusID = 1";
+    public function getListOrderForStatus($customerID, $statusID){
+        $query = "SELECT * FROM orders WHERE customerID = :customerID AND isActive = 1 AND orderStatusID = :statusID";
         $statement = $this->connnection->prepare($query);
-        $statement->execute(['customerID' => $customerID]);
+        $statement->execute(['customerID' => $customerID, 'statusID' => $statusID]);
         $orders = [];
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+            //get discount
+            $query = "SELECT * FROM vouchers WHERE code = :code";
+            $statementDiscount = $this->connnection->prepare($query);
+            $statementDiscount->execute(['code' => $row['code']]);
+            $discountRow = $statementDiscount->fetch(PDO::FETCH_ASSOC);
+            $discount = $discountRow['discountValue'] ?? '';
+
             $orders[] = new Order(
                 $row['orderID'],
                 $row['guestEmail'],
@@ -64,7 +71,8 @@ class OrderRepository{
                 $row['customerID'],
                 $row['code'],
                 $row['orderStatusID'],
-                $row['isActive']
+                $row['isActive'],
+                $discount
             );
         }
         return $orders;

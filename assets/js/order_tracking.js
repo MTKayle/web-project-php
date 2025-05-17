@@ -53,7 +53,7 @@ function changeTab(statusID) {
     activeTab.classList.add('active');
 
     // Cập nhật danh sách đơn hàng khi thay đổi tab
-    renderOrders(statusID);
+    // renderOrders(statusID);
 }
 
 // Hàm render các đơn hàng
@@ -61,22 +61,44 @@ function renderOrders(orders) {
     const orderListContainer = document.getElementById('order-list');
     orderListContainer.innerHTML = ''; // Xóa danh sách cũ
 
-    // // Lọc các đơn hàng theo trạng thái
-    // const filteredOrders = orders.filter(order => order.orderStatusID === orderStatusID);
-
-    // Cập nhật các đơn hàng vào phần tử HTML
     orders.forEach(order => {
-                const orderCard = document.createElement('div');
-                orderCard.classList.add('order-card', 'card', 'shadow-sm', 'mb-4');
-                orderCard.innerHTML = `
+         // Tính tạm tính cho đơn hàng
+         const subtotalAmount = order.orderDetails.reduce((total, item) => {
+            return total + (item.price * item.quantity);
+        }, 0);
+        const orderCard = document.createElement('div');
+        orderCard.classList.add('order-card', 'card', 'shadow-sm', 'mb-4');
+        orderCard.innerHTML = `
             <div class="card-header fw-bold">
-                Mã đơn: ${order.orderID}
+                Ngày đặt hàng: ${formatDateVN(order.createAt)}
             </div>
             <div class="card-body">
                 <ul class="list-group list-group-flush mb-3">
-                    ${order.orderDetails.map(item => `<li class="list-group-item d-flex justify-content-between"><span>${item.productName}</span><span>${formatCurrency(item.price)}</span></li>`).join('')}
+                    ${order.orderDetails.map(item => `
+                        <li class="list-group-item d-flex align-items-center">
+                            <img src="${item.productImage}" alt="${item.productName}" class="me-3 rounded" style="width: 60px; height: 60px; object-fit: cover;">
+                            <div class="flex-grow-1">
+                                <span>${item.productName}</span>
+                                <span class="text-muted d-block">x${item.quantity}</span>
+                            </div>
+                            <span>${formatCurrency(item.subTotal)}</span>
+                        </li>
+                    `).join('')}
                 </ul>
-                <div class="text-end fw-bold">
+
+                <div class="text-end fw-bold mb-2">
+                    Tạm tính: ${formatCurrency(subtotalAmount)}
+                </div>
+
+                <div class="text-end text-success mb-2">
+                    Vận chuyển: 30.000 đ
+                </div>
+
+                <div class="text-end text-success mb-2">
+                    Giảm giá: ${formatCurrency(order.discount)}
+                </div>
+
+                <div class="text-end fw-bold text-danger">
                     Tổng: ${formatCurrency(order.totalAmount)}
                 </div>
             </div>
@@ -84,6 +106,16 @@ function renderOrders(orders) {
         orderListContainer.appendChild(orderCard);
     });
 }
+
+function formatDateVN(dateString) {
+    return new Date(dateString).toLocaleDateString('vi-VN', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+    });
+}
+
+
 
 // Hàm tính số lượng đơn hàng cho mỗi trạng thái
 // function calculateOrderCounts() {
@@ -118,13 +150,15 @@ function formatCurrency(amount) {
     }).format(amount);
   }
 
-
+//hàm này được gọi khi trang được tải
+// danh sach don hang dang cho xac nhan
 $(document).ready(function () {
     const urlParams = new URLSearchParams(window.location.search);
     if(urlParams.get('page')==='ordertracking'){
         $.ajax({
             url: `${baseUrl}/ajax/order_tracking.php`,
             type: 'GET',
+            data: {statusID: '1'},
             dataType: 'json',
             success: function (response) {
                 if (response.success) {
@@ -139,4 +173,80 @@ $(document).ready(function () {
             }
         });
     }
+});
+
+//ham nay goi khi tab waiting duoc chon
+//danh sach don hang dang giao hàng
+$(document).ready(function () {
+    $(document).on('click', '#waiting-tab', function () {
+        changeTab('waiting');
+        $.ajax({
+            url: `${baseUrl}/ajax/order_tracking.php`,
+            type: 'GET',
+            data: {statusID: '2'},
+            dataType: 'json',
+            success: function (response) {
+                if (response.success) {
+                    renderOrders(response.orders);
+                } else {
+                    alert("Không tìm thấy đơn hàng!");
+                }
+            },
+            error: function(response) {
+                console.error('Lỗi AJAX:', response);
+                alert("Có lỗi xảy ra khi tải đơn hàng!");
+            }
+        });
+    });
+});
+
+// hàm này được gọi khi tab processing được chọn
+// danh sach don hang dang cho xac nhan
+$(document).ready(function () {
+    $(document).on('click', '#processing-tab', function () {
+        changeTab('processing');
+        $.ajax({
+            url: `${baseUrl}/ajax/order_tracking.php`,
+            type: 'GET',
+            data: {statusID: '1'},
+            dataType: 'json',
+            success: function (response) {
+                if (response.success) {
+                    renderOrders(response.orders);
+                } else {
+                    alert("Không tìm thấy đơn hàng!");
+                }
+            },
+            error: function(response) {
+                console.error('Lỗi AJAX:', response);
+                alert("Có lỗi xảy ra khi tải đơn hàng!");
+            }
+        });
+    });
+});
+
+
+// hàm này được gọi khi tab delivered được chọn
+// danh sach don hang da giao
+$(document).ready(function () {
+    $(document).on('click', '#delivered-tab', function () {
+        changeTab('delivered');
+        $.ajax({
+            url: `${baseUrl}/ajax/order_tracking.php`,
+            type: 'GET',
+            data: {statusID: '3'},
+            dataType: 'json',
+            success: function (response) {
+                if (response.success) {
+                    renderOrders(response.orders);
+                } else {
+                    alert("Không tìm thấy đơn hàng!");
+                }
+            },
+            error: function(response) {
+                console.error('Lỗi AJAX:', response);
+                alert("Có lỗi xảy ra khi tải đơn hàng!");
+            }
+        });
+    });
 });

@@ -13,9 +13,9 @@ class Order
     public $code;
     public $statusID;
     public $orderDetails;
- 
+    public $discount;
     public $isActive;
-    public function __construct($orderID, $guestEmail, $guestName, $guestPhone, $guestAddress, $paymentMethod, $totalAmount, $createAt, $customerID, $code, $statusID, $isActive)
+    public function __construct($orderID, $guestEmail, $guestName, $guestPhone, $guestAddress, $paymentMethod, $totalAmount, $createAt, $customerID, $code, $statusID, $isActive, $discount)
     {
         $this->orderID = $orderID;
         $this->guestEmail = $guestEmail;
@@ -26,7 +26,8 @@ class Order
         $this->totalAmount = $totalAmount;
         $this->createAt = $createAt;
         $this->customerID = (int)$customerID;
-        $this->code = (int)$code;
+        $this->code = $code;
+        $this->discount = $discount;
         $this->statusID = (int)$statusID;
         $this->isActive = (int)$isActive;
         // Initialize order details as an empty array

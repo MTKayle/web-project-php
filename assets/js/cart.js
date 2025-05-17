@@ -1,67 +1,4 @@
 
-// // Remove item function
-// function removeItem(button) {
-//     const row = button.closest('tr');
-//     row.remove();
-
-//     // Check if cart is empty
-//     const rows = document.querySelectorAll('tbody tr');
-//     if (rows.length === 0) {
-//         document.getElementById('cart-content').classList.add('d-none');
-//         document.getElementById('empty-cart').classList.remove('d-none');
-//     }
-
-//     // Here you would update the cart total
-//     // updateCartTotals();
-// }
-
-// Input change handler for quantity
-// document.querySelectorAll('.input-quantity').forEach(input => {
-//     input.addEventListener('change', function() {
-//         if (this.value < 1) this.value = 1;
-
-//         // Here you would update the subtotal and cart total
-//         // updateCartTotals();
-//     });
-// });
-// Update quantity function
-// function updateQuantity(button, change) {
-//     const input = button.parentNode.querySelector('input');
-//     let value = parseInt(input.value) + change;
-
-//     if (value < 1) value = 1;
-//     input.value = value;
-
-//     // Here you would update the subtotal and cart total
-//     // updateCartTotals();
-// }
-
-// Remove item function
-// function removeItem(button) {
-//     const row = button.closest('tr');
-//     row.remove();
-
-//     // Check if cart is empty
-//     const rows = document.querySelectorAll('tbody tr');
-//     if (rows.length === 0) {
-//         document.getElementById('cart-content').classList.add('d-none');
-//         document.getElementById('empty-cart').classList.remove('d-none');
-//     }
-
-//     // Here you would update the cart total
-//     // updateCartTotals();
-// }
-
-// Input change handler for quantity
-// document.querySelectorAll('.input-quantity').forEach(input => {
-//     input.addEventListener('change', function() {
-//         if (this.value < 1) this.value = 1;
-
-//         // Here you would update the subtotal and cart total
-//         // updateCartTotals();
-//     });
-// });
-
 
 
 $(document).ready(function () {
@@ -103,13 +40,16 @@ function renderCartItem(product) {
                     </div>
                     <h6 class="mb-0">${product.productName}</h6>
                 </div>
+                <small class="text-muted d-block mt-1 me-5 stock-info" data-stock="${product.stockQuantity}">
+                    Còn lại: ${product.stockQuantity}
+                </small>
             </td>
             <td class="py-3 text-center align-middle">
                 <span class="fw-bold unit-price" data-price="${product.price}">${formatCurrency(+product.price)}</span>
             </td>
             <td class="py-3 text-center align-middle">
                 <div class="d-flex justify-content-center align-items-center">
-                    <input type="number" class="form-control quantity-input text-center" value="${product.quantity}" min="1" max="99" style="width: 60px;">
+                    <input type="number" class="form-control quantity-input text-center" value="${product.quantity}" min="1" max="99" style="width: 60px;" readonly>
                     <div class="d-flex flex-column me-1 ms-2">
                         <button onclick="changeQuantity(this, 1)"
                             class="btn p-0"
@@ -192,6 +132,17 @@ async function changeQuantity(button, delta) {
 
     let quantity = parseInt(input.value);
     quantity += delta;
+
+    // Find the stock information
+    const stockInfo = button.closest("tr").querySelector('.stock-info');
+    // Access the data-stock attribute directly using getAttribute
+    const stockQuantity = parseInt(stockInfo.getAttribute('data-stock'));
+    
+    if (quantity > stockQuantity) {
+        alert(`Hiện sản phẩm này chỉ còn ${stockQuantity} sản phẩm`);
+        quantity = stockQuantity;
+    }
+
 
     if (quantity < 1) quantity = 1;
     if (quantity > 99) quantity = 99;

@@ -8,8 +8,9 @@ class OrderDetail
     public $price;
     public $subTotal;
     public $productName;
+    public $productImage;
 
-    public function __construct($orderID, $productID, $quantity, $price, $subTotal, $productName)
+    public function __construct($orderID, $productID, $quantity, $price, $subTotal, $productName, $productImage)
     {
         $this->orderID = $orderID;
         $this->productID = $productID;
@@ -17,6 +18,7 @@ class OrderDetail
         $this->price = $price;
         $this->subTotal = $subTotal;
         $this->productName = $productName;
+        $this->productImage = $productImage;
     }
 }
 ?>

@@ -57,3 +57,19 @@
     --bs-table-bg: unset !important;
     --bs-table-border-color: unset !important;
 }
+
+.thumbnail {
+    border: 3px solid transparent !important; /* Ẩn viền mặc định */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.thumbnail.active {
+    border-color: #ffc107 !important; /* Viền trắng khi được chọn */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Nổi bật hơn */
+    transform: scale(1.05);
+}
+
+

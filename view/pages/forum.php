@@ -2,7 +2,7 @@
     <div class="container mt-4">
         <div class="row g-4">
             <!-- Left sidebar -->
-            <div class="col-lg-2 col-md-3">
+            <div class="col-lg-2 col-md-3 sidebar-menu">
                 <a href="#" class="logo"><img src="../view/resources/logo.png" alt="logo" width="150"></a>
                 <div class="sidebar-menu mt-4">
                     <ul class="nav flex-column">

@@ -10,7 +10,7 @@
                                 <line x1="15" y1="12" x2="3" y2="12"></line>
                             </svg>
                             <h2 class="mt-3">Hoope chào bạn!</h2>
-                            <p class="text-muted">Đăng nhập tài khoản của bạn</p>
+                            <p class="">Đăng nhập tài khoản của bạn</p>
                         </div>
 
                         <form id="loginForm">

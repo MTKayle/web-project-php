@@ -44,7 +44,7 @@ class PaymentController
         }
     }
 
-    public function getOrderDetailsPending($customerID)
+    public function getOrderDetailsForStatusID($customerID, $statusID)
     {
         if (empty($customerID)) {
             echo json_encode(["success" => false, "message" => "Không có thông tin đơn hàng"]);
@@ -52,7 +52,7 @@ class PaymentController
         }
 
         try {
-            $orders = $this->paymentService->getOrderDetailsPending($customerID);
+            $orders = $this->paymentService->getOrderDetailsForStatusID($customerID, $statusID);
             if ($orders) {
                 echo json_encode(["success" => true, "orders" => $orders]);
                 exit();

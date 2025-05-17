@@ -10,33 +10,33 @@
                                 <line x1="19" y1="8" x2="19" y2="14"></line>
                                 <line x1="22" y1="11" x2="16" y2="11"></line>
                             </svg>
-                            <h2 class="mt-3">Create Account</h2>
-                            <p class="text-muted">Please fill in your information to register</p>
+                            <h2 class="mt-3">Tạo tài khoản</h2>
+                            <p class="">Vvui lòng điền đầy đủ thông tin</p>
                         </div>
 
                         <form id="registerForm">
                             <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
+                                <label for="username" class="form-label">Tên tài khoản</label>
                                 <input type="text" class="form-control" id="username" name = "name" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
+                                <label for="email" class="form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name = "email" required>
                             </div>
 
                             <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
+                                <label for="password" class="form-label">Mật khẩu</label>
                                 <input type="password" class="form-control" id="password" name = "password" required>
-                            </div>
+                            </div>  
 
                             <div class="mb-4">
-                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <label for="confirmPassword" class="form-label">Xác nhận mật khẩu</label>
                                 <input type="password" class="form-control" id="confirmPassword" name = "confirmPassword" required>
                             </div>
 
                             <button type="submit" class="btn btn-primary w-100 py-2" id = "register-button">
-                                Register
+                                Đăng ký 
                             </button>
 
                             <p id="error-message-register" class="text-danger text-center mt-3" ></p>
@@ -44,7 +44,7 @@
 
                             <div class="text-center mt-4">
                                 <p class="text-muted">
-                                    Already have an account? <a href="?page=login" class="text-decoration-none">Sign in</a>
+                                    Bạn đã có tài khoản? <a href="?page=login" class="text-decoration-none">Đăng nhập</a>
                                 </p>
 </div>
                         </form>

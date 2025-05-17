@@ -234,5 +234,14 @@ class ProductRepository
         $statement->execute();
         return $statement->fetchColumn();
     }
+
+    public function updateStockQuantity($productID, $quantity)
+    {
+        $query = "UPDATE products SET stockQuantity = stockQuantity - :quantity WHERE productID = :productID";
+        $statement = $this->connnection->prepare($query);
+        $statement->bindValue(':productID', $productID, PDO::PARAM_INT);
+        $statement->bindValue(':quantity', $quantity, PDO::PARAM_INT);
+        return $statement->execute();
+    }
 }
 ?>

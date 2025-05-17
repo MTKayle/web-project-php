@@ -1,15 +1,15 @@
-
 function renderProduct(product) {
     const container = document.getElementById("productContent");
     container.innerHTML = `
         <div class="row mb-4">
             <div class="col-lg-6">
                 <div class="text-center mb-3">
-                    <img id="mainProductImage" src="${product.image}" class="img-fluid product-image border rounded">
+                    <img id="mainProductImage" src="${product.image}" class="img-fluid product-image border rounded shadow" style="width: 100%; max-width: 400px;">
                 </div>
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center flex-wrap">
+                    <img src="${product.image}" class="thumbnail border rounded me-2 shadow-sm active" data-src="${product.image}" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover;">
                     ${product.galleryImages.map((img, index) => `
-                        <img src="${img}" class="thumbnail border rounded me-2" data-src="${img}" onclick="changeImage(this)">
+                        <img src="${img}" class="thumbnail border rounded me-2 shadow-sm" data-src="${img}" onclick="changeImage(this)" style="width: 80px; height: 80px; object-fit: cover;">
                     `).join('')}
                 </div>
             </div>
@@ -22,27 +22,17 @@ function renderProduct(product) {
                 <div class="price mb-4">${(product.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} đ</div>
                 <div class="mb-4">
                     <div class="mb-2">
-                    <i class="bi bi-check-circle-fill feature-icon"></i>
-                    <span class="ms-2">Hàng chính hãng</span>
-                </div>
-                <div class="mb-2">
-                    <i class="bi bi-check-circle-fill feature-icon"></i>
-                    <span class="ms-2">Miễn phí giao hàng toàn quốc đơn trên 500k</span>
-                </div>
-                <div class="mb-2">
-                    <i class="bi bi-check-circle-fill feature-icon"></i>
-                    <span class="ms-2">Giao hàng hỏa tốc 4 tiếng</span>
-                </div>
+                        <i class="bi bi-check-circle-fill feature-icon"></i>
+                        <span class="ms-2">Hàng chính hãng</span>
+                    </div>
+                    <div class="mb-2">
+                        <i class="bi bi-check-circle-fill feature-icon"></i>
+                        <span class="ms-2">Giao hàng hỏa tốc 4 tiếng</span>
+                    </div>
                 </div>
                 <div class="mb-4">
-                    <label for="quantity" class="form-label fw-medium mb-2">Số lượng</label>
                     <div class="d-flex align-items-center">
-                        <div class="input-group me-3" style="width: 150px;">
-                            <button class="btn " type="button" onclick="decreaseQuantity()">-</button>
-                            <input type="number" class="form-control text-center" id="quantity" value="1" min="1" max="99">
-                            <button class="btn " type="button" onclick="increaseQuantity()">+</button>
-                        </div>
-                        <button class="btn py-2 px-4" onclick="addToCart()">
+                        <button class="btn py-2 px-4" id="add-to-cart" data-productid="${product.productID}">
                             <i class="bi bi-cart-plus me-2"></i>Thêm Vào Giỏ Hàng
                         </button>
                     </div>
@@ -53,7 +43,7 @@ function renderProduct(product) {
         <ul class="nav nav-tabs" id="productTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc">Mô tả</button>
-            </li>
+            </li>   
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="spec-tab" data-bs-toggle="tab" data-bs-target="#spec">Thông số kỹ thuật</button>
             </li>
@@ -64,23 +54,16 @@ function renderProduct(product) {
         <div class="tab-content p-4 border border-top-0 rounded-bottom">
             <div class="tab-pane fade show active" id="desc">
                 <h4 class="fw-bold mt-3">Đặc điểm nổi bật</h4>
-                <ul>
-                    <li>Chất liệu cao cấp: Được làm từ nhựa ABS an toàn, bền bỉ, không độc hại</li>
-                    <li>Kích thước lớn: Phù hợp cho bé chơi và trưng bày</li>
-                    <li>Khả năng biến hình: Dễ dàng chuyển đổi từ robot sang hình dáng khủng long</li>
-                    <li>Chi tiết sắc nét: Thiết kế tỉ mỉ, màu sắc tươi sáng</li>
-                    <li>Phát triển kỹ năng: Giúp trẻ phát triển trí tưởng tượng</li>
-                </ul>
+                <div id="product-description" class="mt-3">${product.description}</div>
             </div>
             <div class="tab-pane fade" id="spec">
-            <table class="table table-striped mt-3">
-                <tr><td class="fw-medium">Thương hiệu</td><td>SUPERWINGS</td></tr>
-                <tr><td class="fw-medium">Mã sản phẩm</td><td>YW760237</td></tr>
-                <tr><td class="fw-medium">Độ tuổi phù hợp</td><td>3 tuổi trở lên</td></tr>
-                <tr><td class="fw-medium">Chất liệu</td><td>Nhựa ABS cao cấp</td></tr>
-                <tr><td class="fw-medium">Kích thước sản phẩm</td><td>20 x 10 x 15 cm</td></tr>
-                <tr><td class="fw-medium">Xuất xứ</td><td>Chính hãng</td></tr>
-            </table>
+                <table class="table table-striped mt-3">
+                    <tr><td class="fw-medium">Thương hiệu</td><td>${product.brandName}</td></tr>
+                    <tr><td class="fw-medium">Độ tuổi phù hợp</td><td>3 tuổi trở lên</td></tr>
+                    <tr><td class="fw-medium">Chất liệu</td><td>Nhựa ABS cao cấp</td></tr>
+                    <tr><td class="fw-medium">Kích thước sản phẩm</td><td>20 x 10 x 15 cm</td></tr>
+                    <tr><td class="fw-medium">Xuất xứ</td><td>Chính hãng</td></tr>
+                </table>
             </div>
             <div class="tab-pane fade" id="guide">
                 <h5 class="mt-3 fw-bold">Hướng dẫn sử dụng</h5>
@@ -103,10 +86,19 @@ function renderProduct(product) {
     `;
 }
 
+// Thêm class "active" khi ảnh được chọn
 function changeImage(el) {
     const main = document.getElementById("mainProductImage");
-    if (main && el.dataset.src) main.src = el.dataset.src;
+    const thumbnails = document.querySelectorAll(".thumbnail");
+
+    if (main && el.dataset.src) {
+        main.src = el.dataset.src;
+        thumbnails.forEach(thumb => thumb.classList.remove("active"));
+        el.classList.add("active");
+    }
 }
+
+
 
 function increaseQuantity() {
     const q = document.getElementById("quantity");
@@ -196,6 +188,34 @@ $(document).ready(function() {
         });
     }
   });
+
+  $(document).ready(function () {
+    $(document).on('click', '#add-to-cart', function(e) {
+        e.preventDefault();
+        e.stopPropagation(); // Ngăn sự kiện nổi lên
+    
+        const productID = $(this).data('productid');
+    
+        $.ajax({
+            url: `${baseUrl}/ajax/cart.php`,
+            method: "POST",
+            data: {
+                action: "add",
+                productID: productID
+            },
+            success: function (res) {
+                if (res.error) {
+                    toastr.error(res.message);
+                    return;
+                }
+                alert("Thêm vào giỏ hàng thành công!");
+            },
+            error: function () {
+                toastr.error("Lỗi khi thêm vào giỏ hàng!");
+            }
+        });
+    });
+});
 
 
 

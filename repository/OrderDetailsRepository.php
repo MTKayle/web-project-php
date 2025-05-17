@@ -36,7 +36,7 @@ class OrderDetailsRepository
         return $stmt->execute();
     }
 
-    public function getOrderDetailsPending($customerId, $orderId)
+    public function getOrderDetailsForStatusID($customerId, $orderId, $statusID)
     {
         $query = "SELECT order_item.*, orders.*, products.productName 
         FROM order_item
@@ -44,11 +44,12 @@ class OrderDetailsRepository
         INNER JOIN products ON order_item.productID = products.productID
         WHERE orders.customerID = :customer_id 
         AND orders.isActive = 1 
-        AND orders.orderStatusID = 1 
+        AND orders.orderStatusID = :status_id 
         AND order_item.orderID = :order_id";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(':customer_id', $customerId);
         $stmt->bindParam(':order_id', $orderId);
+        $stmt->bindParam(':status_id', $statusID);
         $stmt->execute();
         $orderDetails = [];
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {

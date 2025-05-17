@@ -44,26 +44,29 @@ class PaymentService {
             foreach ($cartItems as $item) {
                 $productPrice = $this->productRepository->getProductPriceById($item['productID']);
                 $this->orderDetailRepository->addOrderDetail($orderID, $item['productID'], $item['quantity'], $productPrice);
+                $this->productRepository->updateStockQuantity($item['productID'], $item['quantity']);
             }
             return $orderID;
         }
         return null;
     }
 
-    public function getOrderDetailsPending($customerId) {
-        $orders = $this->orderRepository->getListOrderPending($customerId);
+    public function getOrderDetailsForStatusID($customerId, $statusID) {
+        $orders = $this->orderRepository->getListOrderForStatus($customerId, $statusID);
         $orderDetails = [];
         foreach ($orders as $order) {
-            $details = $this->orderDetailRepository->getOrderDetailsPending($customerId, $order->orderID);
+            $details = $this->orderDetailRepository->getOrderDetailsForStatusID($customerId, $order->orderID, $statusID);
             $OrderDetail = [];
             foreach ($details as $detail) {
+                $product = $this->productRepository->getProductById($detail['productID']);
                 $OrderDetail[] = new OrderDetail(
                     $detail['orderID'],
                     $detail['productID'],
                     $detail['quantity'],
                     $detail['unitPrice'],
                     $detail['subTotal'],
-                    $detail['productName']
+                    $detail['productName'],
+                    $product->image
                 );
             } 
             $order->orderDetails = $OrderDetail;
