@@ -15,4 +15,10 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $userController->login($email, $password);
 }
+
+if($_SERVER["REQUEST_METHOD"] === "GET") {
+    session_start();
+    $email = $_SESSION['email'] ?? '';
+    $userController->getUserByEmail($email);
+}
 ?>

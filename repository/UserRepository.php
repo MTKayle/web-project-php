@@ -15,9 +15,6 @@ class UserRepository{
         $statement = $this->connnection->prepare($query);
         $statement->execute(['email' => $email]);
         $user = $statement->fetch(PDO::FETCH_ASSOC);
-        // if($user){
-        //     return new User($user['userID'], $user['email'], $user['password'], $user['userName']);
-        // }
         return $user;
     }
 

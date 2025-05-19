@@ -253,3 +253,6 @@ CREATE TABLE product_gallery (
 ALTER TABLE category ADD COLUMN code varchar(255) not null UNIQUE
 alter table Brands add COLUMN brandCode varchar(255) not null UNIQUE
 
+--du lieu can co san
+--Brands, category, order_status, userroles
+

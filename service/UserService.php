@@ -71,5 +71,22 @@ class UserService{
         return true;
     }
 
+    public function getUserByEmail($email){
+        $user = $this->userRepository->getUserByEmail($email);
+
+        if(!$user){
+            throw new EmailNotExistsException ("Email không tồn tại.");
+        }
+
+        return new User(
+            $user['userID'],
+            $user['email'],
+            $user['password'],
+            $user['userName'],
+            null,
+            $user['userRoleID']
+        );
+    }
+
 }
 ?>

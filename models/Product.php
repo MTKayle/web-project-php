@@ -23,5 +23,7 @@ class Product{
         $this->brandName = $brandName;
         $this->galleryImages = $galleryImages;
     }
+
+    
 }
 ?>

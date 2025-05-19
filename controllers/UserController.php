@@ -97,5 +97,28 @@ class UserController{
         }
     }
 
+    public function getUserByEmail($email){
+        if(empty($email)){
+            echo json_encode(["success" => false, "message" => "Tất cả các trường là bắt buộc"]);
+            exit();
+        }
+        try {
+            $user = $this->userService->getUserByEmail($email);
+            if ($user) {
+                echo json_encode(["success" => true, "user" => $user]);
+                exit();
+            } else {
+                echo json_encode(["success" => false, "message" => "User not found"]);
+                exit();
+            }
+        } catch (UserException $e) {
+            echo json_encode(["success" => false, "message" => $e->getMessage()]);
+        } catch (Exception $e) {
+            echo json_encode(["success" => false, "message" => "Hệ thống gặp lỗi, vui lòng thử lại sau!"]);
+        } finally {
+            exit();
+        }
+    }
+
     
 }
