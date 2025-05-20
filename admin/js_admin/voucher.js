@@ -58,6 +58,13 @@ $(document).ready(function() {
             return;
         }
 
+        //kiem tra discount > minOrder
+        if (parseFloat(discount) > parseFloat(minOrder)) {
+            alert('⚠️ Giá trị giảm giá không được lớn hơn giá trị đơn hàng tối thiểu.');
+            $('#discount').focus();
+            return;
+        }
+
         // Gửi AJAX nếu hợp lệ
         $.ajax({
             url: `${baseUrl}/ajax/voucher.php`,

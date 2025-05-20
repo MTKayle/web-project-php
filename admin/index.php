@@ -48,7 +48,31 @@ $pageParam = $_GET['page'] ?? '';
                 include '../admin/page_admin/customers.php';
                 break;
             case 'products':
-                include '../admin/page_admin/products.php';
+                require_once __DIR__ . '/../controllers/AdminProductController.php';
+                require_once __DIR__ . '/../service/AdminProductService.php';
+                require_once __DIR__ . '/../repository/AdminProductRepository.php';
+
+                // Lấy số trang từ URL, mặc định là 1
+                $page = isset($_GET['p']) && is_numeric($_GET['p']) && $_GET['p'] > 0 ? (int)$_GET['p'] : 1;
+
+                // Khởi tạo class Database và lấy kết nối
+                $database = new Database();
+                $productRepository = new AdminProductRepository($database);
+                $productService = new AdminProductService($productRepository);
+                $productController = new AdminProductController($productService);
+
+                // Lấy dữ liệu sản phẩm và thông tin phân trang
+                $data = $productController->showAllProducts($page);
+                if (!$data || !isset($data['products'])) {
+                    throw new Exception('Failed to load products');
+                }
+                $products = $data['products'];
+                $totalProducts = $data['totalProducts'];
+                $perPage = $data['perPage'];
+                $currentPage = $data['currentPage'];
+
+                include __DIR__ . '/../admin/page_admin/products.php';
+                echo '<script src="js_admin/product.js"></script>';
                 break;
             case 'orders':
                 include '../admin/page_admin/orders.php';

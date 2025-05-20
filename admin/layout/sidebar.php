@@ -30,15 +30,15 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
                 <!-- Menu Items with Icons Only on Mobile -->
                 <a href="./" class="nav-link py-2">
                     <i class="bi bi-grid me-2"></i> 
-                    <span class="menu-title">Dashboard</span>
+                    <span class="menu-title">Tổng quan</span>
                 </a>
                 <a href="?page=products" class="nav-link py-2">
                     <i class="bi bi-bag me-2"></i> 
-                    <span class="menu-title">Products</span>
+                    <span class="menu-title">Quản lí sản phẩm</span>
                 </a>
                 <a href="?page=orders" class="nav-link py-2">
                     <i class="bi bi-box me-2"></i> 
-                    <span class="menu-title">Orders</span>
+                    <span class="menu-title">Quản lí đơn hàng</span>
                 </a>
                 <a href="?page=customers" class="nav-link py-2">
                     <i class="bi bi-people me-2"></i> 
@@ -46,11 +46,11 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
                 </a>
                 <a href="?page=news" class="nav-link py-2">
                     <i class="bi bi-bar-chart me-2"></i> 
-                    <span class="menu-title">Analytics</span>
+                    <span class="menu-title">Quản lí tin tức</span>
                 </a>
                 <a href="?page=voucher" class="nav-link py-2">
                     <i class="bi bi-credit-card me-2"></i> 
-                    <span class="menu-title">Transactions</span>
+                    <span class="menu-title">Quản lí voucher</span>
                 </a>
                 <a href="#" class="nav-link py-2">
                     <i class="bi bi-chat me-2"></i> 

@@ -1,0 +1,36 @@
+Adding product: Array
+(
+    [productName] => Trực thăng
+    [title] => fdsfdsfds
+    [description] => đâsdasd
+    [price] => 250.9
+    [stockQuantity] => 15
+    [brandID] => 2
+    [categoryID] => 2
+    [ageFrom] => 7
+    [ageTo] => 19
+    [image] => 
+)
+
+Adding product: Array
+(
+    [productName] => Hỏa tiễn
+    [title] => Bút chì xuyên không
+    [description] => Tầm bay 1800km
+    [price] => 1000000
+    [stockQuantity] => 10
+    [brandID] => 4
+    [categoryID] => 5
+    [ageFrom] => 12
+    [ageTo] => 35
+    [image] => Array
+        (
+            [name] => Image (1).png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\phpB1DB.tmp
+            [error] => 0
+            [size] => 60748
+        )
+
+)
+
