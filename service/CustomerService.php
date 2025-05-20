@@ -31,4 +31,13 @@ class CustomerService{
         $voucher = $this->customerRepository->getVoucherCustomer($customerID);
         return $voucher;
     }
+
+    public function getAllCustomer($searchName = null){
+        $customers = $this->customerRepository->getAllCustomers($searchName);
+        if ($customers) {
+            return $customers;
+        } else {
+            return null;
+        }
+    }
 }

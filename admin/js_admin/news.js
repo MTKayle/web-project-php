@@ -25,6 +25,22 @@ $(document).ready(function() {
         newPostSection.style.display = newPostSection.style.display === 'none' ? 'block' : 'none';
     });
 
+    //lay thong tin user
+    $.ajax({
+        url: `${baseUrl}/ajax/login.php`,
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+            if(response.success){
+                const user = response.user;
+                $('#adminName').text(user.name);
+            }
+        },
+        error: function (error) {
+            console.error('Error fetching user info:', error);
+        }
+    });
+
     // Xử lý khi submit form
     $('#newsForm').on('submit', function(e) {
         e.preventDefault(); // Ngăn form submit mặc định

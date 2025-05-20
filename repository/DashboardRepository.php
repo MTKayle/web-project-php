@@ -16,22 +16,23 @@ class DashboardRepository
     {
         if($type == 'week'){
             $query = "SELECT 
-                d.day_name AS weekday_name,
-                COALESCE(SUM(o.totalAmount), 0) AS total_revenue
-                    FROM (
-                        SELECT 'Thứ 2' AS day_name
-                        UNION ALL SELECT 'Thứ 3'
-                        UNION ALL SELECT 'Thứ 4'
-                        UNION ALL SELECT 'Thứ 5'
-                        UNION ALL SELECT 'Thứ 6'
-                        UNION ALL SELECT 'Thứ 7'
-                        UNION ALL SELECT 'Chủ nhật'
-                    ) d
-                    LEFT JOIN orders o
-                        ON DAYNAME(o.createAt) = d.day_name
-                        AND YEARWEEK(o.createAt, 1) = YEARWEEK(CURDATE(), 1)
-                    GROUP BY d.day_name
-                    ORDER BY FIELD(d.day_name, 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday');";
+            d.day_label AS weekday_name,
+            COALESCE(SUM(o.totalAmount), 0) AS total_revenue
+        FROM (
+            SELECT 2 AS day_number, 'Thứ 2' AS day_label
+            UNION ALL SELECT 3, 'Thứ 3'
+            UNION ALL SELECT 4, 'Thứ 4'
+            UNION ALL SELECT 5, 'Thứ 5'
+            UNION ALL SELECT 6, 'Thứ 6'
+            UNION ALL SELECT 7, 'Thứ 7'
+            UNION ALL SELECT 1, 'Chủ nhật'
+        ) d
+        LEFT JOIN orders o
+            ON DAYOFWEEK(o.createAt) = d.day_number
+            AND YEARWEEK(o.createAt, 1) = YEARWEEK(CURDATE(), 1)
+        GROUP BY d.day_number, d.day_label
+        ORDER BY d.day_number
+        ;";
 
             $statement = $this->connection->prepare($query);
             $statement->execute();

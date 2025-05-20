@@ -41,6 +41,13 @@ if($_SERVER['REQUEST_METHOD']==="GET"){
                 echo json_encode(["success" => false, "message" => "User not logged in"]);
                 break;
             }
+        case 'getAllCustomer':
+            $searchName = $_GET['searchName'] ?? null;
+            if (empty($searchName)) {
+                $searchName = null;
+            }  
+            $customerController->getAllCustomer($searchName);
+            break;
         default:
             echo json_encode(['error' => 'Action not recognized']);
     }

@@ -95,4 +95,15 @@ class CustomerController{
             exit();
         }
     }
+
+    public function getAllCustomer($searchName = null){
+        $customers = $this->customerService->getAllCustomer($searchName);
+        if($customers){
+            echo json_encode( ["success" => true, "customers" => $customers]);  
+            exit();
+        } else {
+            echo json_encode(["success" => false, "message"=> "Không tìm thấy thông tin khách hàng"]);
+            exit();
+        }
+    }
 }

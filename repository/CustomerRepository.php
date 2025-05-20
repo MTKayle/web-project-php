@@ -85,4 +85,20 @@ class CustomerRepository
         $statement->execute(['voucherCode' => $voucherCode]);
         return $statement->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function getAllCustomers($searchName = null){
+        $query = "SELECT customers.*, email FROM customers INNER JOIN users 
+                    ON customers.customerID = users.userID
+                    WHERE customers.isActive = 1 AND users.userRoleID = 2";
+        if ($searchName) {
+            $query .= " AND email LIKE :searchName";
+        }
+        $statement = $this->connnection->prepare($query);
+        if ($searchName) {
+            $searchLike = "%$searchName%";
+            $statement->bindParam(':searchName', $searchLike);
+        }
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
