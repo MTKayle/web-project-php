@@ -1,4 +1,25 @@
 $(document).ready(function() {
+
+    //tai tin tuc khi trang load
+    $.ajax({
+        url: `${baseUrl}/ajax/news.php`,
+        type: 'GET',
+        data:{page: 1},
+        dataType: 'json',
+        success: function (response) {
+            if(response.success){   
+                const articles = response.response.articles;
+                renderArticles(articles, response.response.author);
+                $('#pagination').html(renderPagination(response.response.totalPages, 1));
+            }else{
+                $('#pagination').html(''); // Xóa phân trang khi không có đơn hàng
+            }
+            
+        },
+        error: function (error) {
+            console.error('Error fetching overview data:', error);
+        }
+    })
     // // Initialize CKEditor
     CKEDITOR.replace('content', {
         versionCheck: false,
@@ -48,6 +69,19 @@ $(document).ready(function() {
         // Lấy dữ liệu từ form
         const title = $('#title').val().trim();
         const content = CKEDITOR.instances.content.getData();
+        const overview = $('#overview').val().trim();
+        const file = $('#image')[0].files[0]; 
+        const formData = new FormData();
+        // Append file to FormData
+
+        if (file) {
+            formData.append('image', file);
+        }   
+        formData.append('title', title);
+        formData.append('content', content);
+        formData.append('overview', overview);
+        formData.append('action', 'add');
+        // Kiểm tra dữ liệu   
         console.log(content); // Kiểm tra nội dung CKEditor
         console.log(title); // Kiểm tra tiêu đề
 
@@ -67,11 +101,9 @@ $(document).ready(function() {
         $.ajax({
             url: `${baseUrl}/ajax/news.php`,
             method: 'POST',
-            data: {
-                title: title,
-                content: content,
-                action: 'add'
-            },
+            data: formData,
+            processData: false,      // BẮT BUỘC khi dùng FormData
+            contentType: false,      // BẮT BUỘC khi dùng FormData
             success: function(response) {
                 if (response.success) {
                     alert('✅ Đăng bài thành công!');
@@ -82,6 +114,8 @@ $(document).ready(function() {
                     newPostSection.style.display = 'none';
                     // Reload the page or update the news list
                     location.reload();
+                } else {
+                    alert('❌ Có lỗi xảy ra: ' + response.message);
                 }
                 
             },
@@ -92,26 +126,7 @@ $(document).ready(function() {
     });
 
 
-    //tai tin tuc khi trang load
-    $.ajax({
-        url: `${baseUrl}/ajax/news.php`,
-        type: 'GET',
-        data:{page: 1},
-        dataType: 'json',
-        success: function (response) {
-            if(response.success){   
-                const articles = response.response.articles;
-                renderArticles(articles, response.response.author);
-                $('#pagination').html(renderPagination(response.response.totalPages, 1));
-            }else{
-                $('#pagination').html(''); // Xóa phân trang khi không có đơn hàng
-            }
-            
-        },
-        error: function (error) {
-            console.error('Error fetching overview data:', error);
-        }
-    })
+    
 
     let searchQuery = '';
     

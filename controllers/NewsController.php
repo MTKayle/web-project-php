@@ -25,14 +25,14 @@ class NewsController
         }
     }
 
-    public function addNews($title, $content, $userID)
+    public function addNews($title, $content, $userID, $overview, $image)
     {
-        if (empty($title) || empty($content) || empty($userID)) {
+        if (empty($title) || empty($content) || empty($userID) || empty($overview) || empty($image)) {
             echo json_encode(["success" => false, "message"=> "Thiếu thông tin bài viết"]);
             exit();
         }
 
-        $result = $this->newsService->addNews($title, $content, $userID);
+        $result = $this->newsService->addNews($title, $content, $userID, $overview, $image);
         if ($result) {
             echo json_encode(["success" => true, "message"=> "Thêm bài viết thành công"]);
             exit();
@@ -55,6 +55,22 @@ class NewsController
             exit();
         } else {
             echo json_encode(["success" => false, "message"=> "Xóa bài viết thất bại"]);
+            exit();
+        }
+    }
+
+    public function getNewsById($newsID)
+    {
+        if (empty($newsID)) {
+            echo json_encode(["success" => false, "message"=> "Thiếu thông tin bài viết"]);
+            exit();
+        }
+        $result = $this->newsService->getNewsById($newsID);
+        if ($result) {
+            echo json_encode(["success" => true, "response" => $result]);
+            exit();
+        } else {
+            echo json_encode(["success" => false, "message"=> "Không tìm thấy thông tin bài viết"]);
             exit();
         }
     }

@@ -53,25 +53,23 @@
                             <table class="table table-hover" id="productsTable">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Product</th>
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Price</th>
-                                        <th>Stock</th>
-                                        <th>Image</th>
-                                        <th>Actions</th>
+                                        <th>Mã SP</th>
+                                        <th>Tên</th>
+                                        <th>Tiêu đề</th>
+                                        <th>Giá</th>
+                                        <th>SL</th>
+                                        <th>Ảnh</th>
+                                        <th>Thao tác</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php if (isset($products) && !empty($products)): ?>
                                         <?php foreach ($products as $product): ?>
                                             <tr>
-                                                <td><?= htmlspecialchars($product->productID, ENT_QUOTES, 'UTF-8') ?></td>
+                                                <td>#<?= htmlspecialchars($product->productID, ENT_QUOTES, 'UTF-8') ?></td>
                                                 <td><?= htmlspecialchars($product->productName, ENT_QUOTES, 'UTF-8') ?></td>
                                                 <td><?= htmlspecialchars($product->title, ENT_QUOTES, 'UTF-8') ?></td>
-                                                <td><?= htmlspecialchars($product->description, ENT_QUOTES, 'UTF-8') ?></td>
-                                                <td>$<?= number_format(htmlspecialchars($product->price, ENT_QUOTES, 'UTF-8'), 2) ?></td>
+                                                <td><?= number_format(htmlspecialchars($product->price, ENT_QUOTES, 'UTF-8')) ?></td>
                                                 <td><?= htmlspecialchars($product->stockQuantity, ENT_QUOTES, 'UTF-8') ?></td>
                                                 <td>
                                                     <?php if (!empty($product->image)): ?>
@@ -81,7 +79,7 @@
                                                     <?php endif; ?>
                                                 </td>
                                                 <td>
-                                                    <a href="edit_product.php?id=<?= htmlspecialchars($product->productID, ENT_QUOTES, 'UTF-8') ?>" class="btn btn-sm btn-light me-2" title="Edit"><i class="bi bi-pencil"></i></a>
+                                                    <button class="btn btn-sm btn-light me-2 editProduct" title="Edit" data-product-id="<?= htmlspecialchars($product->productID, ENT_QUOTES, 'UTF-8') ?>" id="edit-product"><i class="bi bi-pencil"></i></button>
                                                     <button class="btn btn-sm btn-light delete-product" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-product-id="<?= htmlspecialchars($product->productID, ENT_QUOTES, 'UTF-8') ?>"><i class="bi bi-trash"></i></button>
                                                     <button class="btn btn-sm btn-light" title="Tải bộ sưu tập" data-product-id="<?= htmlspecialchars($product->productID, ENT_QUOTES, 'UTF-8') ?>"><i class="bi bi-eye"></i></button>
                                                 </td>
@@ -204,6 +202,50 @@
         </div>
     </div>
 
+    <!-- Modal Chỉnh Sửa Sản Phẩm -->
+<div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="editProductForm">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editProductLabel">Edit Product</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Hidden Product ID -->
+                    <input type="hidden" name="productId" id="editProductId">
+
+                    <div class="mb-3">
+                        <label>Product Name</label>
+                        <input type="text" name="productName" id="editProductName" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Title</label>
+                        <input type="text" name="title" id="editTitle" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Description</label>
+                        <textarea name="description" id="editDescription" class="form-control" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label>Price</label>
+                        <input type="number" name="price" id="editPrice" class="form-control" step="0.01" min="0" required>
+                    </div>
+                    <div class="mb-3">
+                        <label>Stock Quantity</label>
+                        <input type="number" name="stockQuantity" id="editStockQuantity" class="form-control" min="1" step="1" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js_admin/product.js"></script>
     <script>
@@ -287,4 +329,13 @@
         <?php foreach ($categories as $category): ?>
             categorySelect.innerHTML += `<option value="<?= $category['categoryID'] ?>"><?= $category['categoryName'] ?></option>`;
         <?php endforeach; ?>
+    </script>
+
+    <script>
+        function formatCurrency(value) {
+    return new Intl.NumberFormat('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+    }).format(value);
+}
     </script>

@@ -104,19 +104,19 @@
                     <h5 class="text-danger mb-3">Giá (₫)</h5>
                     <div class="mb-4">
                         <div class="form-check mb-2">
-                            <input class="form-check-input price-checkbox" type="checkbox" id="price1" value="0-200">
+                            <input class="form-check-input price-checkbox" type="checkbox" id="price1" value="0-200000">
                             <label class="form-check-label" for="price1">
                                 Dưới 200.000₫
                             </label>
                         </div>
                         <div class="form-check mb-2">
-                            <input class="form-check-input price-checkbox" type="checkbox" id="price2" value="200-500">
+                            <input class="form-check-input price-checkbox" type="checkbox" id="price2" value="200000-500000">
                             <label class="form-check-label" for="price2">
                                 200.000₫ - 500.000₫
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input price-checkbox" type="checkbox" id="price3" value="500-1000000">
+                            <input class="form-check-input price-checkbox" type="checkbox" id="price3" value="500000-1000000000">
                             <label class="form-check-label" for="price3">
                                 Trên 500.000₫
                             </label>
@@ -132,6 +132,13 @@
             <!-- JS sẽ render nội dung vào đây -->
 
         </div>
+
+        <!-- Pagination -->
+        <nav aria-label="Order Pagination" class="mt-4">
+                        <ul class="pagination justify-content-center" id="pagination">
+                            <!-- render pagination here -->
+                        </ul>
+                    </nav>
        
       <!-- Content area (for demo purposes) -->
         <!-- <div class="col-4 mb-4 ms-4">

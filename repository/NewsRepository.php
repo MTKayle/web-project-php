@@ -61,13 +61,15 @@ class NewsRepository
     }
 
 
-    public function addNews($title, $content, $userID)
+    public function addNews($title, $content, $userID, $overview, $image)
     {
-        $query = "INSERT INTO articles (title, content, createAt, userID, isActive) VALUES (:title, :content, NOW(), :userID, 1)";
+        $query = "INSERT INTO articles (title, content, createAt, userID, isActive, description, image) VALUES (:title, :content, NOW(), :userID, 1, :overview, :image)";
         $statement = $this->connection->prepare($query);
         $statement->bindParam(':title', $title);
         $statement->bindParam(':content', $content);
         $statement->bindParam(':userID', $userID);
+        $statement->bindParam(':overview', $overview);
+        $statement->bindParam(':image', $image);
         return $statement->execute();
     }
 
@@ -77,6 +79,15 @@ class NewsRepository
         $statement = $this->connection->prepare($query);
         $statement->bindParam(':newsID', $newsID);
         return $statement->execute();
+    }
+
+    public function getNewsById($newsID)
+    {
+        $query = "SELECT * FROM articles WHERE articleID = :newsID";
+        $statement = $this->connection->prepare($query);
+        $statement->bindParam(':newsID', $newsID);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_ASSOC);
     }
     
 

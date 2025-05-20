@@ -17,13 +17,20 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
         case 'add':
             $title = $_POST['title'] ?? null;
             $content = $_POST['content'] ?? null;
+            $overview = $_POST['overview'] ?? null;
+            $image = $_FILES['image'] ?? null;
            
-            $newsController->addNews($title, $content, $userID);
+            $newsController->addNews($title, $content, $userID, $overview, $image);
             break;
         case 'delete':
             $newsID = $_POST['articleID'] ?? null;
         
             $newsController->deleteNews($newsID);
+            break;
+        case 'getNewsById':
+            $newsID = $_POST['articleID'] ?? null;
+            
+            $newsController->getNewsById($newsID);
             break;
         default:
             echo json_encode(["success" => false, "message"=> "Invalid action"]);
@@ -38,6 +45,6 @@ if($_SERVER["REQUEST_METHOD"] === "GET") {
     if(empty($search)) {
         $search = null;
     }
-    $newsController->getAllNews($page, 7 ,$search, $userID);
+    $newsController->getAllNews($page, 6 ,$search, $userID);
 }
 ?>

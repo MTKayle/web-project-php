@@ -10,10 +10,10 @@ class ProductController
         $this->productService = $productService;
     }
 
-    public function getAllProducts($filters)
+    public function getAllProducts($filters, $page)
     {
         
-        $products = $this->productService->getAllProducts($filters);
+        $products = $this->productService->getAllProducts($filters, 15, $page);
         if ($products) {
             echo json_encode(["success" => true, "products" => $products]);
             exit();
@@ -58,5 +58,23 @@ class ProductController
             exit();
         }
     }
+
+    public function updateProduct($productID, $data)
+    {
+        if(empty($productID) || empty($data)) {
+            echo json_encode(["success" => false, "message" => "Thiếu thông tin sản phẩm"]);
+            exit();
+        }
+        $product = $this->productService->updateProduct($productID, $data);
+        if ($product) {
+            echo json_encode(["success" => true, "message" => "Cập nhật sản phẩm thành công"]);
+            exit();
+        } else {
+            echo json_encode(["success" => false, "message" => "Cập nhật sản phẩm thất bại"]);
+            exit();
+        }
+    }
+
+    
 }
 ?>

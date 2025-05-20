@@ -107,7 +107,8 @@ class ProductRepository
     }
 
 
-    public function getAllProducts($filters = [], $limit = 18, $page = 1){
+    public function getAllProducts($filters = [], $limit = 15, $page = 1){
+        // echo $filters['age'];
         $offset = ($page - 1) * $limit; // Tính toán offset dựa trên trang hiện tại và số lượng sản phẩm mỗi trang
         $query =  "SELECT  *  FROM products ";
 
@@ -127,6 +128,8 @@ class ProductRepository
         
         $query = $this->orderQuery($filters, $query);
 
+        $queryCount = $query;
+
         $query .= " LIMIT :limit OFFSET :offset";
 
 
@@ -144,12 +147,22 @@ class ProductRepository
 
         $products = [];
 
+        //tinh tong so trang
+        $queryCount = str_replace("SELECT *", "SELECT COUNT(*)", $queryCount);
+        $statementCount = $this->connnection->prepare($queryCount);
+        foreach ($params as $key => $value) {
+            $statementCount->bindValue($key, $value);
+        }
+        $statementCount->execute();
+        $totalProducts = $statementCount->fetchColumn();
+        $totalPages = ceil($totalProducts / $limit);
+
         while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
             $products[] = new Product(
                 $row['productID'],
                 $row['productName'],
                 $row['title'],
-                $row['description'],
+                $totalPages,
                 $row['price'],
                 $row['stockQuantity'],
                 $row['image'],
@@ -241,6 +254,19 @@ class ProductRepository
         $statement = $this->connnection->prepare($query);
         $statement->bindValue(':productID', $productID, PDO::PARAM_INT);
         $statement->bindValue(':quantity', $quantity, PDO::PARAM_INT);
+        return $statement->execute();
+    }
+
+    public function updateProduct($productID, $data)
+    {
+        $query = "UPDATE products SET productName = :productName, title = :title, description = :description, price = :price, stockQuantity = :stockQuantity WHERE productID = :productID";
+        $statement = $this->connnection->prepare($query);
+        $statement->bindValue(':productName', $data['productName']);
+        $statement->bindValue(':title', $data['title']);
+        $statement->bindValue(':description', $data['description']);
+        $statement->bindValue(':price', $data['price']);
+        $statement->bindValue(':stockQuantity', $data['stockQuantity']);
+        $statement->bindValue(':productID', (int)$productID);
         return $statement->execute();
     }
 }

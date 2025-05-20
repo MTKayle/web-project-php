@@ -109,6 +109,8 @@ function getFilters(selectedCategory = null) {
 function fetchProducts(queryString) {
   console.log("Lấy sản phẩm");
   console.log(`${baseUrl}/ajax/product.php?${queryString}`);
+  const params = new URLSearchParams(queryString);
+  const page = params.get('pageNum') || 1; // Lấy trang hiện tại từ query string, mặc định là 1
   $.ajax({
       url: `${baseUrl}/ajax/product.php?${queryString}`,
       type: 'GET',
@@ -117,6 +119,7 @@ function fetchProducts(queryString) {
         if(response.success){
           console.log(response);
           renderProducts(response.products); // tự định nghĩa hàm này để hiển thị HTML
+          $('#pagination').html(renderPagination(response.products[0].description, page));
         }else{
           $('#product-container').html(`
           <div class="d-flex justify-content-center align-items-center" style="min-height: 300px;">
@@ -217,6 +220,57 @@ function formatCurrency(amount) {
   }).format(amount);
 }
 
+//ham phan trang
+function renderPagination(totalPages, currentPage = 1, maxVisiblePages = 7) {
+  let html = '';
+
+  // Nút "Trang đầu"
+  if (currentPage > 1) {
+      html += `<li class="page-item">
+                  <a class="page-link" href="#" data-page="1">&laquo;</a>
+               </li>`;
+  }
+
+  // Tính toán phạm vi trang hiển thị
+  let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+  let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+
+  // Điều chỉnh nếu ở gần đầu hoặc cuối
+  if (endPage - startPage + 1 < maxVisiblePages) {
+      startPage = Math.max(1, endPage - maxVisiblePages + 1);
+  }
+
+  // Nút "..." trước
+  if (startPage > 1) {
+      html += `<li class="page-item">
+                  <a class="page-link disabled" href="#">...</a>
+               </li>`;
+  }
+
+  // Nút trang trong phạm vi
+  for (let i = startPage; i <= endPage; i++) {
+      html += `<li class="page-item ${i === currentPage ? 'active' : ''}">
+                  <a class="page-link" href="#" data-page="${i}">${i}</a>
+               </li>`;
+  }
+
+  // Nút "..." sau
+  if (endPage < totalPages) {
+      html += `<li class="page-item">
+                  <a class="page-link disabled" href="#">...</a>
+               </li>`;
+  }
+
+  // Nút "Trang cuối"
+  if (currentPage < totalPages) {
+      html += `<li class="page-item">
+                  <a class="page-link" href="#" data-page="${totalPages}">&raquo;</a>
+               </li>`;
+  }
+
+  return html;
+}
+
 
 
   
@@ -225,5 +279,16 @@ function formatCurrency(amount) {
   
   
 
+});
+
+
+// Pagination
+$(document).on('click', '.page-link', function(e) {
+  e.preventDefault();
+  const page = $(this).data('page');           
+  const params = new URLSearchParams(window.location.search);
+  params.set('pageNum', page);
+  const newUrl = `${window.location.pathname}?${params.toString()}`;
+  fetchProducts(params.toString());
 });
 

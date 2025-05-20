@@ -35,15 +35,27 @@
             <div id="newPostSection" class="card mb-4">
                 <div class="card-body">
                     <h3 class="card-title">Tạo tin tức</h3>
-                    <form id="newsForm">
+                    <form id="newsForm" enctype="multipart/form-data">
                         <div class="mb-3">
-                            <label for="title" class="form-label">Tên bài tin tức</label>
+                            <label for="title" class="form-label">Tiêu đề tin tức</label>
                             <input type="text" class="form-control" id="title" name="title" required>
                         </div>
+
+                        <div class="mb-3">
+                            <label for="overview" class="form-label">Mô tả chung</label>
+                            <textarea id="overview" name="overview" class="form-control" rows="4"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Ảnh tiêu đề</label>
+                            <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                        </div>
+
                         <div class="mb-3">
                             <label for="content" class="form-label">Tin tức</label>
-                            <textarea id="content" name="content"></textarea>
+                            <textarea id="content" name="content" class="form-control" rows="8"></textarea>
                         </div>
+
                         <button type="submit" class="btn btn-primary">Lưu</button>
                     </form>
                 </div>
@@ -92,33 +104,7 @@
 <script src="../ckeditor/ckeditor.js"></script>
   
 
-<!-- Initialize CKEditor
-<script>
-    // // Initialize CKEditor
-    CKEDITOR.replace('content', {
-        // Upload cho file thông thường
-    filebrowserUploadUrl: '../admin/ck_upload.php',
-    filebrowserUploadMethod: 'form',
-    
-    // Upload cho image (quan trọng!)
-    filebrowserImageUploadUrl: '../admin/ck_upload.php',
-    filebrowserImageUploadMethod: 'form',
-    
-    // Cấu hình thêm để hiện button Upload
-    // filebrowserImageBrowseUrl: '../admin/ck_upload.php',
-    
-    // Kích hoạt plugin image
-    extraPlugins: 'image',
-    });
 
-    
-    // Toggle new post section
-    const toggleButton = document.getElementById('toggleNewPost');
-    const newPostSection = document.getElementById('newPostSection');
-    toggleButton.addEventListener('click', () => {
-        newPostSection.style.display = newPostSection.style.display === 'none' ? 'block' : 'none';
-    });
-</script> -->
 
 
 

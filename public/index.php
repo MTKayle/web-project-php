@@ -86,6 +86,15 @@ $pageParam = $_GET['page'] ?? '';
                 echo '<link rel="stylesheet" href="../view/css/orderTracking.css">';
                 echo '<script src="../assets/js/order_tracking.js"></script>';
                 break;
+            case 'news':
+                include '../view/pages/news.php';
+                echo '<link rel="stylesheet" href="../view/css/news.css">';
+                echo '<script src="../assets/js/news.js"></script>';
+                break;
+            case 'news-detail':
+                include '../view/pages/news-detail.php';
+                echo '<script src="../assets/js/news-detail.js"></script>';
+                break;
             default:
                 # code...
                 break;

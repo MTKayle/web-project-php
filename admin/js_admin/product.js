@@ -179,3 +179,77 @@ function initializeProducts(currentPage, search) {
             });
     });
 }
+
+//edit product
+$(document).ready(function () {
+    $('.editProduct').on('click', function () {
+        console.log('Edit product button clicked');
+        // lay thong tin san pham
+        const productId = $(this).data('product-id');
+        //ajax call to get product details
+        $.ajax({
+            url: `${baseUrl}/ajax/product.php`,
+            type: 'POST',
+            data: { productID: productId, action: 'get' },
+            dataType: 'json',
+            success: function (response) {
+                if (response.success) {
+                    openEditProductModal(response.product);
+                } else {
+                    console.error('Failed to fetch product details:', response.message);
+                }
+            },
+            error: function () {
+                console.error('Error fetching product details');
+            }
+        });
+    });
+
+    document.getElementById('editProductForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+    
+        const formData = new FormData(this);
+    
+        formData.append('action', 'edit');
+        const productId = document.getElementById('editProductId').value;
+        formData.append('productID', productId);
+
+        // Send the AJAX request
+        $.ajax({
+            url: `${baseUrl}/ajax/product.php`,
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            dataType: 'json',
+            success: function (response) {
+                if (response.success) {
+                    alert('Cập nhật sản phẩm thành công!', 'success');
+                    // Refresh the product list or redirect as needed
+                    window.location.reload();
+                } else {
+                    showAlert(response.message, 'danger');
+                }
+            },
+            error: function () {
+                console.error('Error updating product');
+                showAlert('Lỗi hệ thống, thử lại sau!', 'danger');
+            }
+        });
+    });
+
+        
+    
+});
+
+function openEditProductModal(product) {
+    document.getElementById('editProductId').value = product.productID;
+    document.getElementById('editProductName').value = product.productName;
+    document.getElementById('editTitle').value = product.title;
+    document.getElementById('editDescription').value = product.description;
+    document.getElementById('editPrice').value = product.price;
+    document.getElementById('editStockQuantity').value = product.stockQuantity;
+
+    const modal = new bootstrap.Modal(document.getElementById('editProductModal'));
+    modal.show();
+}

@@ -10,7 +10,7 @@ class ProductService{
         $this->productRepository = $productRepository;
     }
 
-    public function getAllProducts($filters = [], $limit = 18, $page = 1)
+    public function getAllProducts($filters = [], $limit = 15, $page = 1)
     {
         // Validate limit và page
         $limit = (int)$limit > 0 ? (int)$limit : 18;
@@ -25,7 +25,7 @@ class ProductService{
             }
         }
 
-        return $this->productRepository->getAllProducts($filters);
+        return $this->productRepository->getAllProducts($filters, $limit, $page);
     }
 
     public function getProductByID($productID)
@@ -45,6 +45,10 @@ class ProductService{
         } else {
             return null;
         }
+    }
+
+    public function updateProduct($productID, $data){
+        return $this->productRepository->updateProduct($productID, $data);
     }
 }
 ?>

@@ -179,29 +179,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-                            KHUYẾN MÃI
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="px-2 py-1">
-                                <div class="d-flex flex-wrap gap-2">
-                                    <div class="promo-item" style="width: 120px;">
-                                        <img src="../view/resources/IMG/5.jpg" alt="Sale 1" class="img-fluid mb-1">
-                                        <small>Sản phẩm 1 - Giảm 30%</small>
-                                    </div>
-                                    <div class="promo-item" style="width: 120px;">
-                                        <img src="../view/resources/IMG/5.jpg" alt="Sale 2" class="img-fluid mb-1">
-                                        <small>Sản phẩm 2 - Giảm 50%</small>
-                                    </div>
-                                    <div class="promo-item" style="width: 120px;">
-                                        <img src="../view/resources/IMG/5.jpg" alt="Sale 2" class="img-fluid mb-1">
-                                        <small>Sản phẩm 2 - Giảm 50%</small>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="?page=news">TIN TỨC</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">HÀNG MỚI</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">THƯƠNG HIỆU</a></li>
                     <li class="nav-item"><a class="nav-link" href="?page=forum">DIỄN ĐÀN</a></li>
@@ -276,48 +254,9 @@
                         </div>
                     </li>
 
-                    <!-- Promotions -->
-                    <li class="nav-item dropdown position-static">
-                        <a class="nav-link dropdown-toggle py-3" href="#" id="navbarPromotion" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            KHUYẾN MÃI
-                        </a>
-                        <!-- Dropdown menu chứa banner khuyến mãi -->
-                        <div class="dropdown-menu w-100 p-4" aria-labelledby="navbarPromotion">
-                            <section class="promotion-carousel">
-                                <div class="container">
-                                    <div class="tab-content" id="promotionTabContent">
-                                        <div class="tab-pane fade show active" id="deal1" role="tabpanel">
-                                            <div class="row">
-                                                <div class="col-md-4 mb-4">
-                                                    <div class="card promo-card rounded-4 border-0 overflow-hidden h-100">
-                                                        <img src="../view/resources/IMG/5.jpg" class="card-img-top" alt="Deal Riêng Web">
-                                                        <div class="card-img-overlay d-flex flex-column justify-content-end">
-                                                            <button class="btn btn-danger btn-sm align-self-center px-4 mb-3 fw-bold">MUA NGAY</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 mb-4">
-                                                    <div class="card promo-card rounded-4 border-0 overflow-hidden h-100">
-                                                        <img src="../view/resources/IMG/5.jpg" class="card-img-top" alt="Độc Quyền Online">
-                                                        <div class="card-img-overlay d-flex flex-column justify-content-end">
-                                                            <button class="btn btn-danger btn-sm align-self-center px-4 mb-3 fw-bold">MUA NGAY</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-4 mb-4">
-                                                    <div class="card promo-card rounded-4 border-0 overflow-hidden h-100">
-                                                        <img src="../view/resources/IMG/5.jpg" class="card-img-top" alt="LEGO F1">
-                                                        <div class="card-img-overlay d-flex flex-column justify-content-end">
-                                                            <button class="btn btn-danger btn-sm align-self-center px-4 mb-3 fw-bold">MUA NGAY</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
+                    <!-- news -->
+                    <li class="nav-item">
+                        <a class="nav-link py-3" href="?page=news">TIN TỨC</a>
                     </li>
 
                     <!-- Other links -->
