@@ -44,7 +44,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
                     <i class="bi bi-people me-2"></i> 
                     <span class="menu-title">Customers</span>
                 </a>
-                <a href="#" class="nav-link py-2">
+                <a href="?page=news" class="nav-link py-2">
                     <i class="bi bi-bar-chart me-2"></i> 
                     <span class="menu-title">Analytics</span>
                 </a>

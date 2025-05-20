@@ -55,6 +55,11 @@ $pageParam = $_GET['page'] ?? '';
                 echo '<script src="js_admin/order.js"></script>';
                 echo '<link rel="stylesheet" href="css_admin/order.css">';
                 break;
+            case 'news':
+                include '../admin/page_admin/news.php';
+                echo '<script src="js_admin/news.js"></script>';
+                // echo '<link rel="stylesheet" href="css_admin/news.css">';
+                break;
             default:
                 # code...
                 break;

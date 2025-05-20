@@ -87,4 +87,50 @@
     }
 }
 
+#newPostSection {
+    display: none;
+    margin-top: 20px;
+}
+
+.search-btn i {
+    transition: transform 0.1s ease;
+}
+
+.search-btn:active i {
+    transform: scale(0.9);
+}
+
+.pagination .page-item {
+    margin: 0 4px;
+}
+
+.pagination .page-link {
+    color: #333;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 8px 14px;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.pagination .page-link:hover {
+    color: #007bff;
+    background-color: #e2e6ea;
+    border-color: #ddd;
+}
+
+.pagination .page-item.active .page-link {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    font-weight: 500;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #ccc;
+    background-color: #f8f9fa;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
+
 
