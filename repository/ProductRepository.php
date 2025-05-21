@@ -269,5 +269,18 @@ class ProductRepository
         $statement->bindValue(':productID', (int)$productID);
         return $statement->execute();
     }
+
+    public function uploadGallary($productID, $imagePaths){
+        $query = "INSERT INTO product_gallery (productID , imagePath) VALUES (:productID, :imagePath)";
+        $statement = $this->connnection->prepare($query);
+        foreach ($imagePaths as $imagePath) {
+            $statement->bindValue(':productID', (int)$productID);
+            $statement->bindValue(':imagePath', $imagePath);
+            if (!$statement->execute()) {
+                return false; // Nếu có lỗi trong quá trình lưu ảnh, trả về false
+            }
+        }
+        return true; // Trả về true nếu tất cả ảnh đã được lưu thành công
+    }
 }
 ?>

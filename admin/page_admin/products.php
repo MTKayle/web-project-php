@@ -19,9 +19,9 @@
                         </button>
                         <div class="dropdown">
                             <button class="btn d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg" class="avatar" alt="Admin">
+                                <img src="../assets/avatar/admin.jpg" class="avatar" alt="Admin">
                                 <div class="d-none d-md-block text-start">
-                                    <div class="fw-bold">Alex Johnson</div>
+                                    <div class="fw-bold" id="adminName"></div>
                                     <div class="small text-muted">Admin</div>
                                 </div>
                             </button>
@@ -81,7 +81,21 @@
                                                 <td>
                                                     <button class="btn btn-sm btn-light me-2 editProduct" title="Edit" data-product-id="<?= htmlspecialchars($product->productID, ENT_QUOTES, 'UTF-8') ?>" id="edit-product"><i class="bi bi-pencil"></i></button>
                                                     <button class="btn btn-sm btn-light delete-product" title="Delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-product-id="<?= htmlspecialchars($product->productID, ENT_QUOTES, 'UTF-8') ?>"><i class="bi bi-trash"></i></button>
-                                                    <button class="btn btn-sm btn-light" title="Tải bộ sưu tập" data-product-id="<?= htmlspecialchars($product->productID, ENT_QUOTES, 'UTF-8') ?>"><i class="bi bi-eye"></i></button>
+                                                    <!-- Upload button with file input -->
+                                                    <label class="btn btn-sm btn-light mb-0" title="Tải bộ sưu tập">
+                                                        <i class="bi bi-upload"></i>
+                                                        <input 
+                                                            type="file" 
+                                                            name="images[]" 
+                                                            multiple 
+                                                            accept="image/*" 
+                                                            hidden 
+                                                            data-product-id="<?= htmlspecialchars($product->productID, ENT_QUOTES, 'UTF-8') ?>" 
+                                                            onchange="uploadImages(this)"
+                                                        >
+                                                    </label>
+
+
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

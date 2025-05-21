@@ -32,6 +32,17 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
             
             $newsController->getNewsById($newsID);
             break;
+        case 'get3LatestNews':
+            $newsController->get3LatestNews();
+            break;
+        case 'getAllNewsUser':
+            $page = $_POST['page'] ?? 1;
+            $search = $_POST['search'] ?? null;
+            if(empty($search)) {
+                $search = null;
+            }
+            $newsController->getAllNewsUser($page, 6 ,$search);
+            break;
         default:
             echo json_encode(["success" => false, "message"=> "Invalid action"]);
             exit();

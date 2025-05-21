@@ -50,5 +50,33 @@ class ProductService{
     public function updateProduct($productID, $data){
         return $this->productRepository->updateProduct($productID, $data);
     }
+
+    public function uploadGallary($productID, $avatar){
+        $avatarPaths = []; // Mảng chứa đường dẫn đã lưu của các ảnh
+
+    if (isset($_FILES['images']) && is_array($_FILES['images']['name'])) {
+            $uploadDir = 'C:/xampp/htdocs/web-project-php/assets/img_product/';
+            $avatarWebDir = '/web-project-php/assets/img_product/';
+
+            $total = count($_FILES['images']['name']);
+
+            for ($i = 0; $i < $total; $i++) {
+                $tmpName = $_FILES['images']['tmp_name'][$i];
+                $fileName = $_FILES['images']['name'][$i];
+                $error = $_FILES['images']['error'][$i];
+
+                if ($error === UPLOAD_ERR_OK) {
+                    $uniqueName = uniqid() . '_' . basename($fileName);
+                    $fullPath = $uploadDir . $uniqueName;
+                    $webPath = $avatarWebDir . $uniqueName;
+
+                    if (move_uploaded_file($tmpName, $fullPath)) {
+                        $avatarPaths[] = $webPath; // Lưu đường dẫn để dùng tiếp
+                    }
+                }
+            }
+        }
+        return $this->productRepository->uploadGallary($productID, $avatarPaths);
+    }
 }
 ?>

@@ -74,5 +74,33 @@ class NewsController
             exit();
         }
     }
+
+    public function get3LatestNews()
+    {
+        $result = $this->newsService->get3LatestNews();
+        if ($result) {
+            echo json_encode(["success" => true, "response" => $result]);
+            exit();
+        } else {
+            echo json_encode(["success" => false, "message"=> "Không tìm thấy thông tin bài viết"]);
+            exit();
+        }
+    }
+
+    public function getAllNewsUser($page, $limit, $search = null)
+    {
+        if (empty($page) || empty($limit)) {
+            echo json_encode(["success" => false, "message"=> "Thiếu thông tin bài viết"]);
+            exit();
+        }
+        $news = $this->newsService->getAllNewsUser($page, $limit , $search);
+        if ($news) {
+            echo json_encode(["success" => true, "response" => $news]);
+            exit();
+        } else {
+            echo json_encode(["success" => false, "message"=> "Không tìm thấy thông tin bài viết"]);
+            exit();
+        }
+    }
     
 }

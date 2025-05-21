@@ -75,6 +75,22 @@ class ProductController
         }
     }
 
+    public function uploadGallary($productID, $images)
+    {
+        if(empty($productID) || empty($images)) {
+            echo json_encode(["success" => false, "message" => "Thiếu thông tin sản phẩm"]);
+            exit();
+        }
+        $result = $this->productService->uploadGallary($productID, $images);
+        if ($result) {
+            echo json_encode(["success" => true, "message" => "Cập nhật hình ảnh thành công"]);
+            exit();
+        } else {
+            echo json_encode(["success" => false, "message" => "Cập nhật hình ảnh thất bại"]);
+            exit();
+        }
+    }
+
     
 }
 ?>

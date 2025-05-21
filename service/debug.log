@@ -34,3 +34,35 @@ Adding product: Array
 
 )
 
+Adding product: Array
+(
+    [productName] => Robot Siêu Cảnh Sát Tuần Tra Patrol Cop Điện Năng Miniforce 505001
+    [title] => Robot siêu cảnh sát tuần tra Patrol Cop điện năng là sản phẩm thuộc thương hiệu SAMG Entertainment đến từ Series phim hoạt hình được nhiều bạn nhỏ yêu thích – MINIFORCE.
+    [description] => Robot Siêu Cảnh Sát Tuần Tra Patrol Cop Điện Năng Miniforce 505001
+Robot siêu cảnh sát tuần tra Patrol Cop điện năng là sản phẩm thuộc thương hiệu SAMG Entertainment đến từ Series phim hoạt hình được nhiều bạn nhỏ yêu thích – MINIFORCE.
+
+Đồ đồ chơi mô phỏng nhân vật Siêu cảnh sát tuần tra - Patrol Cop điện năng, có các đặc điểm sau: 
+- Bé phát triển vận động tinh, học cách thực hiện theo sách hướng dẫn sử dụng;
+- Bộ sản phẩm có thể bẻ các khớp tay, chân.. để biến hình robot thành mô hình đầu nhân vật và ngược lại
+- Đi kèm 1 vũ khí Patrol Magnum và 1 huy hiệu cảnh sát có thể dùng để trưng bày mô hình đầu nhân vật
+
+Thông tin sản phẩm: 
+- Chứa các chi tiết đều được làm hoàn toàn từ chất liệu nhựa ABS cao cấp, ráp nối với nhau một cách tỉ mỉ, đảm bảo độ chắc chắn cũng như tính mỹ quan của sản phẩm.
+- Chất liệu nhựa không bao gồm những thành phần độc hại cho sức khoẻ của trẻ nhỏ khi sử dụng trong thời gian dài.
+    [price] => 311000
+    [stockQuantity] => 400
+    [brandID] => 3
+    [categoryID] => 1
+    [ageFrom] => 3
+    [ageTo] => 16
+    [image] => Array
+        (
+            [name] => robot-sieu-canh-sat-tuan-tra-patrol-cop-dien-nang-miniiforce-505001_1.webp
+            [type] => image/webp
+            [tmp_name] => C:\xampp\tmp\phpF6AA.tmp
+            [error] => 0
+            [size] => 90532
+        )
+
+)
+

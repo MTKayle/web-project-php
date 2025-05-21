@@ -62,6 +62,13 @@ if($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $productController->updateProduct($productData['productID'], $productData);
             break;
+        case 'upload':
+            $productID = $_POST['productID'] ?? null;
+            $images = $_FILES['images'] ?? null;
+
+            $productController->uploadGallary($productID, $images);
+            break;
+            
         default:
             echo json_encode(['error' => 'Invalid action']);
     }

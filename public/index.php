@@ -33,7 +33,7 @@ $pageParam = $_GET['page'] ?? '';
     <a href="#" class="back-to-top" id="backToTop">
         <i class="fa fa-arrow-up"></i>
     </a>
-    <script src="../assets/js/product.js"></script>
+    <!-- <script src="../assets/js/product.js"></script> -->
     <div class="container <?php echo $marginClass; ?>" >
         <?php
         switch ($pageParam) {

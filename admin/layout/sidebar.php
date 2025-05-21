@@ -40,10 +40,10 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
                     <i class="bi bi-box me-2"></i> 
                     <span class="menu-title">Quản lí đơn hàng</span>
                 </a>
-                <a href="?page=customers" class="nav-link py-2">
+                <!-- <a href="?page=customers" class="nav-link py-2">
                     <i class="bi bi-people me-2"></i> 
                     <span class="menu-title">Customers</span>
-                </a>
+                </a> -->
                 <a href="?page=news" class="nav-link py-2">
                     <i class="bi bi-bar-chart me-2"></i> 
                     <span class="menu-title">Quản lí tin tức</span>
@@ -52,14 +52,14 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
                     <i class="bi bi-credit-card me-2"></i> 
                     <span class="menu-title">Quản lí voucher</span>
                 </a>
-                <a href="#" class="nav-link py-2">
+                <!-- <a href="#" class="nav-link py-2">
                     <i class="bi bi-chat me-2"></i> 
                     <span class="menu-title">Messages</span>
                 </a>
                 <a href="#" class="nav-link py-2">
                     <i class="bi bi-bell me-2"></i> 
                     <span class="menu-title">Notifications</span>
-                </a>
+                </a> -->
                 <a href="#" class="nav-link py-2">
                     <i class="bi bi-gear me-2"></i> 
                     <span class="menu-title">Settings</span>

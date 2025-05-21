@@ -78,5 +78,16 @@ class DashboardController
         }
     }
 
+    public function getProductNew(){
+        $data = $this->dashboardService->getProductNew();
+        if ($data) {
+            echo json_encode(["success" => true, "response" => $data]);
+            exit();
+        } else {
+            echo json_encode(["success" => false, "message"=> "Không tìm thấy thông tin sản phẩm"]);
+            exit();
+        }
+    }
+
     
 }

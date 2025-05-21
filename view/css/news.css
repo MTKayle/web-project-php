@@ -1,50 +1,50 @@
-
-
 .news-container {
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
-}
-
-.news-grid {
+  }
+  
+  .news-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-}
-
-.news-item {
+  }
+  
+  .news-item {
     transition: transform 0.3s ease;
     overflow: hidden;
     position: relative;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     height: 300px;
-}
-
-.news-item:hover {
+    border-radius: 12px; /* Bo tròn cho card */
+  }
+  
+  .news-item:hover {
     transform: translateY(-5px);
-}
-
-.news-image {
+  }
+  
+  .news-image {
     height: 100%;
     width: 100%;
     overflow: hidden;
     position: absolute;
     top: 0;
     left: 0;
-}
-
-.news-image img {
+    border-radius: 12px; /* Bo tròn cho ảnh */
+  }
+  
+  .news-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;  
+    object-fit: cover;
     transition: transform 0.5s ease;
-}
-
-.news-item:hover .news-image img {
+  }
+  
+  .news-item:hover .news-image img {
     transform: scale(1.05);
-}
-
-.news-content {
+  }
+  
+  .news-content {
     padding: 20px;
     position: absolute;
     bottom: 0;
@@ -54,39 +54,52 @@
     color: white;
     display: flex;
     flex-direction: column;
-}
-
-.news-title {
+    border-bottom-left-radius: 12px; /* Bo tròn phần dưới */
+    border-bottom-right-radius: 12px;
+  }
+  
+  .news-title {
     font-size: 22px;
     margin-bottom: 10px;
     color: #fff;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-}
-
-.news-meta {
+    height: 52px; /* Chiều cao cố định cho title */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Giới hạn 2 dòng */
+    -webkit-box-orient: vertical;
+  }
+  
+  .news-meta {
     display: flex;
     font-size: 12px;
     color: #eee;
     margin-bottom: 10px;
-}
-
-.news-date, .news-category {
+    height: 15px; /* Chiều cao cố định cho meta */
+  }
+  
+  .news-date, .news-category {
     margin-right: 10px;
-}
-
-.news-excerpt {
+  }
+  
+  .news-excerpt {
     font-size: 14px;
     line-height: 1.5;
     color: #ddd;
     margin-bottom: 15px;
-}
-
-.news-more-container {
+    height: 63px; /* Chiều cao cố định cho description (3 dòng) */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Giới hạn 3 dòng */
+    -webkit-box-orient: vertical;
+  }
+  
+  .news-more-container {
     margin: 0 -20px -20px -20px;
     position: relative;
-}
-
-.news-more {
+  }
+  
+  .news-more {
     display: block;
     width: 100%;
     padding: 12px 0;
@@ -101,16 +114,20 @@
     position: relative;
     top: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.news-item:hover .news-more {
+    border: none; /* Loại bỏ viền */
+    cursor: pointer; /* Thêm con trỏ */
+  }
+  
+  .news-item:hover .news-more {
     background-color: rgba(255, 220, 130, 0.85);
     color: #333;
     top: -5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.brand-overlay {
+    border-bottom-left-radius: 12px; /* Bo tròn phần nút khi hover */
+    border-bottom-right-radius: 12px;
+  }
+  
+  .brand-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -121,16 +138,18 @@
     align-items: center;
     padding: 0 20px;
     z-index: 10;
-}
-
-.brand-logo {
+    border-bottom-left-radius: 12px; /* Bo tròn phần overlay */
+    border-bottom-right-radius: 12px;
+  }
+  
+  .brand-logo {
     color: white;
     font-size: 24px;
     font-weight: bold;
-}
-
-/* Diagonal element */
-.diagonal-element {
+  }
+  
+  /* Diagonal element */
+  .diagonal-element {
     position: absolute;
     width: 100%;
     height: 100px;
@@ -139,16 +158,16 @@
     z-index: -1;
     top: 50%;
     left: 0;
-}
-
-@media (max-width: 768px) {
+  }
+  
+  @media (max-width: 768px) {
     .news-grid {
-        grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
-}
-
-@media (max-width: 480px) {
+  }
+  
+  @media (max-width: 480px) {
     .news-grid {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr;
     }
-}
+  }

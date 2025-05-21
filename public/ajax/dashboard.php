@@ -25,6 +25,9 @@ if($_SERVER["REQUEST_METHOD"] === "GET") {
             $statusID = $_GET['statusID'] ?? '';
             $dashboardController->getListOrderForStatus($statusID);
             break;
+        case 'getProductNew':
+            $dashboardController->getProductNew();
+            break;
         default:
             echo json_encode(['error' => 'Action not recognized']);
     }

@@ -257,6 +257,13 @@ $(document).ready(function() {
             return;
         }
 
+        //check email dung dinh dang
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            alert("Email không hợp lệ!");
+            return;
+        }
+
         // Lấy chi tiết đơn hàng từ giỏ hàng
         
 

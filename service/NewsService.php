@@ -66,6 +66,26 @@ class NewsService
             return null;
         }
     }
+
+    public function get3LatestNews()
+    {
+        $result = $this->newsRepository->get3LatestNews();
+        if ($result) {
+            return $result;
+        } else {
+            return null;
+        }
+    }
+
+    public function getAllNewsUser($page, $limit, $search = null)
+    {
+        $news = $this->newsRepository->getAllNewsUser($page, $limit, $search);
+        if ($news) {
+            return $news;
+        } else {
+            return null;
+        }
+    }
 }
 
 ?>

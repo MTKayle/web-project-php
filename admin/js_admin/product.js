@@ -1,4 +1,7 @@
 // filepath: c:\xampp\htdocs\web-project-php\admin\assets_admin\js_admin\products.js
+
+
+
 function initializeProducts(currentPage, search) {
     var deleteModal = document.getElementById('deleteModal');
     var confirmDeleteBtn = document.getElementById('confirmDelete');
@@ -182,6 +185,24 @@ function initializeProducts(currentPage, search) {
 
 //edit product
 $(document).ready(function () {
+
+    //lay thong tin user
+$.ajax({
+    url: `${baseUrl}/ajax/login.php`,
+    type: 'GET',
+    dataType: 'json',
+    success: function (response) {
+        if(response.success){
+            const user = response.user;
+            $('#adminName').text(user.name);
+        }
+    },
+    error: function (error) {
+        console.error('Error fetching user info:', error);
+    }
+});
+
+
     $('.editProduct').on('click', function () {
         console.log('Edit product button clicked');
         // lay thong tin san pham
@@ -252,4 +273,36 @@ function openEditProductModal(product) {
 
     const modal = new bootstrap.Modal(document.getElementById('editProductModal'));
     modal.show();
+}
+
+function uploadImages(input) {
+    const files = input.files;
+    const productID = input.getAttribute('data-product-id');
+
+    console.log("Selected files:", files);
+    console.log("Product ID:", productID);
+
+    if (!files.length) return;
+
+    const formData = new FormData();
+    formData.append("productID", productID);
+    formData.append("action", "upload");
+
+    for (let i = 0; i < files.length; i++) {
+        formData.append("images[]", files[i]);
+    }
+
+    fetch(`${baseUrl}/ajax/product.php`, {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.json())
+    .then(result => {
+        alert("Tải ảnh thành công!");
+        console.log(result); // Hoặc xử lý DOM nếu muốn hiển thị ảnh
+    })
+    .catch(error => {
+        alert("Có lỗi khi tải ảnh!");
+        console.error(error);
+    });
 }

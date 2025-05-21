@@ -86,7 +86,9 @@ class DashboardService
                 'price' => $product['price'],
                 'quantitySold' => $product['total_quantity'],
                 'stockQuantity' => $product['stockQuantity'],
-                'image'=>$product['image']
+                'image'=>$product['image'],
+                'brandName' => $product['brandName'],
+                'title'=>$product['title'],
             ];
         }
         return $topProductsData;
@@ -94,6 +96,24 @@ class DashboardService
 
     public function getListOrderForStatus($statusID){
         return $this->dashboardRepository->getListOrderForStatus( $statusID);
+    }
+
+    public function getProductNew(){
+        //Lấy dữ liệu sản phẩm mới
+        $productNew = $this->dashboardRepository->getProductNew();
+        $productNewData = [];
+        foreach ($productNew as $product) {
+            $productNewData[] = [
+                'productID' => $product['productID'],
+                'productName' => $product['productName'],
+                'price' => $product['price'],
+                'stockQuantity' => $product['stockQuantity'],
+                'image'=>$product['image'],
+                'brandName' => $product['brandName'],
+                'title'=>$product['title'],
+            ];
+        }
+        return $productNewData;
     }
 }
 

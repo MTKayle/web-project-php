@@ -200,9 +200,11 @@ class DashboardRepository
 
     public function getTop5Products()
     {
-        $query = "SELECT p.productID, p.productName, p.price, p.stockQuantity, p.image, SUM(oi.quantity) AS total_quantity
+        $query = "SELECT p.productID, p.productName, p.price, p.stockQuantity, p.image, p.title, b.brandName, SUM(oi.quantity) AS total_quantity
         FROM products p
         JOIN order_item oi ON p.productID = oi.productID
+        JOIN brands b ON p.brandID = b.brandID
+        WHERE p.isActive = 1 AND oi.isActive = 1
         GROUP BY p.productID, p.productName, p.price
         ORDER BY total_quantity DESC
         LIMIT 5";
@@ -244,6 +246,18 @@ class DashboardRepository
             );
         }
         return $orders;
+    }
+
+    public function getProductNew(){
+        $query = "SELECT p.productID, p.productName, p.price, p.stockQuantity, p.image, p.title, b.brandName
+        FROM products p
+        JOIN brands b ON p.brandID = b.brandID
+        WHERE p.isActive = 1
+        ORDER BY p.createAt DESC
+        LIMIT 4";
+        $statement = $this->connection->prepare($query);
+        $statement->execute();
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
     

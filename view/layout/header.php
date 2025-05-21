@@ -180,8 +180,7 @@
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="?page=news">TIN TỨC</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">HÀNG MỚI</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">THƯƠNG HIỆU</a></li>
+                    <li class="nav-item"><a class="nav-link" href="?page=product">HÀNG MỚI</a></li>
                     <li class="nav-item"><a class="nav-link" href="?page=forum">DIỄN ĐÀN</a></li>
                     <!-- Tracking and login links only visible on xs screens -->
                     <li class="nav-item d-sm-none"><a class="nav-link" href="#"><i class="fa-solid fa-truck"></i> Theo dõi đơn hàng</a></li>
@@ -261,10 +260,7 @@
 
                     <!-- Other links -->
                     <li class="nav-item">
-                        <a class="nav-link py-3" href="#">HÀNG MỚI</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link py-3" href="#">THƯƠNG HIỆU</a>
+                        <a class="nav-link py-3" href="?page=product">HÀNG MỚI</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link py-3" href="?page=forum">DIỄN ĐÀN</a>

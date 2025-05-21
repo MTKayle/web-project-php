@@ -15,7 +15,7 @@ function renderNewsList(newsArray) {
                     </div>
                     <p class="news-excerpt">${news.description}</p>
                     <div class="news-more-container">
-                        <button class="news-more" data-news-id="${news.articleID} id="detail"">Xem thêm</button>
+                        <button class="news-more" data-news-id="${news.articleID}" id="detail">Xem thêm</button>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,8 @@ $(document).ready(function() {
     //ajax call to fetch news data
     $.ajax({
         url: `${baseUrl}/ajax/news.php`,
-        type: 'GET',
+        type: 'POST',
+        data: { action: 'getAllNewsUser' },
         dataType: 'json',
         success: function(response) {
             // Check if response is success
@@ -60,8 +61,8 @@ $(document).ready(function() {
         const page = $(this).data('page');           
             $.ajax({
                 url: `${baseUrl}/ajax/news.php`,
-                type: 'GET',
-                data:{page: page},
+                type: 'POST',
+                data:{page: page, action: 'getAllNewsUser'},
                 dataType: 'json',
                 success: function (response) {
                     if(response.success){   
