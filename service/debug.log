@@ -1,0 +1,94 @@
+Adding product: Array
+(
+    [productName] => Trực thăng
+    [title] => fdsfdsfds
+    [description] => đâsdasd
+    [price] => 250.9
+    [stockQuantity] => 15
+    [brandID] => 2
+    [categoryID] => 2
+    [ageFrom] => 7
+    [ageTo] => 19
+    [image] => 
+)
+
+Adding product: Array
+(
+    [productName] => Hỏa tiễn
+    [title] => Bút chì xuyên không
+    [description] => Tầm bay 1800km
+    [price] => 1000000
+    [stockQuantity] => 10
+    [brandID] => 4
+    [categoryID] => 5
+    [ageFrom] => 12
+    [ageTo] => 35
+    [image] => Array
+        (
+            [name] => Image (1).png
+            [type] => image/png
+            [tmp_name] => C:\xampp\tmp\phpB1DB.tmp
+            [error] => 0
+            [size] => 60748
+        )
+
+)
+
+Adding product: Array
+(
+    [productName] => Robot Siêu Cảnh Sát Tuần Tra Patrol Cop Điện Năng Miniforce 505001
+    [title] => Robot siêu cảnh sát tuần tra Patrol Cop điện năng là sản phẩm thuộc thương hiệu SAMG Entertainment đến từ Series phim hoạt hình được nhiều bạn nhỏ yêu thích – MINIFORCE.
+    [description] => Robot Siêu Cảnh Sát Tuần Tra Patrol Cop Điện Năng Miniforce 505001
+Robot siêu cảnh sát tuần tra Patrol Cop điện năng là sản phẩm thuộc thương hiệu SAMG Entertainment đến từ Series phim hoạt hình được nhiều bạn nhỏ yêu thích – MINIFORCE.
+
+Đồ đồ chơi mô phỏng nhân vật Siêu cảnh sát tuần tra - Patrol Cop điện năng, có các đặc điểm sau: 
+- Bé phát triển vận động tinh, học cách thực hiện theo sách hướng dẫn sử dụng;
+- Bộ sản phẩm có thể bẻ các khớp tay, chân.. để biến hình robot thành mô hình đầu nhân vật và ngược lại
+- Đi kèm 1 vũ khí Patrol Magnum và 1 huy hiệu cảnh sát có thể dùng để trưng bày mô hình đầu nhân vật
+
+Thông tin sản phẩm: 
+- Chứa các chi tiết đều được làm hoàn toàn từ chất liệu nhựa ABS cao cấp, ráp nối với nhau một cách tỉ mỉ, đảm bảo độ chắc chắn cũng như tính mỹ quan của sản phẩm.
+- Chất liệu nhựa không bao gồm những thành phần độc hại cho sức khoẻ của trẻ nhỏ khi sử dụng trong thời gian dài.
+    [price] => 311000
+    [stockQuantity] => 400
+    [brandID] => 3
+    [categoryID] => 1
+    [ageFrom] => 3
+    [ageTo] => 16
+    [image] => Array
+        (
+            [name] => robot-sieu-canh-sat-tuan-tra-patrol-cop-dien-nang-miniiforce-505001_1.webp
+            [type] => image/webp
+            [tmp_name] => C:\xampp\tmp\phpF6AA.tmp
+            [error] => 0
+            [size] => 90532
+        )
+
+)
+
+Adding product: Array
+(
+    [productName] => Đồ Chơi Lắp Ráp Trạm Cảnh Sát Và Trực Thăng LEGO DUPLO 10959
+    [title] => Đồ Chơi LEGO Duplo Trạm Cảnh Sát Và Trực Thăng 10959
+    [description] => Trạm cảnh sát có rất nhiều hoạt động vui nhộn. Có một chiếc xe cảnh sát để lái, một chú chó dễ thương để huấn luyện và một tháp canh nơi bạn có thể nhìn thấy trực thăng cảnh sát cất và hạ cánh. Khi trẻ em lắp ráp và chơi đùa, các bé sẽ phát triển các kỹ năng vận động, nhận thức cảm xúc và hơn thế nữa. Và, bởi vì hành động luôn nằm trong tầm tay của các bé, đây là một cách an toàn dành cho những người trẻ tuổi để tìm hiểu về công việc của cảnh sát.
+
+• Bộ cảnh sát thân thiện với trẻ mầm non - LEGO® DUPLO®Trạm cảnh sát và Trực Thăng (10959) có các nhân vật và phương tiện để truyền cảm hứng cho trí tưởng tượng cho các sĩ quan cảnh sát mầm non
+
+• Xe cảnh sát tuyệt vời - Bao gồm mô hinh thu nhỏ của 2 cảnh sát và một chú chó cảnh sát, một xe cảnh sát kéo & chạy (Push & Go) có đèn và còi báo động (bao gồm pin) và một máy bay trực thăng cảnh sát có cánh quạt quay được
+    [price] => 700000
+    [stockQuantity] => 150000
+    [brandID] => 5
+    [categoryID] => 4
+    [ageFrom] => 2
+    [ageTo] => 45
+    [image] => Array
+        (
+            [name] => 10959_0afb0fd3-d496-42fa-b3ec-4e143abe08f8.webp
+            [type] => image/webp
+            [tmp_name] => C:\xampp\tmp\php4AC2.tmp
+            [error] => 0
+            [size] => 59634
+        )
+
+)
+

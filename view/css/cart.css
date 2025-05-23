@@ -1,0 +1,134 @@
+.dropdown-cart {
+    right: 0;
+    min-width: 320px;
+    padding: 0;
+    background-color: #fffefa;
+    border: none;
+}
+
+
+/* Sửa lại CSS để đảm bảo dropdown hiển thị khi hover */
+
+.cart-dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+.btn {
+    background-color: #524117;
+    color: #f2ff4e;
+}
+
+.btn:hover {
+    background-color: #fff0d0;
+    color: #524117;
+}
+
+.cart-items {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+
+/* Cải thiện hiển thị hình ảnh sản phẩm */
+
+.cart-item-img-container {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.cart-item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.badge-cart {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+}
+
+.row {
+    border-color: brown;
+}
+
+
+/* Chỉnh sửa phần nhập số lượng sản phẩm */
+
+.quantity-selector {
+    display: flex;
+    justify-content: center;
+    width: 80px;
+    margin: 0 auto;
+}
+
+.quantity-input {
+    text-align: center;
+    padding: 0.25rem;
+    height: 38px;
+}
+
+
+/* Loại bỏ mũi tên tăng giảm mặc định của input type number */
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity-input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+/* Chỉnh sửa nút outline-danger cho đồng bộ với theme */
+
+.btn-outline-danger {
+    color: #dc3545;
+    border-color: #dc3545;
+    background-color: transparent;
+}
+
+.btn-outline-danger:hover {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+
+/* Đảm bảo nút pay duy trì màu sắc chủ đạo */
+
+.btn-pay {
+    background-color: #524117;
+    color: #f2ff4e;
+}
+
+.btn-pay:hover {
+    background-color: #fff0d0;
+    color: #524117;
+}
+
+
+/* Đồng bộ các nút với theme */
+
+.btn-outline-secondary {
+    color: #524117;
+    border-color: #524117;
+    background-color: transparent;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #fff0d0;
+    color: #524117;
+    border-color: #524117;
+}

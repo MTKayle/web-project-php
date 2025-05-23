@@ -1,0 +1,139 @@
+.btn {
+    background-color: #524117;
+    color: #f2ff4e;
+}
+
+.btn:hover {
+    background-color: #fff0d0;
+    color: #524117;
+}
+
+.btn-outline-secondary {
+    color: #524117;
+    border-color: #524117;
+    background-color: transparent;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #fff0d0;
+    color: #524117;
+    border-color: #524117;
+}
+
+.section-heading {
+    background-color: #fff0d0;
+    color: #524117;
+    padding: 12px 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.cart-item-img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #524117;
+    box-shadow: 0 0 0 0.25rem rgba(82, 65, 23, 0.25);
+}
+
+.progress-container {
+    padding: 20px 0;
+}
+
+.progress-step {
+    position: relative;
+    text-align: center;
+}
+
+.step-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #e2e2e2;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.step-active .step-icon {
+    background-color: #524117;
+    color: #f2ff4e;
+}
+
+.step-completed .step-icon {
+    background-color: #28a745;
+    color: white;
+}
+
+.progress-line {
+    height: 3px;
+    background-color: #e2e2e2;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    left: 50%;
+    z-index: 1;
+}
+
+.progress-step:last-child .progress-line {
+    display: none;
+}
+
+.payment-option {
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.payment-option:hover,
+.payment-option.selected {
+    border-color: #524117;
+    background-color: #fff0d0;
+}
+
+.payment-option.selected {
+    box-shadow: 0 0 0 1px #524117;
+}
+
+.list-group-item {
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.list-group-item:hover {
+    background-color: #f5f5f5;
+}
+
+.voucher-name {
+    font-weight: bold;
+    color: #ff5c00;
+}
+
+.voucher-desc {
+    color: #555;
+    font-size: 14px;
+}
+
+.voucher-list .list-group-item.disabled {
+    background-color: rgba(255, 255, 255, 0.3) !important; /* Nền trắng mờ hơn */
+    border: none !important; /* Loại bỏ viền */
+    box-shadow: none !important; /* Loại bỏ đổ bóng (nếu có) */
+
+    color: #bbb !important; /* Chữ xám nhạt */
+    cursor: not-allowed !important; /* Không thể nhấp */
+    opacity: 0.5 !important; /* Độ mờ vừa phải */
+}
+
+
+
+

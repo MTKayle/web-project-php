@@ -1,0 +1,75 @@
+.product-image {
+    max-height: 400px;
+    object-fit: contain;
+}
+
+.btn {
+    transition: background-color 0.3s;
+    background-color: #524117;
+    color: #f2ff4e;
+}
+
+.btn:hover {
+    background-color: #f2ff4e;
+    color: #524117;
+}
+
+.thumbnail {
+    cursor: pointer;
+    height: 80px;
+    object-fit: cover;
+    transition: opacity 0.2s;
+}
+
+.thumbnail:hover {
+    opacity: 0.8;
+}
+
+.price {
+    color: #dc3545;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.feature-icon {
+    color: #198754;
+}
+
+.nav-tabs .nav-link {
+    color: #495057;
+}
+
+.nav-tabs .nav-link.active {
+    font-weight: bold;
+    color: #524117;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-input {
+    width: 80px;
+}
+
+.table {
+    --bs-table-bg: unset !important;
+    --bs-table-border-color: unset !important;
+}
+
+.thumbnail {
+    border: 3px solid transparent !important; /* Ẩn viền mặc định */
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.thumbnail.active {
+    border-color: #ffc107 !important; /* Viền trắng khi được chọn */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Nổi bật hơn */
+    transform: scale(1.05);
+}
+
+

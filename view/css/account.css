@@ -1,0 +1,123 @@
+.main-title {
+    color: var(--dark-blue);
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.sidebar {
+    background-color: white;
+    border-radius: 3px;
+}
+
+.sidebar-title {
+    background-color: var(--shopee-red);
+    color: white;
+    padding: 15px;
+    font-weight: 500;
+    border-radius: 3px 3px 0 0;
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    padding: 15px;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.sidebar-menu li:hover {
+    background-color: #fef6f5;
+}
+
+.sidebar-menu li.active {
+    color: var(--sidebar-active);
+    background-color: #fef6f5;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+}
+
+.sidebar-menu a:hover {
+    color: var(--shopee-red);
+}
+
+.content-box {
+    background-color: white;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.info-label {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.info-value {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.form-control:disabled {
+    background-color: #f7f7f7;
+    color: #777;
+    border: 1px solid #ddd;
+}
+
+.promo-section {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+}
+
+.promo-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.promo-text {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.birthday-form {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+/* Nút Save */
+.btn-save {
+    background-color: var(--shopee-red);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 2px;
+    margin-top: 15px;
+}
+
+.btn-save:hover {
+    background-color: #d43915;
+    color: white;
+}
+
+.save-section {
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    margin-top: 30px;
+}
