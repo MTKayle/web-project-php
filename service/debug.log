@@ -66,3 +66,29 @@ Thông tin sản phẩm:
 
 )
 
+Adding product: Array
+(
+    [productName] => Đồ Chơi Lắp Ráp Trạm Cảnh Sát Và Trực Thăng LEGO DUPLO 10959
+    [title] => Đồ Chơi LEGO Duplo Trạm Cảnh Sát Và Trực Thăng 10959
+    [description] => Trạm cảnh sát có rất nhiều hoạt động vui nhộn. Có một chiếc xe cảnh sát để lái, một chú chó dễ thương để huấn luyện và một tháp canh nơi bạn có thể nhìn thấy trực thăng cảnh sát cất và hạ cánh. Khi trẻ em lắp ráp và chơi đùa, các bé sẽ phát triển các kỹ năng vận động, nhận thức cảm xúc và hơn thế nữa. Và, bởi vì hành động luôn nằm trong tầm tay của các bé, đây là một cách an toàn dành cho những người trẻ tuổi để tìm hiểu về công việc của cảnh sát.
+
+• Bộ cảnh sát thân thiện với trẻ mầm non - LEGO® DUPLO®Trạm cảnh sát và Trực Thăng (10959) có các nhân vật và phương tiện để truyền cảm hứng cho trí tưởng tượng cho các sĩ quan cảnh sát mầm non
+
+• Xe cảnh sát tuyệt vời - Bao gồm mô hinh thu nhỏ của 2 cảnh sát và một chú chó cảnh sát, một xe cảnh sát kéo & chạy (Push & Go) có đèn và còi báo động (bao gồm pin) và một máy bay trực thăng cảnh sát có cánh quạt quay được
+    [price] => 700000
+    [stockQuantity] => 150000
+    [brandID] => 5
+    [categoryID] => 4
+    [ageFrom] => 2
+    [ageTo] => 45
+    [image] => Array
+        (
+            [name] => 10959_0afb0fd3-d496-42fa-b3ec-4e143abe08f8.webp
+            [type] => image/webp
+            [tmp_name] => C:\xampp\tmp\php4AC2.tmp
+            [error] => 0
+            [size] => 59634
+        )
+
+)
+

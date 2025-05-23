@@ -68,6 +68,8 @@ function renderOrders(orders) {
         }, 0);
         const orderCard = document.createElement('div');
         orderCard.classList.add('order-card', 'card', 'shadow-sm', 'mb-4');
+        // xoa dulieu cu 
+        orderCard.innerHTML = ''; // Xóa nội dung cũ nếu có
         orderCard.innerHTML = `
             <div class="card-header fw-bold">
                 Ngày đặt hàng: ${formatDateVN(order.createAt)}

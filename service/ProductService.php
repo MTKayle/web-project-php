@@ -10,7 +10,7 @@ class ProductService{
         $this->productRepository = $productRepository;
     }
 
-    public function getAllProducts($filters = [], $limit = 15, $page = 1)
+    public function getAllProducts($filters = [], $limit = 9, $page = 1)
     {
         // Validate limit và page
         $limit = (int)$limit > 0 ? (int)$limit : 18;

@@ -8,7 +8,8 @@ if (session_status() == PHP_SESSION_NONE) {
 //     exit();
 // }
 
-if($_SESSION['role'] = 1) {
+if($_SESSION['role'] === 2) {
     echo "<script>window.location.href = 'http://localhost/web-project-php/public';</script>";
     exit();
 }
+?>

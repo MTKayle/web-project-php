@@ -107,14 +107,14 @@ class ProductRepository
     }
 
 
-    public function getAllProducts($filters = [], $limit = 15, $page = 1){
+    public function getAllProducts($filters = [], $limit = 9, $page = 1){
         // echo $filters['age'];
         $offset = ($page - 1) * $limit; // Tính toán offset dựa trên trang hiện tại và số lượng sản phẩm mỗi trang
         $query =  "SELECT  *  FROM products ";
 
         $query = $this->joinTable($filters, $query);
 
-        $where = " WHERE 1=1 "; // Điều kiện mặc định để dễ dàng thêm các điều kiện khác
+        $where = " WHERE 1=1 AND products.isActive = 1"; // Điều kiện mặc định để dễ dàng thêm các điều kiện khác
 
         
 
@@ -125,10 +125,11 @@ class ProductRepository
         
         $query .= $where;
 
+        $queryCount = $query;
         
         $query = $this->orderQuery($filters, $query);
 
-        $queryCount = $query;
+        
 
         $query .= " LIMIT :limit OFFSET :offset";
 

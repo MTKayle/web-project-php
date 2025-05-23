@@ -56,12 +56,12 @@
                     </li>
                     <!-- Giỏ hàng dropdown - Chuyển thành nav-item giống các mục khác -->
                     <li class="nav-item dropdown cart-dropdown">
-                        <a class="nav-link dropdown-toggle position-relative" href="?page=cart" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle position-relative" href="?page=cart" role="button" aria-expanded="false">
                             <i class="fa-solid fa-shopping-cart"></i>Giỏ hàng
-                            <span class="badge bg-danger badge-cart position-absolute top-0 start-100 translate-middle">3</span>
+                            <span class="badge bg-danger badge-cart position-absolute top-0 start-100 translate-middle"></span>
                         </a>
                         
-                        <div class="dropdown-menu dropdown-cart dropdown-menu-end shadow">
+                        <div class="dropdown-menu dropdown-cart dropdown-menu-end shadow d-none">
                             <div class="p-2 border-bottom">
                                 <h6 class="mb-0"><b>Giỏ hàng của bạn</b></h6>
                             </div>
@@ -69,36 +69,36 @@
                             <div class="cart-items overflow-auto" style="max-height: 300px;">
                                 <!-- Cart Item 1 -->
                                 <div class="d-flex align-items-center p-2 border-bottom">
-                                    <img src="../view/resources/IMG/5.jpg" alt="Đồ chơi" class="cart-item-img rounded me-2" style="width: 50px; height: 50px; object-fit: cover;">
+                                    <img src="../view/resources/IMG/5.jpg" alt="Đồ chơi" class="cart-item-img rounded me-2" style="width: 50px; height: 50px; object-fit: cover;" id="it1">
                                     <div class="flex-grow-1">
-                                        <h6 class="mb-0 fs-6">Đồ chơi</h6>
+                                        <h6 class="mb-0 fs-6" id="h1">Đồ chơi</h6>
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <span class="text-danger fw-bold">250.000₫</span>
-                                            <span class="badge bg-light text-dark">x1</span>
+                                            <span class="text-danger fw-bold" id="price1">250.000₫</span>
+                                            <span class="badge bg-light text-dark" id="quantity1">x1</span>
                                         </div>
                                     </div>
                                 </div>
                                 
                                 <!-- Cart Item 2 -->
                                 <div class="d-flex align-items-center p-2 border-bottom">
-                                    <img src="../view/resources/IMG/5.jpg" alt="Quần jean nữ" class="cart-item-img rounded me-2" style="width: 50px; height: 50px; object-fit: cover;">
+                                    <img src="../view/resources/IMG/5.jpg" alt="Quần jean nữ" id= "it2" class="cart-item-img rounded me-2" style="width: 50px; height: 50px; object-fit: cover;">
                                     <div class="flex-grow-1">
-                                        <h6 class="mb-0 fs-6">Đồ chơi</h6>
+                                        <h6 class="mb-0 fs-6" id="h2">Đồ chơi</h6>
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <span class="text-danger fw-bold">450.000₫</span>
-                                            <span class="badge bg-light text-dark">x1</span>
+                                            <span class="text-danger fw-bold" id="price2">450.000₫</span>
+                                            <span class="badge bg-light text-dark" id="quantity2">x1</span>
                                         </div>
                                     </div>
                                 </div>
                                 
                                 <!-- Cart Item 3 -->
                                 <div class="d-flex align-items-center p-2 border-bottom">
-                                    <img src="../view/resources/IMG/5.jpg" alt="Giày thể thao" class="cart-item-img rounded me-2" style="width: 50px; height: 50px; object-fit: cover;">
+                                    <img src="../view/resources/IMG/5.jpg" id="it3" alt="Giày thể thao" class="cart-item-img rounded me-2" style="width: 50px; height: 50px; object-fit: cover;">
                                     <div class="flex-grow-1">
-                                        <h6 class="mb-0 fs-6">Đồ chơi</h6>
+                                        <h6 class="mb-0 fs-6" id="h3">Đồ chơi</h6>
                                         <div class="d-flex justify-content-between align-items-center">
-                                            <span class="text-danger fw-bold">850.000₫</span>
-                                            <span class="badge bg-light text-dark">x1</span>
+                                            <span class="text-danger fw-bold" id="price3">850.000₫</span>
+                                            <span class="badge bg-light text-dark" id="quantity3">x1</span>
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@
                             <div class="p-2 border-bottom">
                                 <div class="d-flex justify-content-between fw-bold">
                                     <span>Tổng cộng:</span>
-                                    <span>1.550.000₫</span>
+                                    <span id="totalCart">1.550.000₫</span>
                                 </div>
                             </div>
                             

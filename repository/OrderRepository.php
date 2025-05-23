@@ -47,7 +47,7 @@ class OrderRepository{
     }
 
     public function getListOrderForStatus($customerID, $statusID){
-        $query = "SELECT * FROM orders WHERE customerID = :customerID AND isActive = 1 AND orderStatusID = :statusID";
+        $query = "SELECT * FROM orders WHERE customerID = :customerID AND isActive = 1 AND orderStatusID = :statusID ORDER BY createAt DESC";
         $statement = $this->connnection->prepare($query);
         $statement->execute(['customerID' => $customerID, 'statusID' => $statusID]);
         $orders = [];

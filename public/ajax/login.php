@@ -10,6 +10,25 @@ $userController = new UserController($userService);
 
 
 if($_SERVER["REQUEST_METHOD"] === "POST") {
+    $action = $_POST['action'] ?? '';
+    if($action === 'forgotPassword') {
+        $email = $_POST['email'] ?? '';
+        $userController->sendOTP($email);
+        exit();
+    }
+
+    if($action === 'verifyOTP') {
+        $otp = $_POST['otp'] ?? '';
+        $userController->verifyOTP($otp);
+        exit();
+    }
+
+    if($action === 'resetPassword') {
+        $password = $_POST['password'] ?? '';
+        $userController->resetPassword($password);
+        exit();
+    }
+
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
 

@@ -11,8 +11,8 @@
                     </div>
                     <ul class="sidebar-menu">
                         <li class="active"><a href="#">Tài khoản</a></li>
-                        <li><a href="#">Lịch sử mua hàng</a></li>
-                        <li><a href="#">Điểm tích luỹ</a></li>
+                        <!-- <li><a href="#">Lịch sử mua hàng</a></li>
+                        <li><a href="#">Điểm tích luỹ</a></li> -->
                         <li><a href="#" id="logout-button">Đăng xuất</a></li>
                     </ul>
                 </div>

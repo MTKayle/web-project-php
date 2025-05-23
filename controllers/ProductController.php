@@ -13,7 +13,7 @@ class ProductController
     public function getAllProducts($filters, $page)
     {
         
-        $products = $this->productService->getAllProducts($filters, 15, $page);
+        $products = $this->productService->getAllProducts($filters, 9, $page);
         if ($products) {
             echo json_encode(["success" => true, "products" => $products]);
             exit();

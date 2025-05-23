@@ -1,42 +1,6 @@
 <div class="d-flex">
         <div class="main-content flex-grow-1">
-            <header class="bg-white border-bottom p-3">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="search-bar">
-                        <form method="GET" action="../index.php">
-                            <div class="input-group">
-                                <span class="input-group-text bg-light border-end-0"><i class="bi bi-search"></i></span>
-                                <input type="text" name="search" class="form-control bg-light border-start-0" placeholder="Search products..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
-                                <input type="hidden" name="page" value="products">
-                                <input type="hidden" name="p" value="<?= htmlspecialchars($currentPage, ENT_QUOTES, 'UTF-8') ?>">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="d-flex align-items-center gap-3">
-                        <button class="btn btn-light position-relative" title="Notifications">
-                            <i class="bi bi-bell"></i>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
-                        </button>
-                        <div class="dropdown">
-                            <button class="btn d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="../assets/avatar/admin.jpg" class="avatar" alt="Admin">
-                                <div class="d-none d-md-block text-start">
-                                    <div class="fw-bold" id="adminName"></div>
-                                    <div class="small text-muted">Admin</div>
-                                </div>
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-end">
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Settings</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </header>
+            
 
             <div id="alertContainer"></div>
 

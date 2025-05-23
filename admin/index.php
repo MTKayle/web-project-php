@@ -33,11 +33,13 @@ $pageParam = $_GET['page'] ?? '';
         <?php
         switch ($pageParam) {
             case '':
+                
                 include '../admin/page_admin/home.php';
                 echo '<script src="js_admin/home.js"></script>';
                 echo '<link rel="stylesheet" href="css_admin/home.css">';
                 break;
             case 'home':
+                
                 include '../admin/page_admin/home.php';
                 echo '<script src="../assets_admin/js_admin/home.js"></script>';
                 break;
@@ -45,9 +47,11 @@ $pageParam = $_GET['page'] ?? '';
                 $homeController->showDashboard();
                 break;
             case 'customers':
+                
                 include '../admin/page_admin/customers.php';
                 break;
             case 'products':
+                
                 require_once __DIR__ . '/../controllers/AdminProductController.php';
                 require_once __DIR__ . '/../service/AdminProductService.php';
                 require_once __DIR__ . '/../repository/AdminProductRepository.php';
@@ -75,15 +79,18 @@ $pageParam = $_GET['page'] ?? '';
                 echo '<script src="js_admin/product.js"></script>';
                 break;
             case 'orders':
+                
                 include '../admin/page_admin/orders.php';
                 echo '<script src="js_admin/order.js"></script>';
                 echo '<link rel="stylesheet" href="css_admin/order.css">';
                 break;
             case 'news':
+                
                 include '../admin/page_admin/news.php';
                 echo '<script src="js_admin/news.js"></script>';
                 break;
             case 'voucher':
+                
                 include '../admin/page_admin/voucher.php';
                 echo '<script src="js_admin/voucher.js"></script>';
                 break;  

@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../service/UserService.php';
 
+
 class UserController{
     private UserService $userService;
 
@@ -109,6 +110,58 @@ class UserController{
                 exit();
             } else {
                 echo json_encode(["success" => false, "message" => "User not found"]);
+                exit();
+            }
+        } catch (UserException $e) {
+            echo json_encode(["success" => false, "message" => $e->getMessage()]);
+        } catch (Exception $e) {
+            echo json_encode(["success" => false, "message" => "Hệ thống gặp lỗi, vui lòng thử lại sau!"]);
+        } finally {
+            exit();
+        }
+    }
+
+    public function sendOTP($email) {
+        try {
+            $result = $this->userService->sendOTP($email);
+            echo json_encode($result); // Trả luôn mảng JSON đúng format
+            exit();
+        } catch (UserException $e) {
+            echo json_encode(["success" => false, "message" => $e->getMessage()]);
+            exit();
+        } catch (Exception $e) {
+            echo json_encode(["success" => false, "message" => "Hệ thống gặp lỗi, vui lòng thử lại sau!"]);
+            exit();
+        }
+    }
+    
+
+    public function verifyOTP($otp) {
+        
+        $verifySuccess = $this->userService->verifyOTP($otp);
+
+        if($verifySuccess){
+            echo json_encode(["success" => true, "message" => "Mã OTP hợp lệ"]);
+            exit();
+        } else {
+            echo json_encode(["success" => false, "message" => "Mã OTP không hợp lệ hoặc đã hết hạn"]);
+            exit();
+        }
+            
+    }
+
+    public function resetPassword($password) {
+        if(empty($password)){
+            echo json_encode(["success" => false, "message" => "Tất cả các trường là bắt buộc"]);
+            exit();
+        }
+        try {
+            $updateSuccess = $this->userService->resetPassword($password);
+            if ($updateSuccess) {
+                echo json_encode(["success" => true, "message" => "Cập nhật mật khẩu thành công"]);
+                exit();
+            } else {
+                echo json_encode(["success" => false, "message" => "Cập nhật mật khẩu thất bại"]);
                 exit();
             }
         } catch (UserException $e) {

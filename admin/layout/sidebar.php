@@ -2,8 +2,15 @@
 // Xử lý logout 
 if (isset($_GET['action']) && $_GET['action'] === 'logout') {
     session_start();
-    session_destroy(); // Hủy toàn bộ session
-    header('Location: ../public/index.php');
+    // unset all session variables
+    unset($_SESSION['userID']);
+    unset($_SESSION['userName']);
+    unset($_SESSION['email']);
+    unset($_SESSION['cartID']);
+    unset($_SESSION['role']);
+    // destroy the session
+    session_destroy();
+    echo "<script>window.location.href = 'http://localhost/web-project-php/public';</script>";
     exit();
 } 
 ?>
@@ -60,12 +67,15 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
                     <i class="bi bi-bell me-2"></i> 
                     <span class="menu-title">Notifications</span>
                 </a> -->
-                <a href="#" class="nav-link py-2">
+                <!-- <a href="#" class="nav-link py-2">
                     <i class="bi bi-gear me-2"></i> 
                     <span class="menu-title">Settings</span>
-                </a>
+                </a> -->
             </div>
         </div>
+
+        
+        
         
         <!-- Logout Button -->
         <div class="mt-3 p-3 border-top">
@@ -73,6 +83,17 @@ if (isset($_GET['action']) && $_GET['action'] === 'logout') {
                 <i class="bi bi-box-arrow-right me-2"></i> 
                 <span class="menu-title">Logout</span>
             </a>
+        </div>
+
+        <!-- Admin Profile -->
+        <div class="admin-profile mt-auto p-3 border-top">
+            <div class="d-flex align-items-center">
+                <img src="../assets/avatar/admin.jpg" class="avatar me-2" alt="Admin">
+                <div class="d-none d-md-block text-start">
+                    <div class="fw-bold text-white" id="adminName"></div>
+                    <div class="small">Admin</div>
+                </div>
+            </div>
         </div>
     </div>
 </nav>

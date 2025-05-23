@@ -23,24 +23,7 @@
                         </li>
                     </ul>
 
-                    <h6 class="mt-4 text-muted ps-3 mb-3">Danh mục</h6>
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center" href="#">
-                                <i class="fas fa-puzzle-piece me-2"></i> Đồ chơi sáng tạo
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center" href="#">
-                                <i class="fas fa-robot me-2"></i> Đồ chơi STEM
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link d-flex align-items-center" href="#">
-                                <i class="fas fa-lightbulb me-2"></i> Khoa học vui
-                            </a>
-                        </li>
-                    </ul>
+                    
                 </div>
             </div>
             <!-- Main content area -->
@@ -78,7 +61,7 @@
                 </div>
 
                 <!-- Filter tabs -->
-                <ul class="nav nav-tabs mb-4">
+                <!-- <ul class="nav nav-tabs mb-4">
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Phổ biến</a>
                     </li>
@@ -88,7 +71,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Đang theo dõi</a>
                     </li>
-                </ul>
+                </ul> -->
 
                 <!-- Posts -->
                 <div id="posts-container">
@@ -97,3 +80,5 @@
             </div>
         </div>
     </div>
+
+

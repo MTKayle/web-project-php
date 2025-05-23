@@ -25,11 +25,7 @@
                             </div>
 
                             <div class="mb-4 d-flex justify-content-between align-items-center">
-                                <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="remember" name="remember <?= isset($_COOKIE['email']) ? 'checked' : '' ?>">
-                                    <label class="form-check-label" for="remember" >Nhớ mật khẩu</label>
-                                </div>
-                                <a href="#" class="text-decoration-none">Quên mật khẩu mất rồi</a>
+                                <a href="#" class="text-decoration-none" id="forgotPassword">Quên mật khẩu mất rồi</a>
                             </div>
 
                             <button type="submit" class="btn btn-primary w-100 py-2">
@@ -47,6 +43,31 @@
                                 </p>
                             </div>
                         </form>
+
+                        <form id="forgotPasswordForm" style="display: none;">
+    <div class="mb-3">
+        <label for="forgotEmail" class="form-label">Nhập email để nhận mã xác thực</label>
+        <input type="email" class="form-control" id="forgotEmail" name="forgotEmail" required>
+    </div>
+
+    <button type="submit" id="sendOtpBtn" class="btn btn-warning w-100 py-2">Gửi mã OTP</button>
+
+    <!-- Spinner loading (ẩn mặc định) -->
+    <div id="loadingOtp" class="text-center py-2" style="display: none;">
+        <div class="spinner-border text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <div class="mt-2">Đang gửi mã OTP...</div>
+    </div>
+
+    <p id="error-message-otp" class="text-danger text-center mt-3"></p>
+    <p id="success-message-otp" class="text-success text-center mt-3"></p>
+
+    <div class="text-center mt-3">
+        <a href="#" class="text-decoration-none" id="backToLogin">Quay lại đăng nhập</a>
+    </div>
+</form>
+
                     </div>
                 </div>
             </div>

@@ -40,6 +40,21 @@ class UserRepository{
         
     }
 
+    public function updatePassword($email, $password){
+        try {
+            
+            $this->connnection->beginTransaction();
+            $query = "UPDATE users SET password = :password WHERE email = :userID";
+            $statement = $this->connnection->prepare($query);
+            $statement->execute(['password' => $password, 'userID' => $email]);
+            $this->connnection->commit(); 
+            return true;
+        } catch (PDOException $e) {
+            $this->connnection->rollback();
+            return false;
+        }
+    }
+
     
 
 

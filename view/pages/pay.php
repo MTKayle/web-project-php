@@ -94,7 +94,7 @@
                             </div>
                         </div>
 
-                        <div class="payment-option mb-3">
+                        <!-- <div class="payment-option mb-3">
                             <div class="form-check">
                                 <input class="form-check-input" value="banking" type="radio" name="paymentMethod" id="banking">
                                 <label class="form-check-label d-flex align-items-center" for="banking">
@@ -118,7 +118,7 @@
                                     </div>
                                 </label>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="payment-option">
                             <div class="form-check">

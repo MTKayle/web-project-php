@@ -19,7 +19,7 @@ function renderProduct(product) {
                     <span class="text-muted me-2">Thương hiệu:</span>
                     <a href="#" class="text-decoration-none fw-medium">${product.brandName}</a>
                 </div>
-                <div class="price mb-4">${(product.price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} đ</div>
+                <div class="price mb-4">${formatCurrency(product.price)}</div>
                 <div class="mb-4">
                     <div class="mb-2">
                         <i class="bi bi-check-circle-fill feature-icon"></i>
@@ -97,6 +97,15 @@ function changeImage(el) {
         el.classList.add("active");
     }
 }
+
+function formatCurrency(amount) {
+    return new Intl.NumberFormat('vi-VN', {
+      style: 'currency',
+      currency: 'VND',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(amount);
+  }
 
 
 

@@ -50,6 +50,7 @@ $pageParam = $_GET['page'] ?? '';
             case 'login':
                 include '../view/middlewares/redirectAuthentication.php';
                 include '../view/pages/login.php';
+                echo '<script src="../assets/js/login.js"></script>';
                 break;
             case 'sign-up':
                 include '../view/pages/register.php';
@@ -94,6 +95,20 @@ $pageParam = $_GET['page'] ?? '';
             case 'news-detail':
                 include '../view/pages/news-detail.php';
                 echo '<script src="../assets/js/news-detail.js"></script>';
+                break;
+            case 'forgot-password':
+                include '../view/pages/forgot-password.php';
+                echo '<script src="../assets/js/forgot-password.js"></script>';
+                break;
+            case 'reset-password':
+                include '../view/pages/reset-password.php';
+                echo '<script src="../assets/js/reset-password.js"></script>';
+                break;
+            case 'order-detail':
+                include '../view/middlewares/AuthMiddleware.php';
+                include '../view/pages/order-detail.php';
+                // echo '<link rel="stylesheet" href="../view/css/order-detail.css">';
+                // echo '<script src="../assets/js/order-detail.js"></script>';
                 break;
             default:
                 # code...

@@ -44,6 +44,16 @@ window.addEventListener('resize', function() {
   }
 });
 
+$(document).on('click', '.page-link', function(e) {
+  e.preventDefault();
+  const page = $(this).data('page');           
+  const params = new URLSearchParams(window.location.search);
+  params.set('pageNum', page);
+  const newUrl = `${window.location.pathname}?${params.toString()}`;
+  history.pushState(null, '', newUrl);
+  fetchProducts(params.toString());
+});
+
 
 
 function getSelectedValues(className) {
@@ -111,6 +121,7 @@ function fetchProducts(queryString) {
   console.log(`${baseUrl}/ajax/product.php?${queryString}`);
   const params = new URLSearchParams(queryString);
   const page = params.get('pageNum') || 1; // Lấy trang hiện tại từ query string, mặc định là 1
+  console.log("Trang hiện tại: ", page);
   $.ajax({
       url: `${baseUrl}/ajax/product.php?${queryString}`,
       type: 'GET',
@@ -282,13 +293,6 @@ function renderPagination(totalPages, currentPage = 1, maxVisiblePages = 7) {
 });
 
 
-// Pagination
-$(document).on('click', '.page-link', function(e) {
-  e.preventDefault();
-  const page = $(this).data('page');           
-  const params = new URLSearchParams(window.location.search);
-  params.set('pageNum', page);
-  const newUrl = `${window.location.pathname}?${params.toString()}`;
-  fetchProducts(params.toString());
-});
+
+
 
